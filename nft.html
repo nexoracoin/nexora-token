@@ -105,7 +105,7 @@
                 <!-- Card 2 - Common -->
                 <div class="nft-card" onclick="openModal(this)" data-name="Warden Unit" data-id="#0042" data-rarity="Common" data-power="1,180" data-armor="Steel Frame" data-weapon="Ion Rifle" data-ability="Barrier" data-origin="Sector 3">
                     <div class="nft-card-image">
-                        <img src="nft-preview/15.png" alt="Nexora Guardian #15" loading="lazy">
+                        <img src="nft-preview/100.png" alt="Nexora Guardian #100" loading="lazy">
                     </div>
                     <div class="nft-card-info">
                         <div class="nft-card-top">
@@ -190,7 +190,7 @@
                 <!-- Card 7 - Epic -->
                 <div class="nft-card" onclick="openModal(this)" data-name="Archon Prime" data-id="#0789" data-rarity="Epic" data-power="5,100" data-armor="Void Exosuit" data-weapon="Singularity Blade" data-ability="Gravity Well" data-origin="The Abyss">
                     <div class="nft-card-image">
-                        <img src="nft-preview/99.png" alt="Nexora Guardian #99" loading="lazy">
+                        <img src="nft-preview/250.png" alt="Nexora Guardian #250" loading="lazy">
                     </div>
                     <div class="nft-card-info">
                         <div class="nft-card-top">
@@ -207,7 +207,7 @@
                 <!-- Card 8 - Epic -->
                 <div class="nft-card" onclick="openModal(this)" data-name="Wraith Commander" data-id="#0834" data-rarity="Epic" data-power="4,920" data-armor="Shadow Plate" data-weapon="Dark Matter Cannon" data-ability="Soul Drain" data-origin="Phantom Zone">
                     <div class="nft-card-image">
-                        <img src="nft-preview/7.png" alt="Nexora Guardian #7" loading="lazy">
+                        <img src="nft-preview/500.png" alt="Nexora Guardian #500" loading="lazy">
                     </div>
                     <div class="nft-card-info">
                         <div class="nft-card-top">
@@ -224,7 +224,7 @@
                 <!-- Card 9 - Legendary -->
                 <div class="nft-card" onclick="openModal(this)" data-name="Titan Overlord" data-id="#0951" data-rarity="Legendary" data-power="7,250" data-armor="Celestial Armor" data-weapon="Star Forge Hammer" data-ability="Supernova" data-origin="Core Nexus">
                     <div class="nft-card-image">
-                        <img src="nft-preview/1.png" alt="Nexora Guardian #1" loading="lazy">
+                        <img src="nft-preview/777.png" alt="Nexora Guardian #777" loading="lazy">
                     </div>
                     <div class="nft-card-info">
                         <div class="nft-card-top">
@@ -241,7 +241,7 @@
                 <!-- Card 10 - Legendary -->
                 <div class="nft-card" onclick="openModal(this)" data-name="Oracle Seraph" data-id="#0967" data-rarity="Legendary" data-power="7,080" data-armor="Ether Shroud" data-weapon="Prophecy Staff" data-ability="Foresight" data-origin="Astral Plane">
                     <div class="nft-card-image">
-                        <img src="nft-preview/15.png" alt="Nexora Guardian #15" loading="lazy">
+                        <img src="nft-preview/1234.png" alt="Nexora Guardian #1234" loading="lazy">
                     </div>
                     <div class="nft-card-info">
                         <div class="nft-card-top">
@@ -258,7 +258,7 @@
                 <!-- Card 11 - Mythic -->
                 <div class="nft-card" onclick="openModal(this)" data-name="Nexus Sovereign" data-id="#9991" data-rarity="Mythic" data-power="9,500" data-armor="Dimensional Carapace" data-weapon="Reality Splitter" data-ability="Dimension Rift" data-origin="The Singularity">
                     <div class="nft-card-image">
-                        <img src="nft-preview/42.png" alt="Nexora Guardian #42" loading="lazy">
+                        <img src="nft-preview/3333.png" alt="Nexora Guardian #3333" loading="lazy">
                     </div>
                     <div class="nft-card-info">
                         <div class="nft-card-top">
@@ -275,7 +275,7 @@
                 <!-- Card 12 - Unique -->
                 <div class="nft-card" onclick="openModal(this)" data-name="THE GENESIS" data-id="#0000" data-rarity="Unique" data-power="10,000" data-armor="Primordial Matrix" data-weapon="Creation Engine" data-ability="Genesis Wave" data-origin="Origin Point">
                     <div class="nft-card-image">
-                        <img src="nft-preview/55.png" alt="Nexora Guardian #55" loading="lazy">
+                        <img src="nft-preview/5000.png" alt="Nexora Guardian #5000" loading="lazy">
                     </div>
                     <div class="nft-card-info">
                         <div class="nft-card-top">
@@ -292,7 +292,7 @@
                 <!-- Card 13 - Common -->
                 <div class="nft-card" onclick="openModal(this)" data-name="Patrol Drone" data-id="#0108" data-rarity="Common" data-power="1,050" data-armor="Alloy Shell" data-weapon="Shock Prod" data-ability="Scan Pulse" data-origin="Sector 12">
                     <div class="nft-card-image">
-                        <img src="nft-preview/73.png" alt="Nexora Guardian #73" loading="lazy">
+                        <img src="nft-preview/8888.png" alt="Nexora Guardian #8888" loading="lazy">
                     </div>
                     <div class="nft-card-info">
                         <div class="nft-card-top">
@@ -960,10 +960,15 @@
         rarityBadge.textContent = rarity;
         rarityBadge.className = 'nft-rarity-badge ' + (rarityClassMap[rarity] || '');
 
-        // Set modal image placeholder
+        // Set modal image from the card's actual image
         const modalImg = document.getElementById('modalImage');
-        const placeholderClass = rarityPlaceholderMap[rarity] || 'rarity-common';
-        modalImg.innerHTML = '<div class="nft-placeholder ' + placeholderClass + '" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;"><div class="guardian-icon" style="width:120px;height:120px;font-size:56px;">&#9733;</div></div>';
+        const cardImg = card.querySelector('img');
+        if (cardImg && cardImg.src) {
+            modalImg.innerHTML = '<img src="' + cardImg.src + '" alt="' + (card.dataset.name || 'Nexora Guardian') + '" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">';
+        } else {
+            const placeholderClass = rarityPlaceholderMap[rarity] || 'rarity-common';
+            modalImg.innerHTML = '<div class="nft-placeholder ' + placeholderClass + '" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;"><div class="guardian-icon" style="width:120px;height:120px;font-size:56px;">&#9733;</div></div>';
+        }
 
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
