@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXORA GUARDIANS - 10,000 Unique Sci-Fi NFTs on BSC</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/nexora-logo-256.png">
+    <meta property="og:title" content="NEXORA GUARDIANS - Mint Your Guardian NFT">
+    <meta property="og:description" content="10,000 unique sci-fi Guardian NFTs on BSC. 7 rarity tiers. Staking boosts up to +100%. Mint price: 0.05 BNB.">
+    <meta property="og:image" content="images/nexora-logo-512.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NEXORA GUARDIANS - 10,000 Unique NFTs">
+    <meta name="twitter:description" content="Collect, stake, and earn. Each Guardian NFT boosts your staking APY. 7 rarity tiers from Common to Unique.">
+    <meta name="description" content="NEXORA Guardians - 10,000 unique sci-fi NFTs on Binance Smart Chain. 7 rarity tiers, staking boosts up to +100%, and exclusive ecosystem benefits.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/nft.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body style="background:#0a0a0f;">
+
+    <!-- Particle Background -->
+    <canvas class="nft-particles" id="particleCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" style="top:0;">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="images/nexora-logo-64.png" alt="NEXORA" class="nav-logo">
+                <span class="logo-text">NEXORA</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#tokenomics">Tokenomics</a>
+                <a href="ecosystem.html">Ecosystem</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#rarity">Rarity</a>
+                <a href="#mint" class="btn-nav">Mint NFT</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="nft-hero">
+        <div class="container">
+            <div class="nft-hero-content">
+                <div class="mint-badge">
+                    <span class="mint-dot"></span>
+                    Minting Soon
+                </div>
+                <h1 class="nft-hero-title">NEXORA GUARDIANS</h1>
+                <p class="nft-hero-subtitle">10,000 Unique Sci-Fi Guardians on Binance Smart Chain</p>
+
+                <div class="nft-stats-bar">
+                    <div class="nft-stat">
+                        <span class="nft-stat-value">10,000</span>
+                        <span class="nft-stat-label">Total Supply</span>
+                    </div>
+                    <div class="nft-stat">
+                        <span class="nft-stat-value">0 / 10K</span>
+                        <span class="nft-stat-label">Minted</span>
+                    </div>
+                    <div class="nft-stat">
+                        <span class="nft-stat-value">0.05</span>
+                        <span class="nft-stat-label">Price (BNB)</span>
+                    </div>
+                    <div class="nft-stat">
+                        <span class="nft-stat-value">7</span>
+                        <span class="nft-stat-label">Rarity Tiers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== NFT GALLERY ==================== -->
+    <section class="nft-section" id="gallery">
+        <div class="container">
+            <h2 class="nft-section-title">Preview <span class="gradient-text">Collection</span></h2>
+            <p class="nft-section-desc">Each Guardian is procedurally generated with unique traits, armor sets, weapons, and abilities. No two are alike.</p>
+
+            <div class="nft-gallery-grid">
+                <!-- Card 1 - Common -->
+                <div class="nft-card" onclick="openModal(this)" data-name="Sentinel Alpha" data-id="#0001" data-rarity="Common" data-power="1,240" data-armor="Basic Plating" data-weapon="Plasma Pistol" data-ability="Shield Pulse" data-origin="Sector 7">
+                    <div class="nft-card-image">
+                        <div class="nft-placeholder rarity-common">
+                            <div class="guardian-icon">&#9878;</div>
+                        </div>
+                    </div>
+                    <div class="nft-card-info">
+                        <div class="nft-card-top">
+                            <span class="nft-card-name">Sentinel Alpha</span>
+                            <span class="nft-card-id">#0001</span>
+                        </div>
+                        <div class="nft-card-bottom">
+                            <span class="nft-rarity-badge rarity-badge-common">Common</span>
+                            <span class="nft-power">PWR <span>1,240</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 - Common -->
+                <div class="nft-card" onclick="openModal(this)" data-name="Warden Unit" data-id="#0042" data-rarity="Common" data-power="1,180" data-armor="Steel Frame" data-weapon="Ion Rifle" data-ability="Barrier" data-origin="Sector 3">
+                    <div class="nft-card-image">
+                        <div class="nft-placeholder rarity-common">
+                            <div class="guardian-icon">&#9881;</div>
+                        </div>
+                    </div>
+                    <div class="nft-card-info">
+                        <div class="nft-card-top">
+                            <span class="nft-card-name">Warden Unit</span>
+                            <span class="nft-card-id">#0042</span>
+                        </div>
+                        <div class="nft-card-bottom">
+                            <span class="nft-rarity-badge rarity-badge-common">Common</span>
+                            <span class="nft-power">PWR <span>1,180</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 - Uncommon -->
+                <div class="nft-card" onclick="openModal(this)" data-name="Vanguard Mk-II" data-id="#0127" data-rarity="Uncommon" data-power="2,450" data-armor="Reinforced Alloy" data-weapon="Pulse Cannon" data-ability="Overcharge" data-origin="Nova Belt">
+                    <div class="nft-card-image">
+                        <div class="nft-placeholder rarity-uncommon">
+                            <div class="guardian-icon">&#9733;</div>
+                        </div>
+                    </div>
+                    <div class="nft-card-info">
+                        <div class="nft-card-top">
+                            <span class="nft-card-name">Vanguard Mk-II</span>
+                            <span class="nft-card-id">#0127</span>
+                        </div>
+                        <div class="nft-card-bottom">
+                            <span class="nft-rarity-badge rarity-badge-uncommon">Uncommon</span>
+                            <span class="nft-power">PWR <span>2,450</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 - Uncommon -->
+                <div class="nft-card" onclick="openModal(this)" data-name="Scout Phantom" data-id="#0203" data-rarity="Uncommon" data-power="2,310" data-armor="Stealth Mesh" data-weapon="Dual Blades" data-ability="Phase Shift" data-origin="Dark Nebula">
+                    <div class="nft-card-image">
+                        <div class="nft-placeholder rarity-uncommon">
+                            <div class="guardian-icon">&#9670;</div>
+                        </div>
+                    </div>
+                    <div class="nft-card-info">
+                        <div class="nft-card-top">
+                            <span class="nft-card-name">Scout Phantom</span>
+                            <span class="nft-card-id">#0203</span>
+                        </div>
+                        <div class="nft-card-bottom">
+                            <span class="nft-rarity-badge rarity-badge-uncommon">Uncommon</span>
+                            <span class="nft-power">PWR <span>2,310</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 - Rare -->
+                <div class="nft-card" onclick="openModal(this)" data-name="Templar Aegis" data-id="#0456" data-rarity="Rare" data-power="3,780" data-armor="Quantum Shield" data-weapon="Photon Lance" data-ability="Time Warp" data-origin="Chrono Rift">
+                    <div class="nft-card-image">
+                        <div class="nft-placeholder rarity-rare">
+                            <div class="guardian-icon">&#9733;</div>
+                        </div>
+                    </div>
+                    <div class="nft-card-info">
+                        <div class="nft-card-top">
+                            <span class="nft-card-name">Templar Aegis</span>
+                            <span class="nft-card-id">#0456</span>
+                        </div>
+                        <div class="nft-card-bottom">
+                            <span class="nft-rarity-badge rarity-badge-rare">Rare</span>
+                            <span class="nft-power">PWR <span>3,780</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 - Rare -->
+                <div class="nft-card" onclick="openModal(this)" data-name="Nomad Striker" data-id="#0591" data-rarity="Rare" data-power="3,520" data-armor="Nano Weave" data-weapon="Gauss Rifle" data-ability="EMP Surge" data-origin="Frontier X">
+                    <div class="nft-card-image">
+                        <div class="nft-placeholder rarity-rare">
+                            <div class="guardian-icon">&#9874;</div>
+                        </div>
+                    </div>
+                    <div class="nft-card-info">
+                        <div class="nft-card-top">
+                            <span class="nft-card-name">Nomad Striker</span>
+                            <span class="nft-card-id">#0591</span>
+                        </div>
+                        <div class="nft-card-bottom">
+                            <span class="nft-rarity-badge rarity-badge-rare">Rare</span>
+                            <span class="nft-power">PWR <span>3,520</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 7 - Epic -->
+                <div class="nft-card" onclick="openModal(this)" data-name="Archon Prime" data-id="#0789" data-rarity="Epic" data-power="5,100" data-armor="Void Exosuit" data-weapon="Singularity Blade" data-ability="Gravity Well" data-origin="The Abyss">
+                    <div class="nft-card-image">
+                        <div class="nft-placeholder rarity-epic">
+                            <div class="guardian-icon">&#9733;</div>
+                        </div>
+                    </div>
+                    <div class="nft-card-info">
+                        <div class="nft-card-top">
+                            <span class="nft-card-name">Archon Prime</span>
+                            <span class="nft-card-id">#0789</span>
+                        </div>
+                        <div class="nft-card-bottom">
+                            <span class="nft-rarity-badge rarity-badge-epic">Epic</span>
+                            <span class="nft-power">PWR <span>5,100</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 8 - Epic -->
+                <div class="nft-card" onclick="openModal(this)" data-name="Wraith Commander" data-id="#0834" data-rarity="Epic" data-power="4,920" data-armor="Shadow Plate" data-weapon="Dark Matter Cannon" data-ability="Soul Drain" data-origin="Phantom Zone">
+                    <div class="nft-card-image">
+                        <div class="nft-placeholder rarity-epic">
+                            <div class="guardian-icon">&#9876;</div>
+                        </div>
+                    </div>
+                    <div class="nft-card-info">
+                        <div class="nft-card-top">
+                            <span class="nft-card-name">Wraith Commander</span>
+                            <span class="nft-card-id">#0834</span>
+                        </div>
+                        <div class="nft-card-bottom">
+                            <span class="nft-rarity-badge rarity-badge-epic">Epic</span>
+                            <span class="nft-power">PWR <span>4,920</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 9 - Legendary -->
+                <div class="nft-card" onclick="openModal(this)" data-name="Titan Overlord" data-id="#0951" data-rarity="Legendary" data-power="7,250" data-armor="Celestial Armor" data-weapon="Star Forge Hammer" data-ability="Supernova" data-origin="Core Nexus">
+                    <div class="nft-card-image">
+                        <div class="nft-placeholder rarity-legendary">
+                            <div class="guardian-icon">&#9733;</div>
+                        </div>
+                    </div>
+                    <div class="nft-card-info">
+                        <div class="nft-card-top">
+                            <span class="nft-card-name">Titan Overlord</span>
+                            <span class="nft-card-id">#0951</span>
+                        </div>
+                        <div class="nft-card-bottom">
+                            <span class="nft-rarity-badge rarity-badge-legendary">Legendary</span>
+                            <span class="nft-power">PWR <span>7,250</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 10 - Legendary -->
+                <div class="nft-card" onclick="openModal(this)" data-name="Oracle Seraph" data-id="#0967" data-rarity="Legendary" data-power="7,080" data-armor="Ether Shroud" data-weapon="Prophecy Staff" data-ability="Foresight" data-origin="Astral Plane">
+                    <div class="nft-card-image">
+                        <div class="nft-placeholder rarity-legendary">
+                            <div class="guardian-icon">&#9672;</div>
+                        </div>
+                    </div>
+                    <div class="nft-card-info">
+                        <div class="nft-card-top">
+                            <span class="nft-card-name">Oracle Seraph</span>
+                            <span class="nft-card-id">#0967</span>
+                        </div>
+                        <div class="nft-card-bottom">
+                            <span class="nft-rarity-badge rarity-badge-legendary">Legendary</span>
+                            <span class="nft-power">PWR <span>7,080</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 11 - Mythic -->
+                <div class="nft-card" onclick="openModal(this)" data-name="Nexus Sovereign" data-id="#9991" data-rarity="Mythic" data-power="9,500" data-armor="Dimensional Carapace" data-weapon="Reality Splitter" data-ability="Dimension Rift" data-origin="The Singularity">
+                    <div class="nft-card-image">
+                        <div class="nft-placeholder rarity-mythic">
+                            <div class="guardian-icon">&#9733;</div>
+                        </div>
+                    </div>
+                    <div class="nft-card-info">
+                        <div class="nft-card-top">
+                            <span class="nft-card-name">Nexus Sovereign</span>
+                            <span class="nft-card-id">#9991</span>
+                        </div>
+                        <div class="nft-card-bottom">
+                            <span class="nft-rarity-badge rarity-badge-mythic">Mythic</span>
+                            <span class="nft-power">PWR <span>9,500</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 12 - Unique -->
+                <div class="nft-card" onclick="openModal(this)" data-name="THE GENESIS" data-id="#0000" data-rarity="Unique" data-power="10,000" data-armor="Primordial Matrix" data-weapon="Creation Engine" data-ability="Genesis Wave" data-origin="Origin Point">
+                    <div class="nft-card-image">
+                        <div class="nft-placeholder rarity-unique">
+                            <div class="guardian-icon">&#9733;</div>
+                        </div>
+                    </div>
+                    <div class="nft-card-info">
+                        <div class="nft-card-top">
+                            <span class="nft-card-name">THE GENESIS</span>
+                            <span class="nft-card-id">#0000</span>
+                        </div>
+                        <div class="nft-card-bottom">
+                            <span class="nft-rarity-badge rarity-badge-unique">Unique</span>
+                            <span class="nft-power">PWR <span>10,000</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 13 - Common -->
+                <div class="nft-card" onclick="openModal(this)" data-name="Patrol Drone" data-id="#0108" data-rarity="Common" data-power="1,050" data-armor="Alloy Shell" data-weapon="Shock Prod" data-ability="Scan Pulse" data-origin="Sector 12">
+                    <div class="nft-card-image">
+                        <div class="nft-placeholder rarity-common">
+                            <div class="guardian-icon">&#9684;</div>
+                        </div>
+                    </div>
+                    <div class="nft-card-info">
+                        <div class="nft-card-top">
+                            <span class="nft-card-name">Patrol Drone</span>
+                            <span class="nft-card-id">#0108</span>
+                        </div>
+                        <div class="nft-card-bottom">
+                            <span class="nft-rarity-badge rarity-badge-common">Common</span>
+                            <span class="nft-power">PWR <span>1,050</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 14 - Rare -->
+                <div class="nft-card" onclick="openModal(this)" data-name="Cyber Ronin" data-id="#0623" data-rarity="Rare" data-power="3,690" data-armor="Carbon Fiber" data-weapon="Energy Katana" data-ability="Flash Step" data-origin="Neo Tokyo">
+                    <div class="nft-card-image">
+                        <div class="nft-placeholder rarity-rare">
+                            <div class="guardian-icon">&#9876;</div>
+                        </div>
+                    </div>
+                    <div class="nft-card-info">
+                        <div class="nft-card-top">
+                            <span class="nft-card-name">Cyber Ronin</span>
+                            <span class="nft-card-id">#0623</span>
+                        </div>
+                        <div class="nft-card-bottom">
+                            <span class="nft-rarity-badge rarity-badge-rare">Rare</span>
+                            <span class="nft-power">PWR <span>3,690</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 15 - Uncommon -->
+                <div class="nft-card" onclick="openModal(this)" data-name="Enforcer Bravo" data-id="#0355" data-rarity="Uncommon" data-power="2,200" data-armor="Composite Plate" data-weapon="Chain Gun" data-ability="Suppression" data-origin="Fortress Prime">
+                    <div class="nft-card-image">
+                        <div class="nft-placeholder rarity-uncommon">
+                            <div class="guardian-icon">&#9881;</div>
+                        </div>
+                    </div>
+                    <div class="nft-card-info">
+                        <div class="nft-card-top">
+                            <span class="nft-card-name">Enforcer Bravo</span>
+                            <span class="nft-card-id">#0355</span>
+                        </div>
+                        <div class="nft-card-bottom">
+                            <span class="nft-rarity-badge rarity-badge-uncommon">Uncommon</span>
+                            <span class="nft-power">PWR <span>2,200</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 16 - Epic -->
+                <div class="nft-card" onclick="openModal(this)" data-name="Void Walker" data-id="#0872" data-rarity="Epic" data-power="5,340" data-armor="Phase Cloak" data-weapon="Anti-Matter Bow" data-ability="Void Step" data-origin="Event Horizon">
+                    <div class="nft-card-image">
+                        <div class="nft-placeholder rarity-epic">
+                            <div class="guardian-icon">&#9670;</div>
+                        </div>
+                    </div>
+                    <div class="nft-card-info">
+                        <div class="nft-card-top">
+                            <span class="nft-card-name">Void Walker</span>
+                            <span class="nft-card-id">#0872</span>
+                        </div>
+                        <div class="nft-card-bottom">
+                            <span class="nft-rarity-badge rarity-badge-epic">Epic</span>
+                            <span class="nft-power">PWR <span>5,340</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== RARITY TIERS ==================== -->
+    <section class="nft-section nft-section-alt" id="rarity">
+        <div class="container">
+            <h2 class="nft-section-title">Rarity <span class="gradient-text">Tiers</span></h2>
+            <p class="nft-section-desc">Seven distinct rarity levels determine your Guardian's power, traits, and staking bonuses. Higher tiers are exponentially rarer.</p>
+
+            <div class="rarity-grid">
+                <!-- Common -->
+                <div class="rarity-card rc-common">
+                    <div class="rarity-header">
+                        <span class="rarity-name">Common</span>
+                        <span class="rarity-pct">45%</span>
+                    </div>
+                    <div class="rarity-bar-track">
+                        <div class="rarity-bar-fill" style="width:45%"></div>
+                    </div>
+                    <ul class="rarity-traits">
+                        <li>Standard armor variants</li>
+                        <li>Basic weapon loadout</li>
+                        <li>Single ability slot</li>
+                        <li>Power range: 1,000 - 1,500</li>
+                    </ul>
+                    <div class="rarity-perks">
+                        <span class="rarity-perk-tag">+10% Staking Boost</span>
+                        <span class="rarity-perk-tag">Base Tier</span>
+                    </div>
+                </div>
+
+                <!-- Uncommon -->
+                <div class="rarity-card rc-uncommon">
+                    <div class="rarity-header">
+                        <span class="rarity-name">Uncommon</span>
+                        <span class="rarity-pct">25%</span>
+                    </div>
+                    <div class="rarity-bar-track">
+                        <div class="rarity-bar-fill" style="width:25%"></div>
+                    </div>
+                    <ul class="rarity-traits">
+                        <li>Enhanced armor materials</li>
+                        <li>Upgraded weapon systems</li>
+                        <li>Dual ability slots</li>
+                        <li>Power range: 2,000 - 2,800</li>
+                    </ul>
+                    <div class="rarity-perks">
+                        <span class="rarity-perk-tag">+20% Staking Boost</span>
+                        <span class="rarity-perk-tag">Priority Mint</span>
+                    </div>
+                </div>
+
+                <!-- Rare -->
+                <div class="rarity-card rc-rare">
+                    <div class="rarity-header">
+                        <span class="rarity-name">Rare</span>
+                        <span class="rarity-pct">15%</span>
+                    </div>
+                    <div class="rarity-bar-track">
+                        <div class="rarity-bar-fill" style="width:15%"></div>
+                    </div>
+                    <ul class="rarity-traits">
+                        <li>Unique armor designs</li>
+                        <li>Specialized weapons</li>
+                        <li>Triple ability slots</li>
+                        <li>Power range: 3,000 - 4,200</li>
+                    </ul>
+                    <div class="rarity-perks">
+                        <span class="rarity-perk-tag">+30% Staking Boost</span>
+                        <span class="rarity-perk-tag">DAO Vote Weight x2</span>
+                    </div>
+                </div>
+
+                <!-- Epic -->
+                <div class="rarity-card rc-epic">
+                    <div class="rarity-header">
+                        <span class="rarity-name">Epic</span>
+                        <span class="rarity-pct">10%</span>
+                    </div>
+                    <div class="rarity-bar-track">
+                        <div class="rarity-bar-fill" style="width:10%"></div>
+                    </div>
+                    <ul class="rarity-traits">
+                        <li>Exotic armor with VFX</li>
+                        <li>Prototype weapons</li>
+                        <li>Ultimate ability unlock</li>
+                        <li>Power range: 4,500 - 6,000</li>
+                    </ul>
+                    <div class="rarity-perks">
+                        <span class="rarity-perk-tag">+50% Staking Boost</span>
+                        <span class="rarity-perk-tag">Launchpad Access</span>
+                    </div>
+                </div>
+
+                <!-- Legendary -->
+                <div class="rarity-card rc-legendary">
+                    <div class="rarity-header">
+                        <span class="rarity-name">Legendary</span>
+                        <span class="rarity-pct">4%</span>
+                    </div>
+                    <div class="rarity-bar-track">
+                        <div class="rarity-bar-fill" style="width:4%"></div>
+                    </div>
+                    <ul class="rarity-traits">
+                        <li>Celestial-grade armor</li>
+                        <li>Legendary weapon crafts</li>
+                        <li>All ability slots unlocked</li>
+                        <li>Power range: 6,500 - 8,000</li>
+                    </ul>
+                    <div class="rarity-perks">
+                        <span class="rarity-perk-tag">+75% Staking Boost</span>
+                        <span class="rarity-perk-tag">Exclusive Airdrops</span>
+                        <span class="rarity-perk-tag">DAO Vote Weight x5</span>
+                    </div>
+                </div>
+
+                <!-- Mythic -->
+                <div class="rarity-card rc-mythic">
+                    <div class="rarity-header">
+                        <span class="rarity-name">Mythic</span>
+                        <span class="rarity-pct">0.9%</span>
+                    </div>
+                    <div class="rarity-bar-track">
+                        <div class="rarity-bar-fill" style="width:2%"></div>
+                    </div>
+                    <ul class="rarity-traits">
+                        <li>Dimensional armor sets</li>
+                        <li>Reality-bending weapons</li>
+                        <li>Passive aura effects</li>
+                        <li>Power range: 8,500 - 9,800</li>
+                    </ul>
+                    <div class="rarity-perks">
+                        <span class="rarity-perk-tag">+100% Staking Boost</span>
+                        <span class="rarity-perk-tag">Governance Council</span>
+                        <span class="rarity-perk-tag">Revenue Share</span>
+                    </div>
+                </div>
+
+                <!-- Unique -->
+                <div class="rarity-card rc-unique">
+                    <div class="rarity-header">
+                        <span class="rarity-name">Unique</span>
+                        <span class="rarity-pct">0.1%</span>
+                    </div>
+                    <div class="rarity-bar-track">
+                        <div class="rarity-bar-fill" style="width:1%"></div>
+                    </div>
+                    <ul class="rarity-traits">
+                        <li>One-of-a-kind designs</li>
+                        <li>Named legendary weapons</li>
+                        <li>Custom visual effects</li>
+                        <li>Power: 10,000 (max)</li>
+                    </ul>
+                    <div class="rarity-perks">
+                        <span class="rarity-perk-tag">+100% Staking Boost</span>
+                        <span class="rarity-perk-tag">All Perks Included</span>
+                        <span class="rarity-perk-tag">Only 10 Exist</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== STAKING BOOST ==================== -->
+    <section class="nft-section" id="staking-boost">
+        <div class="container">
+            <h2 class="nft-section-title">NFT <span class="gradient-text">Staking Boosts</span></h2>
+            <p class="nft-section-desc">Hold a Guardian NFT while staking NXR tokens to multiply your rewards. Higher rarity means higher APY multiplier.</p>
+
+            <div class="boost-grid">
+                <div class="boost-card bc-common">
+                    <div class="boost-tier">Common</div>
+                    <div class="boost-value">+10%</div>
+                    <div class="boost-label">APY Boost</div>
+                </div>
+                <div class="boost-card bc-uncommon">
+                    <div class="boost-tier">Uncommon</div>
+                    <div class="boost-value">+20%</div>
+                    <div class="boost-label">APY Boost</div>
+                </div>
+                <div class="boost-card bc-rare">
+                    <div class="boost-tier">Rare</div>
+                    <div class="boost-value">+30%</div>
+                    <div class="boost-label">APY Boost</div>
+                </div>
+                <div class="boost-card bc-epic">
+                    <div class="boost-tier">Epic</div>
+                    <div class="boost-value">+50%</div>
+                    <div class="boost-label">APY Boost</div>
+                </div>
+                <div class="boost-card bc-legendary">
+                    <div class="boost-tier">Legendary</div>
+                    <div class="boost-value">+75%</div>
+                    <div class="boost-label">APY Boost</div>
+                </div>
+                <div class="boost-card bc-mythic">
+                    <div class="boost-tier">Mythic</div>
+                    <div class="boost-value">+100%</div>
+                    <div class="boost-label">APY Boost</div>
+                </div>
+            </div>
+
+            <!-- Visual Chart -->
+            <div style="background:rgba(17,17,40,0.6);border:1px solid rgba(255,255,255,0.04);border-radius:20px;padding:40px;">
+                <h3 style="text-align:center;font-size:18px;color:rgba(255,255,255,0.6);margin-bottom:30px;font-weight:600;">Staking APY with Guardian Boost (Diamond Tier: 100% Base APY)</h3>
+                <div class="boost-chart">
+                    <div class="boost-bar-wrapper">
+                        <div class="boost-bar-value">110%</div>
+                        <div class="boost-bar bb-common" style="height:38%"></div>
+                        <div class="boost-bar-label">Common</div>
+                    </div>
+                    <div class="boost-bar-wrapper">
+                        <div class="boost-bar-value">120%</div>
+                        <div class="boost-bar bb-uncommon" style="height:46%"></div>
+                        <div class="boost-bar-label">Uncommon</div>
+                    </div>
+                    <div class="boost-bar-wrapper">
+                        <div class="boost-bar-value">130%</div>
+                        <div class="boost-bar bb-rare" style="height:54%"></div>
+                        <div class="boost-bar-label">Rare</div>
+                    </div>
+                    <div class="boost-bar-wrapper">
+                        <div class="boost-bar-value">150%</div>
+                        <div class="boost-bar bb-epic" style="height:68%"></div>
+                        <div class="boost-bar-label">Epic</div>
+                    </div>
+                    <div class="boost-bar-wrapper">
+                        <div class="boost-bar-value">175%</div>
+                        <div class="boost-bar bb-legendary" style="height:82%"></div>
+                        <div class="boost-bar-label">Legendary</div>
+                    </div>
+                    <div class="boost-bar-wrapper">
+                        <div class="boost-bar-value">200%</div>
+                        <div class="boost-bar bb-mythic" style="height:100%"></div>
+                        <div class="boost-bar-label">Mythic</div>
+                    </div>
+                </div>
+                <p style="text-align:center;font-size:12px;color:rgba(255,255,255,0.25);margin-top:20px;">Example: Diamond staking (100% base APY) + Mythic NFT (+100% boost) = 200% effective APY</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HOW TO MINT ==================== -->
+    <section class="nft-section nft-section-alt" id="mint">
+        <div class="container">
+            <h2 class="nft-section-title">How to <span class="gradient-text">Mint</span></h2>
+            <p class="nft-section-desc">Get your Guardian in four simple steps. Max 10 NFTs per transaction to ensure fair distribution.</p>
+
+            <div class="mint-steps">
+                <div class="mint-step">
+                    <div class="mint-step-number">1</div>
+                    <h3>Connect Wallet</h3>
+                    <p>Open MetaMask or Trust Wallet and connect to Binance Smart Chain (BSC) network.</p>
+                </div>
+                <div class="mint-step">
+                    <div class="mint-step-number">2</div>
+                    <h3>Get BNB</h3>
+                    <p>Make sure you have enough BNB in your wallet. Each mint costs 0.05 BNB plus gas fees.</p>
+                </div>
+                <div class="mint-step">
+                    <div class="mint-step-number">3</div>
+                    <h3>Choose Quantity</h3>
+                    <p>Select how many Guardians to mint (1-10 per transaction). Rarity is randomly assigned on-chain.</p>
+                </div>
+                <div class="mint-step">
+                    <div class="mint-step-number">4</div>
+                    <h3>Mint & Reveal</h3>
+                    <p>Confirm the transaction. Your Guardian will be revealed with its unique traits and rarity tier.</p>
+                </div>
+            </div>
+
+            <div class="mint-cta">
+                <a href="https://bscscan.com/address/0xa64D55BaC6b208075e641d0c022491e47339f76B#writeContract" target="_blank" class="btn-mint">
+                    Mint Your Guardian
+                </a>
+                <p class="mint-note">Interact with the smart contract on BSCScan to mint. Connect your wallet and call the mint function.</p>
+            </div>
+
+            <!-- Contract Info -->
+            <div style="text-align:center;margin-top:40px;padding:24px;background:rgba(0,0,0,0.2);border-radius:14px;border:1px solid rgba(0,229,255,0.08);">
+                <p style="font-size:12px;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">NFT Contract Address</p>
+                <p id="nftContract" style="font-family:'JetBrains Mono',monospace;font-size:14px;color:rgba(0,229,255,0.7);word-break:break-all;cursor:pointer;" onclick="copyNFTAddress()">0xa64D55BaC6b208075e641d0c022491e47339f76B</p>
+                <p id="copyStatus" style="font-size:11px;color:rgba(255,255,255,0.2);margin-top:6px;">Click to copy</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section class="nft-section" id="faq">
+        <div class="container">
+            <h2 class="nft-section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+            <p class="nft-section-desc">Everything you need to know about the Nexora Guardians NFT collection.</p>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>What is a Nexora Guardian?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            A Nexora Guardian is a unique, procedurally generated NFT on the Binance Smart Chain. Each Guardian has distinct traits including armor type, weapon, special ability, origin story, and power level. There are 7 rarity tiers from Common to Unique, with only 10,000 Guardians ever to exist. Beyond being collectibles, Guardians provide real utility by boosting your NXR staking APY.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>How much does minting cost?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Each Guardian costs 0.05 BNB to mint, plus a small amount for gas fees on BSC (typically less than $0.10). You can mint up to 10 Guardians per transaction. 50% of all mint revenue is used for NXR buyback and burn, permanently reducing the token supply and benefiting all NXR holders.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>What blockchain are they on?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Nexora Guardians are minted on the Binance Smart Chain (BSC) as BEP-721 tokens. This means low gas fees, fast transactions, and full compatibility with wallets like MetaMask and Trust Wallet. The NFT smart contract is verified and open-source on BSCScan.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>How do staking boosts work?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            When you stake NXR tokens on the Nexora staking platform, holding a Guardian NFT in the same wallet automatically activates a staking APY multiplier. The boost depends on your highest-rarity Guardian: Common gives +10%, Uncommon +20%, Rare +30%, Epic +50%, Legendary +75%, and Mythic/Unique gives +100%. For example, Diamond staking (100% base APY) with a Mythic Guardian would yield 200% effective APY.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>When is the reveal?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Guardians are revealed instantly upon minting. The rarity tier, traits, and power level are determined on-chain at the moment of minting using Chainlink VRF (Verifiable Random Function) to ensure true randomness. There is no delayed reveal - you see your Guardian immediately.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Can I trade my Guardian on secondary markets?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes. Nexora Guardians are standard BEP-721 NFTs and can be listed and traded on any BSC-compatible NFT marketplace. A 5% royalty fee applies on secondary sales, with 3% going to the NXR burn pool and 2% to the development treasury.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Is the smart contract audited?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            The NFT smart contract is fully verified on BSCScan and the source code is publicly available on GitHub. The contract uses battle-tested OpenZeppelin standards for ERC-721 implementation, ownership, and reentrancy guards. Community members are encouraged to review the code.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="nft-footer">
+        <div class="container">
+            <div class="nft-footer-grid">
+                <div class="nft-footer-brand">
+                    <h3>NEXORA GUARDIANS</h3>
+                    <p>10,000 unique sci-fi Guardian NFTs on BSC. Collect, stake, and earn. Part of the NEXORA DeFi ecosystem.</p>
+                    <div class="nft-footer-contract">
+                        <div class="nft-footer-contract-label">NFT Contract</div>
+                        <div class="nft-footer-contract-addr">0xa64D55BaC6b208075e641d0c022491e47339f76B</div>
+                    </div>
+                    <div class="nft-footer-contract" style="margin-top:10px;">
+                        <div class="nft-footer-contract-label">NXR Token</div>
+                        <div class="nft-footer-contract-addr">0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548</div>
+                    </div>
+                </div>
+                <div>
+                    <h4>Navigate</h4>
+                    <ul class="nft-footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="ecosystem.html">Ecosystem</a></li>
+                        <li><a href="index.html#tokenomics">Tokenomics</a></li>
+                        <li><a href="index.html#roadmap">Roadmap</a></li>
+                        <li><a href="index.html#how-to-buy">Buy NXR</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Community</h4>
+                    <ul class="nft-footer-links">
+                        <li><a href="https://t.me/+2fhHGlB7LT9kZGU0" target="_blank">Telegram</a></li>
+                        <li><a href="https://github.com/nexoracoin" target="_blank">GitHub</a></li>
+                        <li><a href="https://bscscan.com/address/0xa64D55BaC6b208075e641d0c022491e47339f76B" target="_blank">NFT on BSCScan</a></li>
+                        <li><a href="https://bscscan.com/address/0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548" target="_blank">Token on BSCScan</a></li>
+                        <li><a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank">PancakeSwap</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nft-footer-bottom">
+                <span class="nft-footer-copy">&copy; 2026 Nexora. All rights reserved.</span>
+                <span class="nft-footer-disclaimer">NEXORA is a decentralized finance token. Cryptocurrency and NFT investments carry risk. Always do your own research. This is not financial advice.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- NFT Detail Modal -->
+    <div class="nft-modal-overlay" id="nftModal">
+        <div class="nft-modal">
+            <button class="nft-modal-close" onclick="closeModal()">&times;</button>
+            <div class="nft-modal-image" id="modalImage"></div>
+            <div class="nft-modal-body">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                    <span class="nft-modal-name" id="modalName"></span>
+                    <span class="nft-rarity-badge" id="modalRarity"></span>
+                </div>
+                <div class="nft-modal-id" id="modalId"></div>
+                <div class="nft-modal-traits">
+                    <div class="nft-trait">
+                        <div class="nft-trait-label">Power</div>
+                        <div class="nft-trait-value" id="modalPower"></div>
+                    </div>
+                    <div class="nft-trait">
+                        <div class="nft-trait-label">Armor</div>
+                        <div class="nft-trait-value" id="modalArmor"></div>
+                    </div>
+                    <div class="nft-trait">
+                        <div class="nft-trait-label">Weapon</div>
+                        <div class="nft-trait-value" id="modalWeapon"></div>
+                    </div>
+                    <div class="nft-trait">
+                        <div class="nft-trait-label">Ability</div>
+                        <div class="nft-trait-value" id="modalAbility"></div>
+                    </div>
+                    <div class="nft-trait" style="grid-column:span 2;">
+                        <div class="nft-trait-label">Origin</div>
+                        <div class="nft-trait-value" id="modalOrigin"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // ========== PARTICLE ANIMATION ==========
+    (function() {
+        const canvas = document.getElementById('particleCanvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let animFrame;
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function createParticles() {
+            particles = [];
+            const count = Math.min(80, Math.floor(window.innerWidth / 15));
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.3,
+                    vy: (Math.random() - 0.5) * 0.3,
+                    size: Math.random() * 2 + 0.5,
+                    alpha: Math.random() * 0.3 + 0.05,
+                    color: Math.random() > 0.5 ? '0,229,255' : '139,92,246'
+                });
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach((p, i) => {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0) p.x = canvas.width;
+                if (p.x > canvas.width) p.x = 0;
+                if (p.y < 0) p.y = canvas.height;
+                if (p.y > canvas.height) p.y = 0;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(' + p.color + ',' + p.alpha + ')';
+                ctx.fill();
+
+                // Draw connections
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dx = p.x - p2.x;
+                    const dy = p.y - p2.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.strokeStyle = 'rgba(0,229,255,' + (0.03 * (1 - dist / 120)) + ')';
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            });
+
+            animFrame = requestAnimationFrame(draw);
+        }
+
+        resize();
+        createParticles();
+        draw();
+
+        window.addEventListener('resize', () => {
+            resize();
+            createParticles();
+        });
+    })();
+
+    // ========== MOBILE MENU ==========
+    document.getElementById('hamburger')?.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.toggle('active');
+    });
+
+    // ========== SMOOTH SCROLL ==========
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.querySelector('.nav-links').classList.remove('active');
+            }
+        });
+    });
+
+    // ========== NAVBAR SCROLL ==========
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            nav.style.background = 'rgba(10,10,15,0.98)';
+        } else {
+            nav.style.background = 'rgba(10,10,15,0.9)';
+        }
+    });
+
+    // ========== NFT MODAL ==========
+    const rarityClassMap = {
+        'Common': 'rarity-badge-common',
+        'Uncommon': 'rarity-badge-uncommon',
+        'Rare': 'rarity-badge-rare',
+        'Epic': 'rarity-badge-epic',
+        'Legendary': 'rarity-badge-legendary',
+        'Mythic': 'rarity-badge-mythic',
+        'Unique': 'rarity-badge-unique'
+    };
+
+    const rarityPlaceholderMap = {
+        'Common': 'rarity-common',
+        'Uncommon': 'rarity-uncommon',
+        'Rare': 'rarity-rare',
+        'Epic': 'rarity-epic',
+        'Legendary': 'rarity-legendary',
+        'Mythic': 'rarity-mythic',
+        'Unique': 'rarity-unique'
+    };
+
+    function openModal(card) {
+        const modal = document.getElementById('nftModal');
+        const rarity = card.dataset.rarity;
+
+        document.getElementById('modalName').textContent = card.dataset.name;
+        document.getElementById('modalId').textContent = card.dataset.id;
+        document.getElementById('modalPower').textContent = card.dataset.power;
+        document.getElementById('modalArmor').textContent = card.dataset.armor;
+        document.getElementById('modalWeapon').textContent = card.dataset.weapon;
+        document.getElementById('modalAbility').textContent = card.dataset.ability;
+        document.getElementById('modalOrigin').textContent = card.dataset.origin;
+
+        const rarityBadge = document.getElementById('modalRarity');
+        rarityBadge.textContent = rarity;
+        rarityBadge.className = 'nft-rarity-badge ' + (rarityClassMap[rarity] || '');
+
+        // Set modal image placeholder
+        const modalImg = document.getElementById('modalImage');
+        const placeholderClass = rarityPlaceholderMap[rarity] || 'rarity-common';
+        modalImg.innerHTML = '<div class="nft-placeholder ' + placeholderClass + '" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;"><div class="guardian-icon" style="width:120px;height:120px;font-size:56px;">&#9733;</div></div>';
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        document.getElementById('nftModal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Close modal on overlay click
+    document.getElementById('nftModal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+    });
+
+    // Close modal on Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+    });
+
+    // ========== FAQ ACCORDION ==========
+    function toggleFaq(el) {
+        const item = el.parentElement;
+        const wasActive = item.classList.contains('active');
+
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+
+        // Toggle clicked
+        if (!wasActive) {
+            item.classList.add('active');
+        }
+    }
+
+    // ========== COPY NFT ADDRESS ==========
+    function copyNFTAddress() {
+        const addr = '0xa64D55BaC6b208075e641d0c022491e47339f76B';
+        navigator.clipboard.writeText(addr).then(() => {
+            const status = document.getElementById('copyStatus');
+            status.textContent = 'Copied!';
+            status.style.color = 'rgba(0,229,255,0.6)';
+            setTimeout(() => {
+                status.textContent = 'Click to copy';
+                status.style.color = 'rgba(255,255,255,0.2)';
+            }, 2000);
+        });
+    }
+
+    // ========== SCROLL ANIMATIONS ==========
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Animate cards on scroll
+        document.querySelectorAll('.nft-card, .rarity-card, .boost-card, .mint-step, .faq-item').forEach((el, i) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.5s ease ' + (i % 4) * 0.1 + 's';
+            observer.observe(el);
+        });
+    });
+    </script>
+</body>
+</html>
