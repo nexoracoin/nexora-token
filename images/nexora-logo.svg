@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a3e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="nGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#7c3aed;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Circle -->
+  <circle cx="256" cy="256" r="250" fill="url(#bgGrad)" stroke="url(#ringGrad)" stroke-width="4"/>
+
+  <!-- Outer Ring -->
+  <circle cx="256" cy="256" r="220" fill="none" stroke="url(#ringGrad)" stroke-width="2" opacity="0.5"/>
+
+  <!-- Hexagonal accent lines -->
+  <polygon points="256,60 420,150 420,330 256,420 92,330 92,150" fill="none" stroke="url(#ringGrad)" stroke-width="1.5" opacity="0.3"/>
+  <polygon points="256,90 390,165 390,315 256,390 122,315 122,165" fill="none" stroke="url(#ringGrad)" stroke-width="1" opacity="0.2"/>
+
+  <!-- Central N Letter -->
+  <text x="256" y="290" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="220" text-anchor="middle" fill="url(#nGrad)" filter="url(#glow)">N</text>
+
+  <!-- Small decorative dots -->
+  <circle cx="256" cy="60" r="4" fill="#00d4ff" opacity="0.8"/>
+  <circle cx="420" cy="150" r="4" fill="#00d4ff" opacity="0.6"/>
+  <circle cx="420" cy="330" r="4" fill="#7c3aed" opacity="0.6"/>
+  <circle cx="256" cy="420" r="4" fill="#7c3aed" opacity="0.8"/>
+  <circle cx="92" cy="330" r="4" fill="#7c3aed" opacity="0.6"/>
+  <circle cx="92" cy="150" r="4" fill="#00d4ff" opacity="0.6"/>
+</svg>
