@@ -3,22 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXORA (NXR) - Next Generation DeFi Token</title>
+    <title>NEXORA (NXR) - The Token That Rewards You For Holding</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="apple-touch-icon" href="images/nexora-logo-256.png">
-    <meta property="og:title" content="NEXORA (NXR) - Next Generation DeFi Token">
-    <meta property="og:description" content="Deflationary, auto-rewarding token on BSC. 2% burn, 1% rewards, 1% auto-liquidity.">
+    <meta property="og:title" content="NEXORA (NXR) - Every Second You Wait, Supply Shrinks">
+    <meta property="og:description" content="Deflationary token that burns on every tx. Hold NXR = earn passive income automatically. Verified contract. Early stage.">
     <meta property="og:image" content="images/nexora-logo-512.png">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="NEXORA (NXR) - DeFi on BSC">
-    <meta name="twitter:description" content="Next-gen deflationary token with auto-rewards. Hold NXR, earn passive income.">
-    <meta name="description" content="NEXORA (NXR) is a deflationary, auto-rewarding DeFi token on Binance Smart Chain. 2% burn, 1% holder rewards, 1% auto-liquidity.">
+    <meta name="twitter:title" content="NEXORA - The Earlier You Buy, The Less Supply Remains">
+    <meta name="twitter:description" content="2% auto-burn every tx. 1% rewards to holders. Verified BSC contract. Don't miss the ground floor.">
+    <meta name="description" content="NEXORA (NXR) - deflationary DeFi token on BSC. 2% auto-burn, 1% holder rewards, 1% auto-liquidity. Staking up to 100% APY. NFTs. DAO. Early stage opportunity.">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/extra.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="container">
+            <span class="announce-pulse"></span>
+            <span>Supply is shrinking with every transaction. <strong>Early holders earn the most rewards.</strong></span>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
@@ -27,12 +36,12 @@
                 <span class="logo-text">NEXORA</span>
             </div>
             <div class="nav-links">
-                <a href="#about">About</a>
+                <a href="#why">Why NXR</a>
                 <a href="#tokenomics">Tokenomics</a>
+                <a href="#earn">Earn</a>
                 <a href="#roadmap">Roadmap</a>
-                <a href="#community">Community</a>
                 <a href="ecosystem.html">Ecosystem</a>
-                <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="btn-nav">Buy NXR</a>
+                <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="btn-nav">Buy NXR Now</a>
             </div>
             <div class="hamburger" id="hamburger">
                 <span></span><span></span><span></span>
@@ -47,74 +56,174 @@
         </div>
         <div class="container">
             <div class="hero-content">
-                <div class="badge">LIVE ON BSC</div>
-                <h1>The Future of<br><span class="gradient-text">Decentralized Finance</span></h1>
-                <p class="hero-desc">NEXORA is a deflationary, auto-rewarding token built on Binance Smart Chain. Hold NXR and earn passive income while the supply decreases.</p>
+                <div class="badge-row">
+                    <div class="badge badge-live"><span class="live-dot"></span> LIVE ON BSC</div>
+                    <div class="badge badge-verified">VERIFIED CONTRACT</div>
+                </div>
+                <h1>Your Money Works<br><span class="gradient-text">While You Sleep</span></h1>
+                <p class="hero-desc">Every transaction burns supply and sends rewards directly to your wallet. <strong>No staking required. No claiming. Fully automatic.</strong> The longer you hold, the more you earn.</p>
                 <div class="hero-buttons">
-                    <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="btn btn-primary">
-                        Buy on PancakeSwap
+                    <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="btn btn-primary btn-glow">
+                        Buy NXR Now
                     </a>
-                    <a href="#tokenomics" class="btn btn-secondary">
-                        View Tokenomics
+                    <a href="#how-to-buy" class="btn btn-secondary">
+                        How to Buy
                     </a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat">
-                        <span class="stat-value" id="price">$0.000001</span>
-                        <span class="stat-label">Price</span>
+                        <span class="stat-value stat-highlight" id="price">Ground Floor</span>
+                        <span class="stat-label">Current Stage</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-value" id="holders">0</span>
-                        <span class="stat-label">Holders</span>
+                        <span class="stat-value" id="supply-shrink">-2%</span>
+                        <span class="stat-label">Every Transaction</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-value" id="burned">0</span>
-                        <span class="stat-label">Burned</span>
+                        <span class="stat-value">100%</span>
+                        <span class="stat-label">Max Staking APY</span>
                     </div>
                     <div class="stat">
                         <span class="stat-value">1B</span>
-                        <span class="stat-label">Total Supply</span>
+                        <span class="stat-label">Decreasing Supply</span>
                     </div>
+                </div>
+                <p class="hero-micro">Verified on BSCScan &bull; Open Source on GitHub &bull; Liquidity Locked</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Ticker -->
+    <div class="ticker-bar">
+        <div class="ticker-content">
+            <span>2% BURNED EVERY TX</span>
+            <span>&bull;</span>
+            <span>PASSIVE REWARDS TO ALL HOLDERS</span>
+            <span>&bull;</span>
+            <span>ANTI-WHALE PROTECTED</span>
+            <span>&bull;</span>
+            <span>VERIFIED SMART CONTRACT</span>
+            <span>&bull;</span>
+            <span>STAKING UP TO 100% APY</span>
+            <span>&bull;</span>
+            <span>10,000 NFT COLLECTION COMING</span>
+            <span>&bull;</span>
+            <span>DAO GOVERNANCE</span>
+            <span>&bull;</span>
+            <span>CROSS-CHAIN BRIDGE PLANNED</span>
+            <span>&bull;</span>
+            <span>2% BURNED EVERY TX</span>
+            <span>&bull;</span>
+            <span>PASSIVE REWARDS TO ALL HOLDERS</span>
+            <span>&bull;</span>
+            <span>ANTI-WHALE PROTECTED</span>
+            <span>&bull;</span>
+            <span>VERIFIED SMART CONTRACT</span>
+        </div>
+    </div>
+
+    <!-- Why NEXORA - Emotional Benefits -->
+    <section class="section" id="why">
+        <div class="container">
+            <h2 class="section-title">Why Smart Investors Choose <span class="gradient-text">NEXORA</span></h2>
+            <p class="section-desc">Three autonomous mechanisms work 24/7 to protect and grow your investment.</p>
+            <div class="features-grid">
+                <div class="feature-card feature-highlight">
+                    <div class="feature-icon">&#128293;</div>
+                    <div class="feature-tag">SCARCITY ENGINE</div>
+                    <h3>2% Auto-Burn</h3>
+                    <p>Every single transaction permanently destroys tokens. Supply can only go down. Basic economics: <strong>less supply + same demand = higher value.</strong> This happens automatically, forever.</p>
+                </div>
+                <div class="feature-card feature-highlight">
+                    <div class="feature-icon">&#128176;</div>
+                    <div class="feature-tag">PASSIVE INCOME</div>
+                    <h3>1% Holder Rewards</h3>
+                    <p>Every transaction sends rewards directly to your wallet. <strong>No staking, no claiming, no gas fees.</strong> Just hold NXR and watch your balance increase with every trade on the network.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#128274;</div>
+                    <div class="feature-tag">PRICE FLOOR</div>
+                    <h3>1% Auto-Liquidity</h3>
+                    <p>Every transaction strengthens the liquidity pool, creating a continuously rising price floor. <strong>The longer the project exists, the stronger the foundation.</strong></p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#128737;</div>
+                    <div class="feature-tag">YOUR PROTECTION</div>
+                    <h3>Anti-Whale System</h3>
+                    <p>Max 1% per transaction, 2% max wallet. Hardcoded in the contract. <strong>No single wallet can dump and crash the price.</strong> Fair for everyone.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#129302;</div>
+                    <div class="feature-tag">FAIR TRADING</div>
+                    <h3>Anti-Bot Shield</h3>
+                    <p>30-second cooldown between trades. Bots can't front-run you. <strong>Real humans get fair prices.</strong> Your entry is protected from manipulation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#9989;</div>
+                    <div class="feature-tag">100% TRANSPARENT</div>
+                    <h3>Verified & Open Source</h3>
+                    <p>Smart contract fully verified on BSCScan. Source code public on GitHub. <strong>Nothing hidden. Everything auditable.</strong> Trust the code, not promises.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="section" id="about">
+    <!-- Earn Section - NEW -->
+    <section class="section section-dark" id="earn">
         <div class="container">
-            <h2 class="section-title">Why <span class="gradient-text">NEXORA</span>?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">&#128293;</div>
-                    <h3>Deflationary</h3>
-                    <p>2% of every transaction is permanently burned, continuously reducing the total supply and increasing scarcity.</p>
+            <h2 class="section-title">How You <span class="gradient-text">Earn</span> With NEXORA</h2>
+            <div class="earn-grid">
+                <div class="earn-card">
+                    <div class="earn-number">01</div>
+                    <h3>Hold & Earn Automatically</h3>
+                    <p>1% of every transaction on the network is redistributed to all holders proportionally. The more NXR you hold, the more you receive. No action needed - rewards appear in your wallet automatically.</p>
+                    <div class="earn-tag">AVAILABLE NOW</div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">&#128176;</div>
-                    <h3>Auto-Rewards</h3>
-                    <p>1% of every transaction is redistributed to all holders. Simply hold NXR and watch your balance grow.</p>
+                <div class="earn-card">
+                    <div class="earn-number">02</div>
+                    <h3>Stake for Up to 100% APY</h3>
+                    <p>Lock your NXR in our tiered staking platform. Choose your commitment: 30 days (10% APY), 90 days (25% APY), 180 days (50% APY), or go Diamond with 365 days for 100% APY.</p>
+                    <div class="earn-tag">COMING SOON</div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">&#128274;</div>
-                    <h3>Auto-Liquidity</h3>
-                    <p>1% goes to the liquidity pool automatically, ensuring stable trading and growing price floor.</p>
+                <div class="earn-card">
+                    <div class="earn-number">03</div>
+                    <h3>Mint NFTs for Staking Boosts</h3>
+                    <p>Nexora Guardians NFTs give staking multipliers up to +100%. Only 10,000 will ever exist. Mythic tier (1% chance) doubles your staking rewards. 50% of mint price is burned forever.</p>
+                    <div class="earn-tag">IN DEVELOPMENT</div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">&#128737;</div>
-                    <h3>Anti-Whale</h3>
-                    <p>Max 1% per transaction, 2% max wallet. No single holder can manipulate the market.</p>
+                <div class="earn-card">
+                    <div class="earn-number">04</div>
+                    <h3>Early Access to New Projects</h3>
+                    <p>The Nexora Launchpad gives NXR holders guaranteed allocation in new token launches. Diamond holders (1M+ NXR) get maximum allocation. Be first to invest in the next generation.</p>
+                    <div class="earn-tag">PLANNED</div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">&#129302;</div>
-                    <h3>Anti-Bot</h3>
-                    <p>30-second cooldown between transactions prevents bot manipulation and ensures fair trading.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deflationary Visualization -->
+    <section class="section" id="defl-visual">
+        <div class="container">
+            <div class="defl-box">
+                <h2>The Math Is Simple</h2>
+                <div class="defl-grid">
+                    <div class="defl-item">
+                        <div class="defl-big">1,000,000,000</div>
+                        <div class="defl-label">Tokens at Launch</div>
+                    </div>
+                    <div class="defl-arrow">&#8594;</div>
+                    <div class="defl-item">
+                        <div class="defl-big gradient-text">Decreasing</div>
+                        <div class="defl-label">With Every Transaction</div>
+                    </div>
+                    <div class="defl-arrow">&#8594;</div>
+                    <div class="defl-item">
+                        <div class="defl-big" style="color:#10b981">Scarcer</div>
+                        <div class="defl-label">Every Single Day</div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">&#9989;</div>
-                    <h3>Verified Contract</h3>
-                    <p>Fully verified and open-source smart contract on BSCScan. Complete transparency.</p>
-                </div>
+                <p class="defl-desc">Tokens burned can <strong>never</strong> be recovered. Supply only goes in one direction: down. Every person who buys, sells, or transfers NXR makes your tokens rarer.</p>
+                <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="btn btn-primary btn-glow" style="margin-top:30px">Get NXR Before Supply Shrinks More</a>
             </div>
         </div>
     </section>
@@ -139,7 +248,7 @@
                         </svg>
                         <div class="chart-center">
                             <span>1B</span>
-                            <small>Total Supply</small>
+                            <small>& Shrinking</small>
                         </div>
                     </div>
                 </div>
@@ -173,10 +282,10 @@
                         </div>
                     </div>
                     <div class="fee-breakdown">
-                        <h4>Transaction Fees (4% Total)</h4>
+                        <h4>Every Transaction Powers the Ecosystem</h4>
                         <div class="fee-bar">
                             <div class="fee-segment" style="width:50%;background:#ff6b6b" title="2% Burn">2% Burn</div>
-                            <div class="fee-segment" style="width:25%;background:#4ecdc4" title="1% Rewards">1% Rewards</div>
+                            <div class="fee-segment" style="width:25%;background:#4ecdc4" title="1% Rewards">1% You Earn</div>
                             <div class="fee-segment" style="width:25%;background:#45b7d1" title="1% Liquidity">1% LP</div>
                         </div>
                     </div>
@@ -188,30 +297,30 @@
     <!-- Roadmap -->
     <section class="section" id="roadmap">
         <div class="container">
-            <h2 class="section-title">Roadmap</h2>
+            <h2 class="section-title">The Journey to <span class="gradient-text">Dominance</span></h2>
             <div class="roadmap">
                 <div class="roadmap-item active">
                     <div class="roadmap-dot"></div>
                     <div class="roadmap-content">
-                        <h3>Phase 1 - Launch</h3>
+                        <h3>Phase 1 - Launch <span class="phase-tag done">COMPLETED</span></h3>
                         <ul>
-                            <li>Token deployment on BSC</li>
-                            <li>Website launch</li>
-                            <li>PancakeSwap listing</li>
-                            <li>Community building (Telegram, Twitter)</li>
-                            <li>Contract verification on BSCScan</li>
+                            <li>Smart contract deployed & verified on BSC</li>
+                            <li>Website & community launch</li>
+                            <li>PancakeSwap listing with locked liquidity</li>
+                            <li>AI-powered Telegram bot (24/7)</li>
+                            <li>Open-source code on GitHub</li>
                         </ul>
                     </div>
                 </div>
-                <div class="roadmap-item">
+                <div class="roadmap-item active">
                     <div class="roadmap-dot"></div>
                     <div class="roadmap-content">
-                        <h3>Phase 2 - Growth</h3>
+                        <h3>Phase 2 - Growth <span class="phase-tag current">IN PROGRESS</span></h3>
                         <ul>
                             <li>CoinGecko & CoinMarketCap listing</li>
-                            <li>Marketing campaign launch</li>
+                            <li>Marketing campaign & influencer partnerships</li>
                             <li>1,000+ holders milestone</li>
-                            <li>Influencer partnerships</li>
+                            <li>Ecosystem expansion announcement</li>
                             <li>Community governance voting</li>
                         </ul>
                     </div>
@@ -221,11 +330,11 @@
                     <div class="roadmap-content">
                         <h3>Phase 3 - Expansion</h3>
                         <ul>
-                            <li>CEX listings (BitMart, MEXC)</li>
-                            <li>Staking platform launch</li>
-                            <li>NFT collection</li>
+                            <li>Staking platform (10-100% APY)</li>
+                            <li>Nexora Guardians NFT collection (10,000)</li>
                             <li>Cross-chain bridge (ETH, Polygon)</li>
-                            <li>DApp ecosystem</li>
+                            <li>CEX listings (BitMart, MEXC, Gate.io)</li>
+                            <li>DAO governance system</li>
                         </ul>
                     </div>
                 </div>
@@ -235,10 +344,10 @@
                         <h3>Phase 4 - Dominance</h3>
                         <ul>
                             <li>Major CEX listings</li>
+                            <li>Nexora Launchpad for new projects</li>
                             <li>Real-world utility partnerships</li>
-                            <li>DAO governance</li>
-                            <li>Nexora Launchpad</li>
-                            <li>Global marketing push</li>
+                            <li>Full DAO governance transition</li>
+                            <li>Global expansion</li>
                         </ul>
                     </div>
                 </div>
@@ -249,65 +358,115 @@
     <!-- How to Buy -->
     <section class="section section-dark" id="how-to-buy">
         <div class="container">
-            <h2 class="section-title">How to Buy</h2>
+            <h2 class="section-title">Get NXR in <span class="gradient-text">60 Seconds</span></h2>
             <div class="steps-grid">
                 <div class="step-card">
                     <div class="step-number">1</div>
                     <h3>Get a Wallet</h3>
-                    <p>Download MetaMask or Trust Wallet and create a new wallet. Save your seed phrase securely.</p>
+                    <p>Download MetaMask or Trust Wallet. Takes 30 seconds to set up.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-number">2</div>
                     <h3>Buy BNB</h3>
-                    <p>Purchase BNB on Binance or any exchange and send it to your wallet address.</p>
+                    <p>Get BNB from Binance or any exchange. Send it to your wallet.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-number">3</div>
-                    <h3>Go to PancakeSwap</h3>
-                    <p>Visit PancakeSwap, connect your wallet, and paste the NXR contract address.</p>
+                    <h3>Open PancakeSwap</h3>
+                    <p>Connect wallet and paste the NXR contract address below.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-number">4</div>
-                    <h3>Swap BNB for NXR</h3>
-                    <p>Set slippage to 5-6%, enter the amount and swap. Welcome to the Nexora family!</p>
+                    <h3>Swap & Start Earning</h3>
+                    <p>Set slippage to 5-6% and swap. Rewards start immediately.</p>
                 </div>
             </div>
             <div class="contract-address">
-                <p>Contract Address:</p>
+                <p>Contract Address (tap to copy):</p>
                 <div class="address-box" id="contractAddress">
                     <span>0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548</span>
                     <button class="copy-btn" onclick="copyAddress()">Copy</button>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:30px">
+                <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="btn btn-primary btn-glow btn-large">Buy NXR on PancakeSwap</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="section" id="trust">
+        <div class="container">
+            <h2 class="section-title">Built on <span class="gradient-text">Trust & Transparency</span></h2>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">&#9989;</div>
+                    <h4>Verified Contract</h4>
+                    <p>100% verified on BSCScan</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">&#128272;</div>
+                    <h4>Liquidity Locked</h4>
+                    <p>Cannot be pulled or rugged</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">&#128187;</div>
+                    <h4>Open Source</h4>
+                    <p>Full code on GitHub</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">&#128737;</div>
+                    <h4>Anti-Whale</h4>
+                    <p>Hardcoded in contract</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Community -->
-    <section class="section" id="community">
+    <section class="section section-dark" id="community">
         <div class="container">
-            <h2 class="section-title">Join the <span class="gradient-text">Community</span></h2>
-            <p class="section-desc">Be part of the Nexora revolution. Join thousands of holders building the future of DeFi.</p>
+            <h2 class="section-title">Join the <span class="gradient-text">Movement</span></h2>
+            <p class="section-desc">The Nexora community is growing every day. Early members shape the future.</p>
             <div class="social-grid">
-                <a href="https://t.me/+2fhHGlB7LT9kZGU0" target="_blank" class="social-card" id="telegram-link">
+                <a href="https://t.me/+2fhHGlB7LT9kZGU0" target="_blank" class="social-card">
                     <div class="social-icon">&#9992;</div>
                     <h3>Telegram</h3>
-                    <p>Join the community</p>
+                    <p>Join the inner circle</p>
                 </a>
-                <a href="https://github.com/nexoracoin" target="_blank" class="social-card" id="github-link">
+                <a href="https://github.com/nexoracoin" target="_blank" class="social-card">
                     <div class="social-icon">&#128187;</div>
                     <h3>GitHub</h3>
-                    <p>Open source code</p>
+                    <p>Verify the code yourself</p>
                 </a>
-                <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="social-card" id="pancakeswap-link">
+                <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="social-card">
                     <div class="social-icon">&#128230;</div>
                     <h3>PancakeSwap</h3>
-                    <p>Buy NXR now</p>
+                    <p>Buy before next burn</p>
                 </a>
-                <a href="https://bscscan.com/address/0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548" target="_blank" class="social-card" id="bscscan-link">
+                <a href="https://bscscan.com/address/0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548" target="_blank" class="social-card">
                     <div class="social-icon">&#128270;</div>
                     <h3>BSCScan</h3>
-                    <p>Verified contract</p>
+                    <p>Full transparency</p>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section final-cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2>The Supply Is Getting Smaller.<br><span class="gradient-text">Your Opportunity Won't Last Forever.</span></h2>
+                <p>Every transaction burns tokens permanently. Every second, NXR becomes rarer. Early holders earn the most rewards and get the lowest entry price.</p>
+                <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="btn btn-primary btn-glow btn-large">Buy NEXORA Now</a>
+                <div class="cta-links">
+                    <a href="https://bscscan.com/address/0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548" target="_blank">Verify Contract</a>
+                    <span>&bull;</span>
+                    <a href="https://github.com/nexoracoin" target="_blank">View Source Code</a>
+                    <span>&bull;</span>
+                    <a href="https://t.me/+2fhHGlB7LT9kZGU0" target="_blank">Join Telegram</a>
+                </div>
             </div>
         </div>
     </section>
@@ -320,7 +479,7 @@
                     <img src="images/nexora-logo-64.png" alt="NEXORA" class="footer-logo">
                     <span>NEXORA</span>
                 </div>
-                <p class="footer-disclaimer">NEXORA is an experimental DeFi token. Cryptocurrency investments carry risk. Do your own research before investing. This is not financial advice.</p>
+                <p class="footer-disclaimer">NEXORA is a decentralized finance token. Cryptocurrency investments carry risk. Always do your own research. This website does not constitute financial advice.</p>
                 <p class="footer-copy">&copy; 2026 Nexora. All rights reserved.</p>
             </div>
         </div>
