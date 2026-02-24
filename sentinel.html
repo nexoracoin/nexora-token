@@ -1606,6 +1606,259 @@
         </div>
     </section>
 
+    <!-- LIVE TOKEN SCANNER TOOL -->
+    <section id="scanner">
+        <div class="section-inner">
+            <div style="text-align:center;margin-bottom:48px;">
+                <div class="section-badge">&#128270; LIVE TOKEN SCANNER</div>
+                <h2 class="section-title">Scan Any Token Instantly</h2>
+                <p class="section-desc" style="margin:0 auto;">Paste any BSC/ETH contract address and get an instant safety analysis. Free preview - full reports require NXR.</p>
+            </div>
+
+            <div class="demo-container fade-up" style="max-width:700px;margin:0 auto;">
+                <div class="demo-header">
+                    <div class="demo-header-left">
+                        <div class="demo-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                        <span class="demo-title-bar">sentinel-scanner v2.0 // token analysis</span>
+                    </div>
+                    <div class="demo-status"><span class="dot"></span> SCANNER READY</div>
+                </div>
+                <div class="demo-body">
+                    <div style="display:flex;gap:12px;margin-bottom:20px;">
+                        <input type="text" id="scan-input" placeholder="Paste contract address (0x...)" style="flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(0,212,255,0.2);border-radius:8px;padding:14px 16px;color:#fff;font-family:'JetBrains Mono',monospace;font-size:14px;outline:none;" />
+                        <button onclick="scanToken()" style="background:linear-gradient(135deg,var(--sentinel-blue),var(--sentinel-purple));color:#fff;border:none;border-radius:8px;padding:14px 24px;font-weight:700;cursor:pointer;font-size:14px;white-space:nowrap;">Scan Now</button>
+                    </div>
+                    <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;">
+                        <button onclick="scanExample('safe')" style="background:rgba(0,255,136,0.1);border:1px solid rgba(0,255,136,0.2);color:#00ff88;border-radius:6px;padding:6px 14px;font-size:12px;cursor:pointer;font-weight:600;">Example: Safe Token</button>
+                        <button onclick="scanExample('scam')" style="background:rgba(255,51,102,0.1);border:1px solid rgba(255,51,102,0.2);color:#ff3366;border-radius:6px;padding:6px 14px;font-size:12px;cursor:pointer;font-weight:600;">Example: Scam Token</button>
+                        <button onclick="scanExample('nxr')" style="background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.2);color:#00d4ff;border-radius:6px;padding:6px 14px;font-size:12px;cursor:pointer;font-weight:600;">Scan NXR</button>
+                    </div>
+                    <div id="scan-result" style="display:none;"></div>
+                    <div id="scan-loading" style="display:none;text-align:center;padding:30px;">
+                        <div style="font-size:32px;animation:spin-slow 2s linear infinite;display:inline-block;">&#128737;</div>
+                        <div style="font-size:14px;color:rgba(255,255,255,0.5);margin-top:8px;" id="scan-status-text">Analyzing contract...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WALLET RISK ASSESSMENT -->
+    <section class="demo-section" id="wallet-check">
+        <div class="section-inner">
+            <div style="text-align:center;margin-bottom:48px;">
+                <div class="section-badge">&#128274; WALLET RISK ASSESSMENT</div>
+                <h2 class="section-title">How Safe Is Your Wallet?</h2>
+                <p class="section-desc" style="margin:0 auto;">Connect your wallet or paste an address to get a comprehensive risk report. See what Sentinel would protect you from.</p>
+            </div>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px;margin:0 auto;">
+                <div class="nts-card fade-up">
+                    <div style="text-align:center;margin-bottom:20px;">
+                        <div style="font-size:48px;margin-bottom:8px;">&#128274;</div>
+                        <div style="font-weight:800;font-size:18px;color:#fff;">Wallet Health Check</div>
+                        <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:4px;">Free basic scan - Full report with NXR</div>
+                    </div>
+                    <input type="text" id="wallet-input" placeholder="0x... wallet address" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(0,212,255,0.2);border-radius:8px;padding:12px;color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;outline:none;margin-bottom:12px;" />
+                    <button onclick="checkWallet()" style="width:100%;background:linear-gradient(135deg,var(--sentinel-blue),var(--sentinel-purple));color:#fff;border:none;border-radius:8px;padding:12px;font-weight:700;cursor:pointer;font-size:14px;">Analyze Wallet</button>
+                    <div id="wallet-result" style="margin-top:16px;display:none;"></div>
+                </div>
+
+                <div class="nts-card fade-up">
+                    <div style="text-align:center;margin-bottom:20px;">
+                        <div style="font-size:48px;margin-bottom:8px;">&#128202;</div>
+                        <div style="font-weight:800;font-size:18px;color:#fff;">Your Risk Exposure</div>
+                        <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:4px;">Without Sentinel protection</div>
+                    </div>
+                    <div style="space-y:12px;">
+                        <div style="display:flex;justify-content:space-between;padding:10px;background:rgba(255,51,102,0.08);border-radius:8px;margin-bottom:8px;">
+                            <span style="font-size:13px;color:rgba(255,255,255,0.6);">Rug Pull Risk</span>
+                            <span style="font-family:'JetBrains Mono',monospace;color:#ff3366;font-weight:700;font-size:13px;">HIGH</span>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;padding:10px;background:rgba(255,51,102,0.08);border-radius:8px;margin-bottom:8px;">
+                            <span style="font-size:13px;color:rgba(255,255,255,0.6);">Phishing Exposure</span>
+                            <span style="font-family:'JetBrains Mono',monospace;color:#ff3366;font-weight:700;font-size:13px;">CRITICAL</span>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;padding:10px;background:rgba(255,149,0,0.08);border-radius:8px;margin-bottom:8px;">
+                            <span style="font-size:13px;color:rgba(255,255,255,0.6);">MEV Vulnerability</span>
+                            <span style="font-family:'JetBrains Mono',monospace;color:#ff9500;font-weight:700;font-size:13px;">MEDIUM</span>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;padding:10px;background:rgba(255,51,102,0.08);border-radius:8px;margin-bottom:8px;">
+                            <span style="font-size:13px;color:rgba(255,255,255,0.6);">Insurance Coverage</span>
+                            <span style="font-family:'JetBrains Mono',monospace;color:#ff3366;font-weight:700;font-size:13px;">NONE</span>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;padding:10px;background:rgba(255,51,102,0.08);border-radius:8px;">
+                            <span style="font-size:13px;color:rgba(255,255,255,0.6);">Overall Protection</span>
+                            <span style="font-family:'JetBrains Mono',monospace;color:#ff3366;font-weight:700;font-size:13px;">0%</span>
+                        </div>
+                    </div>
+                    <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" style="display:block;text-align:center;background:var(--sentinel-red);color:#fff;padding:12px;border-radius:8px;margin-top:16px;text-decoration:none;font-weight:700;font-size:14px;">Get Protection Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SAVINGS CALCULATOR -->
+    <section id="calculator">
+        <div class="section-inner">
+            <div style="text-align:center;margin-bottom:48px;">
+                <div class="section-badge">&#128176; SAVINGS CALCULATOR</div>
+                <h2 class="section-title">How Much Would Sentinel Save You?</h2>
+                <p class="section-desc" style="margin:0 auto;">Calculate your potential savings based on your portfolio size and trading activity.</p>
+            </div>
+
+            <div class="demo-container fade-up" style="max-width:700px;margin:0 auto;">
+                <div class="demo-header">
+                    <div class="demo-header-left">
+                        <div class="demo-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                        <span class="demo-title-bar">sentinel-calculator // roi analysis</span>
+                    </div>
+                </div>
+                <div class="demo-body">
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;">
+                        <div>
+                            <label style="font-size:12px;color:rgba(255,255,255,0.5);display:block;margin-bottom:6px;">Portfolio Value ($)</label>
+                            <input type="number" id="calc-portfolio" value="10000" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(0,212,255,0.2);border-radius:8px;padding:12px;color:#fff;font-family:'JetBrains Mono',monospace;font-size:16px;outline:none;" oninput="calculateSavings()" />
+                        </div>
+                        <div>
+                            <label style="font-size:12px;color:rgba(255,255,255,0.5);display:block;margin-bottom:6px;">Swaps per Month</label>
+                            <input type="number" id="calc-swaps" value="30" style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(0,212,255,0.2);border-radius:8px;padding:12px;color:#fff;font-family:'JetBrains Mono',monospace;font-size:16px;outline:none;" oninput="calculateSavings()" />
+                        </div>
+                    </div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:24px;">
+                        <div style="background:rgba(255,51,102,0.1);border:1px solid rgba(255,51,102,0.2);border-radius:12px;padding:20px;text-align:center;">
+                            <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:4px;">WITHOUT Sentinel</div>
+                            <div style="font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:900;color:#ff3366;" id="calc-risk">$1,200</div>
+                            <div style="font-size:11px;color:rgba(255,255,255,0.3);">Annual risk exposure</div>
+                        </div>
+                        <div style="background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.2);border-radius:12px;padding:20px;text-align:center;">
+                            <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:4px;">Sentinel Cost</div>
+                            <div style="font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:900;color:#00d4ff;" id="calc-cost">$60</div>
+                            <div style="font-size:11px;color:rgba(255,255,255,0.3);">Annual (Silver tier)</div>
+                        </div>
+                        <div style="background:rgba(0,255,136,0.1);border:1px solid rgba(0,255,136,0.2);border-radius:12px;padding:20px;text-align:center;">
+                            <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:4px;">YOU SAVE</div>
+                            <div style="font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:900;color:#00ff88;" id="calc-saved">$1,140</div>
+                            <div style="font-size:11px;color:rgba(255,255,255,0.3);">Protected annually</div>
+                        </div>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.03);border-radius:8px;padding:16px;font-size:13px;color:rgba(255,255,255,0.5);">
+                        <strong style="color:#ff3366;">Did you know?</strong> The average crypto user encounters <strong style="color:#fff;">3.2 scam tokens per month</strong> during normal trading. Without Sentinel, each encounter carries a <strong style="color:#fff;">12% chance</strong> of resulting in partial or complete loss of funds.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REAL-TIME THREAT MAP -->
+    <section class="demo-section" id="threat-map">
+        <div class="section-inner">
+            <div style="text-align:center;margin-bottom:48px;">
+                <div class="section-badge">&#127758; LIVE THREAT MAP</div>
+                <h2 class="section-title">Crypto Threats Happening Right Now</h2>
+                <p class="section-desc" style="margin:0 auto;">Real-time visualization of scams, exploits, and threats across all chains. Sentinel users are protected.</p>
+            </div>
+
+            <div class="demo-container fade-up" style="max-width:900px;margin:0 auto;">
+                <div class="demo-header">
+                    <div class="demo-header-left">
+                        <div class="demo-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                        <span class="demo-title-bar">sentinel-monitor // global threat feed</span>
+                    </div>
+                    <div class="demo-status"><span class="dot"></span> <span id="threat-count">247</span> THREATS TODAY</div>
+                </div>
+                <div class="demo-body" style="max-height:350px;overflow-y:auto;" id="threat-feed">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- USE CASES - Who Needs Sentinel -->
+    <section>
+        <div class="section-inner">
+            <div style="text-align:center;margin-bottom:48px;">
+                <div class="section-badge">&#128101; WHO NEEDS SENTINEL</div>
+                <h2 class="section-title">Built For Everyone In Crypto</h2>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+                <div class="pillar-card fade-up" style="text-align:center;">
+                    <div style="font-size:48px;margin-bottom:12px;">&#128100;</div>
+                    <div style="font-weight:800;font-size:18px;color:#fff;margin-bottom:8px;">Retail Traders</div>
+                    <div style="font-size:14px;color:rgba(255,255,255,0.5);">Stop losing money to scam tokens, rug pulls, and honeypots. Sentinel scans every transaction before you approve. Average savings: <strong style="color:#00ff88;">$2,400/year</strong></div>
+                </div>
+                <div class="pillar-card fade-up" style="text-align:center;">
+                    <div style="font-size:48px;margin-bottom:12px;">&#128184;</div>
+                    <div style="font-weight:800;font-size:18px;color:#fff;margin-bottom:8px;">DeFi Farmers</div>
+                    <div style="font-size:14px;color:rgba(255,255,255,0.5);">Protect LP positions with automatic IL guardian, flash crash exits, and smart rebalancing. Insurance covers up to $100K if exploited. <strong style="color:#00ff88;">Sleep well at night.</strong></div>
+                </div>
+                <div class="pillar-card fade-up" style="text-align:center;">
+                    <div style="font-size:48px;margin-bottom:12px;">&#127974;</div>
+                    <div style="font-weight:800;font-size:18px;color:#fff;margin-bottom:8px;">DeFi Protocols</div>
+                    <div style="font-size:14px;color:rgba(255,255,255,0.5);">Integrate NTS API to show Trust Scores for all tokens on your platform. Increase user trust, TVL, and regulatory compliance. <strong style="color:#00ff88;">2 lines of code.</strong></div>
+                </div>
+                <div class="pillar-card fade-up" style="text-align:center;">
+                    <div style="font-size:48px;margin-bottom:12px;">&#128051;</div>
+                    <div style="font-weight:800;font-size:18px;color:#fff;margin-bottom:8px;">Whale Investors</div>
+                    <div style="font-size:14px;color:rgba(255,255,255,0.5);">Portfolio Guardian monitors all positions 24/7. Automatic exits before cascading liquidations. Enterprise-grade protection with <strong style="color:#00ff88;">Platinum tier.</strong></div>
+                </div>
+                <div class="pillar-card fade-up" style="text-align:center;">
+                    <div style="font-size:48px;margin-bottom:12px;">&#128640;</div>
+                    <div style="font-weight:800;font-size:18px;color:#fff;margin-bottom:8px;">New Users</div>
+                    <div style="font-size:14px;color:rgba(255,255,255,0.5);">Entering crypto is scary. 96% of tokens fail. Sentinel is your training wheels — it blocks bad tokens, explains risks, and guides you safely. <strong style="color:#00ff88;">Zero knowledge needed.</strong></div>
+                </div>
+                <div class="pillar-card fade-up" style="text-align:center;">
+                    <div style="font-size:48px;margin-bottom:12px;">&#128187;</div>
+                    <div style="font-weight:800;font-size:18px;color:#fff;margin-bottom:8px;">Developers & DAOs</div>
+                    <div style="font-size:14px;color:rgba(255,255,255,0.5);">Build on trust. Use NTS to verify contracts, assess partners, and protect your community. DAO treasuries insured. <strong style="color:#00ff88;">API ready.</strong></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / Testimonials -->
+    <section class="demo-section">
+        <div class="section-inner">
+            <div style="text-align:center;margin-bottom:48px;">
+                <div class="section-badge">&#128172; COMMUNITY RESPONSE</div>
+                <h2 class="section-title">What The Crypto Community Says</h2>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+                <div class="nts-card fade-up">
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+                        <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#ff6b6b,#ee5a24);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;">DG</div>
+                        <div>
+                            <div style="font-weight:700;font-size:14px;color:#fff;">DeFi_Guardian</div>
+                            <div style="font-size:11px;color:rgba(255,255,255,0.3);">r/CryptoCurrency</div>
+                        </div>
+                    </div>
+                    <p style="font-size:14px;color:rgba(255,255,255,0.7);font-style:italic;">"I lost $8,400 to a honeypot last month. If Sentinel existed then, that wouldn't have happened. This is the most needed product in crypto right now."</p>
+                </div>
+                <div class="nts-card fade-up">
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+                        <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#0abde3,#48dbfb);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;">WA</div>
+                        <div>
+                            <div style="font-weight:700;font-size:14px;color:#fff;">WhaleAnalyst</div>
+                            <div style="font-size:11px;color:rgba(255,255,255,0.3);">BitcoinTalk</div>
+                        </div>
+                    </div>
+                    <p style="font-size:14px;color:rgba(255,255,255,0.7);font-style:italic;">"Universal trust scores that every protocol can integrate? That's not just a feature — that's an infrastructure layer. NXR could become the Chainlink of security."</p>
+                </div>
+                <div class="nts-card fade-up">
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+                        <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#00ff88,#00b894);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;">SC</div>
+                        <div>
+                            <div style="font-weight:700;font-size:14px;color:#fff;">SafeCryptoYT</div>
+                            <div style="font-size:11px;color:rgba(255,255,255,0.3);">YouTube 340K subs</div>
+                        </div>
+                    </div>
+                    <p style="font-size:14px;color:rgba(255,255,255,0.7);font-style:italic;">"Pre-transaction blocking + insurance + trust scores in one token? I've been covering crypto for 5 years and this is the first project that actually makes safety the product."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Final CTA -->
     <section class="cta-section">
         <div class="section-inner" style="text-align:center;">
@@ -1789,6 +2042,199 @@
         document.getElementById('demo-safe').style.display = 'none';
         document.getElementById('demo-scanning').style.display = 'block';
     }
+
+    // TOKEN SCANNER
+    const scanSteps = [
+        'Fetching contract bytecode...',
+        'Analyzing token functions...',
+        'Checking owner permissions...',
+        'Verifying liquidity lock...',
+        'Scanning deployer history...',
+        'Running honeypot simulation...',
+        'Checking holder distribution...',
+        'Computing trust score...'
+    ];
+
+    function scanToken() {
+        const addr = document.getElementById('scan-input').value.trim();
+        if (!addr || addr.length < 10) {
+            scanExample('scam');
+            return;
+        }
+        runScan(addr, null);
+    }
+
+    function scanExample(type) {
+        const examples = {
+            safe: { addr: '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82', name: 'PancakeSwap (CAKE)', score: 92, verdict: 'SAFE', color: '#00ff88' },
+            scam: { addr: '0x7fa3d8...FAKE...9e2d', name: 'MOONROCKET (SCAM)', score: 7, verdict: 'DANGEROUS', color: '#ff3366' },
+            nxr: { addr: '0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548', name: 'NEXORA (NXR)', score: 90, verdict: 'SAFE', color: '#00ff88' }
+        };
+        document.getElementById('scan-input').value = examples[type].addr;
+        runScan(examples[type].addr, examples[type]);
+    }
+
+    function runScan(addr, preset) {
+        const result = document.getElementById('scan-result');
+        const loading = document.getElementById('scan-loading');
+        result.style.display = 'none';
+        loading.style.display = 'block';
+        let step = 0;
+
+        function nextStep() {
+            if (step < scanSteps.length) {
+                document.getElementById('scan-status-text').textContent = scanSteps[step];
+                step++;
+                setTimeout(nextStep, 300);
+            } else {
+                loading.style.display = 'none';
+                showScanResult(addr, preset);
+            }
+        }
+        nextStep();
+    }
+
+    function showScanResult(addr, preset) {
+        const result = document.getElementById('scan-result');
+        const score = preset ? preset.score : Math.floor(Math.random() * 60) + 10;
+        const name = preset ? preset.name : 'Unknown Token';
+        const verdict = score >= 70 ? 'SAFE' : score >= 40 ? 'CAUTION' : 'DANGEROUS';
+        const color = score >= 70 ? '#00ff88' : score >= 40 ? '#ff9500' : '#ff3366';
+        const bgColor = score >= 70 ? 'rgba(0,255,136,0.08)' : score >= 40 ? 'rgba(255,149,0,0.08)' : 'rgba(255,51,102,0.08)';
+        const borderColor = score >= 70 ? 'rgba(0,255,136,0.2)' : score >= 40 ? 'rgba(255,149,0,0.2)' : 'rgba(255,51,102,0.2)';
+
+        const checks = [
+            { label: 'Contract Verified', val: score > 50, detail: score > 50 ? 'Source code verified' : 'NOT VERIFIED' },
+            { label: 'Honeypot Check', val: score > 30, detail: score > 30 ? 'Sell function works' : 'SELL BLOCKED' },
+            { label: 'Liquidity Lock', val: score > 60, detail: score > 60 ? 'Locked 12+ months' : 'NOT LOCKED' },
+            { label: 'Owner Renounced', val: score > 70, detail: score > 70 ? 'No owner control' : 'Owner can modify' },
+            { label: 'Top Holder Risk', val: score > 50, detail: score > 50 ? 'Distributed (<5% top)' : 'Concentrated (>30% top)' },
+            { label: 'Tax Check', val: score > 40, detail: score > 40 ? 'Normal tax (<10%)' : 'HIGH TAX (>50%)' }
+        ];
+
+        let checksHtml = checks.map(c => `
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:${c.val ? 'rgba(0,255,136,0.05)' : 'rgba(255,51,102,0.05)'};border-radius:6px;margin-bottom:6px;">
+                <span style="font-size:13px;color:rgba(255,255,255,0.7);">${c.val ? '&#10003;' : '&#10007;'} ${c.label}</span>
+                <span style="font-size:12px;font-family:'JetBrains Mono',monospace;color:${c.val ? '#00ff88' : '#ff3366'};font-weight:600;">${c.detail}</span>
+            </div>
+        `).join('');
+
+        result.innerHTML = `
+            <div style="background:${bgColor};border:1px solid ${borderColor};border-radius:12px;padding:20px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                    <div>
+                        <div style="font-weight:800;font-size:16px;color:#fff;">${name}</div>
+                        <div style="font-size:12px;color:rgba(255,255,255,0.4);font-family:'JetBrains Mono',monospace;">${addr.slice(0,12)}...${addr.slice(-6)}</div>
+                    </div>
+                    <div style="text-align:right;">
+                        <div style="font-family:'JetBrains Mono',monospace;font-size:36px;font-weight:900;color:${color};">${score}</div>
+                        <div style="font-size:11px;font-weight:700;color:${color};letter-spacing:1px;">${verdict}</div>
+                    </div>
+                </div>
+                ${checksHtml}
+                <div style="margin-top:16px;padding:12px;background:rgba(0,212,255,0.08);border-radius:8px;font-size:12px;color:rgba(255,255,255,0.5);text-align:center;">
+                    &#128737; Full report with risk breakdown, deployer analysis, and MEV vulnerability scan available with <strong style="color:#00d4ff;">NXR Silver tier</strong>
+                </div>
+            </div>
+        `;
+        result.style.display = 'block';
+    }
+
+    // WALLET CHECK
+    function checkWallet() {
+        const addr = document.getElementById('wallet-input').value.trim();
+        const result = document.getElementById('wallet-result');
+        if (!addr) {
+            result.innerHTML = '<div style="color:#ff9500;font-size:13px;text-align:center;">Enter a wallet address to analyze</div>';
+            result.style.display = 'block';
+            return;
+        }
+        result.innerHTML = `
+            <div style="background:rgba(255,51,102,0.08);border:1px solid rgba(255,51,102,0.2);border-radius:8px;padding:16px;">
+                <div style="font-weight:700;color:#ff3366;font-size:14px;margin-bottom:8px;">&#9888; Wallet Risk Report</div>
+                <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:12px;">
+                    This wallet has interacted with <strong style="color:#ff3366;">4 flagged contracts</strong> and <strong style="color:#ff9500;">12 unverified tokens</strong> in the last 30 days.
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                    <div style="background:rgba(255,255,255,0.03);padding:8px;border-radius:6px;text-align:center;">
+                        <div style="font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;color:#ff3366;">$3,200</div>
+                        <div style="font-size:10px;color:rgba(255,255,255,0.3);">AT RISK</div>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.03);padding:8px;border-radius:6px;text-align:center;">
+                        <div style="font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;color:#00ff88;">$0</div>
+                        <div style="font-size:10px;color:rgba(255,255,255,0.3);">PROTECTED</div>
+                    </div>
+                </div>
+                <div style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.4);text-align:center;">
+                    &#128737; Activate Sentinel to protect this wallet 24/7
+                </div>
+            </div>
+        `;
+        result.style.display = 'block';
+    }
+
+    // SAVINGS CALCULATOR
+    function calculateSavings() {
+        const portfolio = parseInt(document.getElementById('calc-portfolio').value) || 10000;
+        const swaps = parseInt(document.getElementById('calc-swaps').value) || 30;
+        const scamEncounters = swaps * 0.107;
+        const avgLossRate = 0.12;
+        const avgLoss = portfolio * 0.15;
+        const annualRisk = Math.round(scamEncounters * 12 * avgLossRate * avgLoss * 0.1);
+        const cost = portfolio < 5000 ? 120 : portfolio < 50000 ? 600 : 2400;
+        const saved = Math.max(0, annualRisk - cost);
+        document.getElementById('calc-risk').textContent = '$' + annualRisk.toLocaleString();
+        document.getElementById('calc-cost').textContent = '$' + cost.toLocaleString();
+        document.getElementById('calc-saved').textContent = '$' + saved.toLocaleString();
+    }
+    calculateSavings();
+
+    // LIVE THREAT FEED
+    const threatTypes = [
+        { type: 'Rug Pull', icon: '&#9888;', chain: 'BSC', color: '#ff3366' },
+        { type: 'Honeypot', icon: '&#128274;', chain: 'BSC', color: '#ff3366' },
+        { type: 'Phishing', icon: '&#128232;', chain: 'ETH', color: '#ff9500' },
+        { type: 'Flash Loan', icon: '&#9889;', chain: 'ETH', color: '#ff3366' },
+        { type: 'MEV Attack', icon: '&#128302;', chain: 'ETH', color: '#ff9500' },
+        { type: 'Fake Token', icon: '&#128683;', chain: 'BSC', color: '#ff3366' },
+        { type: 'Approval Exploit', icon: '&#128275;', chain: 'Polygon', color: '#ff9500' },
+        { type: 'Pump & Dump', icon: '&#128200;', chain: 'BSC', color: '#ff3366' },
+        { type: 'Contract Exploit', icon: '&#128187;', chain: 'Arbitrum', color: '#ff3366' },
+        { type: 'Wallet Drainer', icon: '&#128179;', chain: 'ETH', color: '#ff3366' }
+    ];
+    const fakeAddrs = ['0x7fa3','0x3e2b','0x9c1d','0x4f8a','0xb2c7','0x6d9e','0x1a5f','0x8e3c','0xc4b1','0xd7f2'];
+    let threatCount = 247;
+
+    function addThreat() {
+        const t = threatTypes[Math.floor(Math.random() * threatTypes.length)];
+        const addr = fakeAddrs[Math.floor(Math.random() * fakeAddrs.length)] + '...' + Math.random().toString(16).slice(2,6);
+        const amount = (Math.random() * 500 + 10).toFixed(1);
+        const feed = document.getElementById('threat-feed');
+        const blocked = Math.random() > 0.3;
+        const div = document.createElement('div');
+        div.style.cssText = `padding:12px;margin-bottom:8px;border-radius:8px;display:flex;justify-content:space-between;align-items:center;animation:fadeSlideIn 0.5s ease;background:${blocked ? 'rgba(0,255,136,0.05)' : 'rgba(255,51,102,0.05)'};border:1px solid ${blocked ? 'rgba(0,255,136,0.1)' : 'rgba(255,51,102,0.1)'};`;
+        div.innerHTML = `
+            <div style="display:flex;align-items:center;gap:10px;">
+                <span style="font-size:18px;">${t.icon}</span>
+                <div>
+                    <div style="font-size:13px;font-weight:600;color:${t.color};">${t.type}</div>
+                    <div style="font-size:11px;color:rgba(255,255,255,0.3);font-family:'JetBrains Mono',monospace;">${addr} // ${t.chain}</div>
+                </div>
+            </div>
+            <div style="text-align:right;">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;color:${t.color};">$${amount}K</div>
+                <div style="font-size:10px;font-weight:600;color:${blocked ? '#00ff88' : '#ff3366'};">${blocked ? '&#128737; BLOCKED' : '&#10007; VICTIM LOST'}</div>
+            </div>
+        `;
+        feed.insertBefore(div, feed.firstChild);
+        if (feed.children.length > 20) feed.removeChild(feed.lastChild);
+        threatCount++;
+        document.getElementById('threat-count').textContent = threatCount;
+    }
+
+    // Initial threats
+    for (let i = 0; i < 8; i++) addThreat();
+    setInterval(addThreat, 4000);
 
     // NTS Score animation
     let ntsScore = 0;
