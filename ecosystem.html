@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXORA Ecosystem - Staking, NFTs, DAO, Launchpad</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .eco-hero { padding: 140px 0 80px; text-align: center; }
+        .eco-hero h1 { font-size: 48px; margin-bottom: 16px; }
+        .eco-hero p { color: var(--text-muted); font-size: 18px; max-width: 600px; margin: 0 auto; }
+
+        .eco-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-bottom: 60px; }
+        .eco-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .eco-card:hover { border-color: rgba(0,212,255,0.3); transform: translateY(-4px); box-shadow: var(--glow); }
+        .eco-card .eco-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+        .badge-live { background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
+        .badge-soon { background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
+        .badge-dev { background: rgba(124,58,237,0.15); color: #a78bfa; border: 1px solid rgba(124,58,237,0.3); }
+
+        .eco-card h2 { font-size: 28px; margin-bottom: 12px; }
+        .eco-card .eco-desc { color: var(--text-muted); font-size: 15px; margin-bottom: 24px; line-height: 1.7; }
+
+        .eco-features { list-style: none; margin-bottom: 24px; }
+        .eco-features li {
+            padding: 8px 0;
+            color: var(--text);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .eco-features li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--primary); flex-shrink: 0; }
+
+        .eco-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+        .eco-table th, .eco-table td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 13px;
+        }
+        .eco-table th { color: var(--primary); font-weight: 600; }
+        .eco-table td { color: var(--text-muted); }
+
+        .tier-badge { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; }
+        .tier-common { background: rgba(156,163,175,0.2); color: #9ca3af; }
+        .tier-rare { background: rgba(59,130,246,0.2); color: #60a5fa; }
+        .tier-epic { background: rgba(168,85,247,0.2); color: #c084fc; }
+        .tier-legendary { background: rgba(245,158,11,0.2); color: #fbbf24; }
+        .tier-mythic { background: rgba(239,68,68,0.2); color: #f87171; }
+
+        .eco-cta {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(0,212,255,0.05), rgba(124,58,237,0.05));
+            border-radius: 20px;
+            margin-bottom: 60px;
+        }
+        .eco-cta h2 { font-size: 36px; margin-bottom: 16px; }
+        .eco-cta p { color: var(--text-muted); margin-bottom: 30px; }
+
+        @media (max-width: 768px) {
+            .eco-grid { grid-template-columns: 1fr; }
+            .eco-hero h1 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="images/nexora-logo-64.png" alt="NEXORA" class="nav-logo">
+                <span class="logo-text">NEXORA</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#tokenomics">Tokenomics</a>
+                <a href="#staking">Staking</a>
+                <a href="#nft">NFTs</a>
+                <a href="#dao">DAO</a>
+                <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="btn-nav">Buy NXR</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="eco-hero">
+        <div class="container">
+            <div class="badge">NEXORA ECOSYSTEM</div>
+            <h1>The <span class="gradient-text">NEXORA</span> Ecosystem</h1>
+            <p>Stake, collect, govern, and launch. Everything you need in one unified DeFi ecosystem built on BSC.</p>
+        </div>
+    </section>
+
+    <!-- Ecosystem Cards -->
+    <section class="section" style="padding-top:0">
+        <div class="container">
+            <div class="eco-grid">
+                <!-- Staking -->
+                <div class="eco-card" id="staking">
+                    <span class="eco-badge badge-soon">COMING SOON</span>
+                    <h2>Staking Platform</h2>
+                    <p class="eco-desc">Lock your NXR tokens and earn passive rewards with tiered APY. The longer you stake, the more you earn.</p>
+                    <table class="eco-table">
+                        <tr><th>Tier</th><th>Lock Period</th><th>APY</th></tr>
+                        <tr><td>Bronze</td><td>30 days</td><td>10%</td></tr>
+                        <tr><td>Silver</td><td>90 days</td><td>25%</td></tr>
+                        <tr><td>Gold</td><td>180 days</td><td>50%</td></tr>
+                        <tr><td>Diamond</td><td>365 days</td><td>100%</td></tr>
+                    </table>
+                    <ul class="eco-features">
+                        <li>Emergency withdraw with 10% penalty</li>
+                        <li>Minimum stake: 1,000 NXR</li>
+                        <li>Rewards funded by ecosystem treasury</li>
+                        <li>Fee-on-transfer compatible</li>
+                    </ul>
+                </div>
+
+                <!-- NFT -->
+                <div class="eco-card" id="nft">
+                    <span class="eco-badge badge-dev">IN DEVELOPMENT</span>
+                    <h2>Nexora Guardians NFT</h2>
+                    <p class="eco-desc">10,000 unique NFTs with 5 rarity tiers. Each Guardian provides staking boosts and exclusive ecosystem benefits.</p>
+                    <table class="eco-table">
+                        <tr><th>Tier</th><th>Rarity</th><th>Staking Boost</th></tr>
+                        <tr><td><span class="tier-badge tier-common">Common</span></td><td>60%</td><td>+5%</td></tr>
+                        <tr><td><span class="tier-badge tier-rare">Rare</span></td><td>25%</td><td>+15%</td></tr>
+                        <tr><td><span class="tier-badge tier-epic">Epic</span></td><td>10%</td><td>+30%</td></tr>
+                        <tr><td><span class="tier-badge tier-legendary">Legendary</span></td><td>4%</td><td>+50%</td></tr>
+                        <tr><td><span class="tier-badge tier-mythic">Mythic</span></td><td>1%</td><td>+100%</td></tr>
+                    </table>
+                    <ul class="eco-features">
+                        <li>Mint price: 100,000 NXR (50% burned)</li>
+                        <li>Max 10 per wallet</li>
+                        <li>Random tier assignment on mint</li>
+                    </ul>
+                </div>
+
+                <!-- DAO -->
+                <div class="eco-card" id="dao">
+                    <span class="eco-badge badge-dev">IN DEVELOPMENT</span>
+                    <h2>DAO Governance</h2>
+                    <p class="eco-desc">Community-driven governance. Hold NXR to create and vote on proposals that shape the future of the Nexora ecosystem.</p>
+                    <ul class="eco-features">
+                        <li>Create proposals (requires 1M+ NXR)</li>
+                        <li>Vote weight = NXR balance</li>
+                        <li>48-hour voting period</li>
+                        <li>24-hour execution timelock</li>
+                        <li>5% quorum requirement</li>
+                        <li>Treasury spend proposals</li>
+                        <li>Parameter change proposals</li>
+                        <li>Emergency proposals</li>
+                    </ul>
+                </div>
+
+                <!-- Launchpad -->
+                <div class="eco-card" id="launchpad">
+                    <span class="eco-badge badge-dev">IN DEVELOPMENT</span>
+                    <h2>Nexora Launchpad</h2>
+                    <p class="eco-desc">Launch new tokens through the Nexora ecosystem. Tiered participation based on NXR holdings ensures fair access for the community.</p>
+                    <table class="eco-table">
+                        <tr><th>Tier</th><th>NXR Required</th><th>Benefit</th></tr>
+                        <tr><td>Bronze</td><td>10,000 NXR</td><td>Basic access</td></tr>
+                        <tr><td>Silver</td><td>100,000 NXR</td><td>Priority allocation</td></tr>
+                        <tr><td>Gold</td><td>500,000 NXR</td><td>Guaranteed allocation</td></tr>
+                        <tr><td>Diamond</td><td>1,000,000 NXR</td><td>Max allocation</td></tr>
+                    </table>
+                    <ul class="eco-features">
+                        <li>2% platform fee (used for NXR buyback & burn)</li>
+                        <li>Soft/hard cap system</li>
+                        <li>Automatic refunds if soft cap not met</li>
+                        <li>Anti-bot: max contribution per wallet</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Cross-Chain Bridge -->
+            <div class="eco-card" id="bridge" style="margin-bottom:60px">
+                <span class="eco-badge badge-dev">PLANNED</span>
+                <h2>Cross-Chain Bridge</h2>
+                <p class="eco-desc">Bridge NXR between BSC, Ethereum, and Polygon. Lock-and-mint architecture with multi-sig validator security.</p>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px">
+                    <div style="text-align:center;padding:20px;background:rgba(0,212,255,0.05);border-radius:12px">
+                        <div style="font-size:24px;font-weight:700;color:var(--primary)">BSC</div>
+                        <div style="color:var(--text-muted);font-size:13px">Home Chain</div>
+                    </div>
+                    <div style="text-align:center;padding:20px;background:rgba(124,58,237,0.05);border-radius:12px">
+                        <div style="font-size:24px;font-weight:700;color:var(--accent)">ETH</div>
+                        <div style="color:var(--text-muted);font-size:13px">Ethereum</div>
+                    </div>
+                    <div style="text-align:center;padding:20px;background:rgba(124,58,237,0.05);border-radius:12px">
+                        <div style="font-size:24px;font-weight:700;color:var(--accent)">MATIC</div>
+                        <div style="color:var(--text-muted);font-size:13px">Polygon</div>
+                    </div>
+                </div>
+                <ul class="eco-features" style="margin-top:20px">
+                    <li>0.5% bridge fee</li>
+                    <li>Multi-sig validator set (3/5 threshold)</li>
+                    <li>Min 10K NXR / Max 10M NXR per bridge</li>
+                    <li>Replay attack protection</li>
+                </ul>
+            </div>
+
+            <!-- CTA -->
+            <div class="eco-cta">
+                <h2>Ready to Join the <span class="gradient-text">Ecosystem</span>?</h2>
+                <p>Get NXR tokens to participate in staking, NFTs, governance, and launchpad sales.</p>
+                <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="btn btn-primary">Buy NXR on PancakeSwap</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="images/nexora-logo-64.png" alt="NEXORA" class="footer-logo">
+                    <span>NEXORA</span>
+                </div>
+                <p class="footer-disclaimer">NEXORA is an experimental DeFi token. Cryptocurrency investments carry risk. Do your own research before investing. This is not financial advice.</p>
+                <p class="footer-copy">&copy; 2026 Nexora. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('hamburger')?.addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
