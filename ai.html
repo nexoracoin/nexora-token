@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXORA AI Oracle - Crypto Intelligence Powered by NXR</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <meta property="og:title" content="NEXORA AI Oracle - The First Token-Gated Crypto AI">
+    <meta property="og:description" content="AI-powered trading signals, whale tracking, and market predictions. Hold NXR to unlock. The more you hold, the more you see.">
+    <meta property="og:image" content="images/nexora-logo-512.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--cyan:#00f0ff;--purple:#a855f7;--green:#22ff88;--red:#ff3366;--gold:#ffd700;--orange:#ff8844;--bg:#050510;--card:#0c0c24;--card2:#12123a;--text:#e4e4ff;--dim:#666688;--border:rgba(168,85,247,0.15)}
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+        body::after{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 30% 0%,rgba(0,240,255,0.06) 0%,transparent 60%),radial-gradient(ellipse at 70% 100%,rgba(168,85,247,0.06) 0%,transparent 60%);pointer-events:none;z-index:0}
+
+        .container{max-width:1280px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+        /* Neural network background */
+        #neuralCanvas{position:fixed;inset:0;z-index:0;opacity:0.15}
+
+        /* Nav */
+        nav{padding:16px 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(5,5,16,0.92);backdrop-filter:blur(24px);z-index:100}
+        nav .container{display:flex;justify-content:space-between;align-items:center}
+        .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
+        .brand img{height:32px}
+        .brand span{font-weight:900;font-size:1.2em}
+        .nav-links{display:flex;gap:18px;align-items:center}
+        .nav-links a{color:var(--dim);text-decoration:none;font-size:.88em;transition:.3s}
+        .nav-links a:hover{color:var(--cyan)}
+        .btn-sm{background:linear-gradient(135deg,var(--purple),var(--cyan));color:#fff;padding:8px 22px;border-radius:24px;font-weight:600;font-size:.88em}
+
+        /* Hero */
+        .hero{text-align:center;padding:100px 0 60px;position:relative}
+        .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,240,255,0.08);border:1px solid rgba(0,240,255,0.2);padding:8px 20px;border-radius:30px;font-size:.85em;color:var(--cyan);margin-bottom:24px}
+        .hero-badge .dot{width:8px;height:8px;background:var(--green);border-radius:50%;animation:blink 1.5s infinite}
+        @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+        .hero h1{font-size:4em;font-weight:900;line-height:1.05;margin-bottom:16px}
+        .hero h1 .gradient{background:linear-gradient(135deg,var(--cyan),var(--purple),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .hero p{font-size:1.3em;color:var(--dim);max-width:680px;margin:0 auto 32px}
+        .hero-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+        .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:16px 40px;background:linear-gradient(135deg,var(--cyan),#0088ff);color:#000;font-weight:800;font-size:1.1em;border-radius:50px;text-decoration:none;transition:.3s;box-shadow:0 4px 30px rgba(0,240,255,0.25)}
+        .btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 40px rgba(0,240,255,0.4)}
+        .btn-outline{display:inline-flex;align-items:center;gap:8px;padding:16px 40px;border:2px solid var(--purple);color:var(--purple);font-weight:700;font-size:1.1em;border-radius:50px;text-decoration:none;transition:.3s}
+        .btn-outline:hover{background:var(--purple);color:#fff}
+
+        /* Stats bar */
+        .stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:16px;overflow:hidden;margin:60px 0}
+        .stat{background:var(--card);padding:28px;text-align:center}
+        .stat .num{font-family:'JetBrains Mono';font-size:2em;font-weight:900}
+        .stat .lbl{font-size:.8em;color:var(--dim);margin-top:4px;text-transform:uppercase;letter-spacing:1px}
+        .num-cyan{color:var(--cyan)}
+        .num-green{color:var(--green)}
+        .num-purple{color:var(--purple)}
+        .num-gold{color:var(--gold)}
+
+        /* Tiers */
+        .tiers{padding:80px 0}
+        .section-title{text-align:center;font-size:2.5em;font-weight:900;margin-bottom:12px}
+        .section-sub{text-align:center;color:var(--dim);font-size:1.1em;margin-bottom:50px}
+        .tiers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+        .tier-card{background:var(--card);border-radius:20px;padding:32px 24px;text-align:center;border:1px solid var(--border);transition:.3s;position:relative;overflow:hidden}
+        .tier-card:hover{transform:translateY(-5px);box-shadow:0 10px 40px rgba(168,85,247,0.15)}
+        .tier-card.popular{border-color:var(--cyan);box-shadow:0 0 30px rgba(0,240,255,0.1)}
+        .tier-card.popular::before{content:'MOST POPULAR';position:absolute;top:12px;right:-32px;background:linear-gradient(135deg,var(--cyan),var(--purple));color:#fff;font-size:.65em;font-weight:800;padding:4px 40px;transform:rotate(45deg);letter-spacing:1px}
+        .tier-icon{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8em;margin:0 auto 16px}
+        .tier-name{font-size:1.3em;font-weight:800;margin-bottom:4px}
+        .tier-req{font-family:'JetBrains Mono';font-size:.85em;color:var(--dim);margin-bottom:20px}
+        .tier-features{list-style:none;text-align:left;font-size:.9em}
+        .tier-features li{padding:8px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+        .tier-features li:last-child{border:none}
+        .tier-features .check{color:var(--green);font-weight:bold}
+        .tier-features .lock{color:var(--dim)}
+        .tier-btn{display:block;margin-top:20px;padding:12px;background:var(--card2);border:1px solid var(--border);border-radius:12px;color:var(--text);font-weight:700;text-decoration:none;transition:.3s;text-align:center}
+        .tier-btn:hover{background:linear-gradient(135deg,var(--purple),var(--cyan));border-color:transparent}
+
+        /* AI Features showcase */
+        .features{padding:80px 0}
+        .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+        .feat-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;transition:.3s}
+        .feat-card:hover{border-color:var(--cyan);box-shadow:0 5px 30px rgba(0,240,255,0.08)}
+        .feat-icon{font-size:2.5em;margin-bottom:16px}
+        .feat-card h3{font-size:1.3em;margin-bottom:8px}
+        .feat-card p{color:var(--dim);font-size:.95em;line-height:1.6}
+        .feat-tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.7em;font-weight:700;margin-top:12px}
+        .tag-free{background:rgba(34,255,136,0.1);color:var(--green);border:1px solid rgba(34,255,136,0.2)}
+        .tag-pro{background:rgba(0,240,255,0.1);color:var(--cyan);border:1px solid rgba(0,240,255,0.2)}
+        .tag-elite{background:rgba(168,85,247,0.1);color:var(--purple);border:1px solid rgba(168,85,247,0.2)}
+        .tag-legend{background:rgba(255,215,0,0.1);color:var(--gold);border:1px solid rgba(255,215,0,0.2)}
+
+        /* Live Dashboard Preview */
+        .dashboard{padding:80px 0}
+        .dash-preview{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden}
+        .dash-header{background:var(--card2);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}
+        .dash-header .title{font-weight:700;display:flex;align-items:center;gap:8px}
+        .dash-header .status{display:flex;align-items:center;gap:6px;font-size:.85em;color:var(--green)}
+        .dash-body{padding:24px;display:grid;grid-template-columns:2fr 1fr;gap:20px;min-height:400px}
+        .dash-signals{display:flex;flex-direction:column;gap:12px}
+        .signal{background:var(--card2);border-radius:12px;padding:16px;border-left:3px solid var(--green);display:flex;justify-content:space-between;align-items:center}
+        .signal.sell{border-left-color:var(--red)}
+        .signal.neutral{border-left-color:var(--gold)}
+        .signal-info .coin{font-weight:700;font-size:1.1em}
+        .signal-info .detail{font-size:.8em;color:var(--dim);margin-top:2px}
+        .signal-action{font-family:'JetBrains Mono';font-weight:800;font-size:.9em;padding:6px 14px;border-radius:8px}
+        .signal-action.buy{background:rgba(34,255,136,0.15);color:var(--green)}
+        .signal-action.sell{background:rgba(255,51,102,0.15);color:var(--red)}
+        .signal-action.hold{background:rgba(255,215,0,0.15);color:var(--gold)}
+        .dash-sidebar{display:flex;flex-direction:column;gap:12px}
+        .whale-alert{background:var(--card2);border-radius:12px;padding:14px;border-left:3px solid var(--orange)}
+        .whale-alert .whale-title{font-size:.75em;color:var(--orange);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+        .whale-alert .whale-detail{font-size:.85em}
+        .whale-alert .whale-time{font-size:.7em;color:var(--dim);margin-top:4px}
+        .sentiment-box{background:var(--card2);border-radius:12px;padding:16px;text-align:center}
+        .sentiment-box .label{font-size:.8em;color:var(--dim);margin-bottom:8px}
+        .sentiment-meter{height:12px;background:var(--bg);border-radius:6px;overflow:hidden;margin:8px 0}
+        .sentiment-fill{height:100%;border-radius:6px;transition:width 2s}
+        .fear{background:linear-gradient(90deg,var(--red),var(--orange))}
+        .greed{background:linear-gradient(90deg,var(--green),var(--cyan))}
+
+        /* Locked overlay */
+        .locked-overlay{position:absolute;inset:0;background:rgba(5,5,16,0.85);backdrop-filter:blur(8px);display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:20px;z-index:5}
+        .lock-icon{font-size:3em;margin-bottom:12px}
+        .lock-text{font-size:1.1em;font-weight:700;margin-bottom:4px}
+        .lock-sub{font-size:.85em;color:var(--dim)}
+        .lock-btn{margin-top:16px;padding:10px 28px;background:linear-gradient(135deg,var(--purple),var(--cyan));color:#fff;border:none;border-radius:25px;font-weight:700;cursor:pointer;text-decoration:none;font-size:.9em}
+
+        /* How it works */
+        .how{padding:80px 0}
+        .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
+        .step{text-align:center;position:relative}
+        .step-num{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--cyan));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.3em;margin:0 auto 16px;color:#000}
+        .step h4{font-size:1.1em;margin-bottom:6px}
+        .step p{font-size:.88em;color:var(--dim);line-height:1.5}
+        .step::after{content:'';position:absolute;top:28px;left:calc(50% + 40px);width:calc(100% - 80px);height:2px;background:var(--border)}
+        .step:last-child::after{display:none}
+
+        /* Tokenomics flywheel */
+        .flywheel{padding:80px 0;text-align:center}
+        .flywheel-visual{max-width:700px;margin:40px auto;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:48px;position:relative}
+        .fly-step{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--border);text-align:left}
+        .fly-step:last-child{border:none}
+        .fly-num{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.9em;flex-shrink:0}
+        .fly-step h4{font-size:1em;margin-bottom:2px}
+        .fly-step p{font-size:.85em;color:var(--dim)}
+
+        /* CTA bottom */
+        .cta-bottom{text-align:center;padding:80px 0 100px}
+        .cta-bottom h2{font-size:3em;font-weight:900;margin-bottom:16px}
+        .cta-bottom h2 .gradient{background:linear-gradient(135deg,var(--green),var(--cyan),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .cta-bottom p{color:var(--dim);font-size:1.2em;margin-bottom:36px;max-width:600px;margin-left:auto;margin-right:auto}
+
+        .footer{text-align:center;padding:40px 0;border-top:1px solid var(--border);color:var(--dim);font-size:.8em}
+
+        @media(max-width:900px){
+            .tiers-grid,.feat-grid{grid-template-columns:1fr 1fr}
+            .stats-bar,.steps{grid-template-columns:repeat(2,1fr)}
+            .dash-body{grid-template-columns:1fr}
+            .hero h1{font-size:2.5em}
+        }
+        @media(max-width:600px){
+            .tiers-grid,.feat-grid,.stats-bar,.steps{grid-template-columns:1fr}
+            .hero h1{font-size:1.8em}
+            .nav-links{display:none}
+        }
+    </style>
+</head>
+<body>
+    <canvas id="neuralCanvas"></canvas>
+
+    <nav>
+        <div class="container">
+            <a href="index.html" class="brand"><img src="images/nexora-logo-64.png" alt="NEXORA"><span>NEXORA</span></a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="ecosystem.html">Ecosystem</a>
+                <a href="nft.html">NFT</a>
+                <a href="simulator.html">Simulator</a>
+                <a href="ai.html" style="color:var(--cyan);font-weight:600">AI Oracle</a>
+                <a href="mint.html" style="color:var(--green);font-weight:600">Mint NFT</a>
+                <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="btn-sm">Buy NXR</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <div class="hero-badge"><span class="dot"></span> NEXORA AI Oracle is Live</div>
+            <h1>The First <span class="gradient">AI-Powered</span><br>Crypto Intelligence<br>Platform That <span class="gradient">Pays You</span></h1>
+            <p>Hold NXR tokens to unlock AI trading signals, whale tracking, market predictions, and portfolio optimization. The more you hold, the smarter you trade.</p>
+            <div class="hero-cta">
+                <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="btn-primary">Get NXR to Unlock AI</a>
+                <a href="#tiers" class="btn-outline">View Access Tiers</a>
+            </div>
+        </section>
+
+        <div class="stats-bar">
+            <div class="stat"><div class="num num-cyan" id="aiSignals">0</div><div class="lbl">AI Signals Today</div></div>
+            <div class="stat"><div class="num num-green" id="aiAccuracy">0%</div><div class="lbl">Signal Accuracy</div></div>
+            <div class="stat"><div class="num num-purple" id="aiWhales">0</div><div class="lbl">Whale Moves Tracked</div></div>
+            <div class="stat"><div class="num num-gold" id="aiTokens">0</div><div class="lbl">Tokens Analyzed</div></div>
+        </div>
+
+        <!-- AI Features -->
+        <section class="features">
+            <h2 class="section-title">AI That Trades. You That Profits.</h2>
+            <p class="section-sub">Six powerful AI modules working 24/7 to find you alpha</p>
+            <div class="feat-grid">
+                <div class="feat-card">
+                    <div class="feat-icon">&#129302;</div>
+                    <h3>AI Trading Signals</h3>
+                    <p>Our neural network analyzes 500+ data points across 50 exchanges to generate high-probability buy/sell signals. Real-time alerts delivered instantly to your dashboard.</p>
+                    <span class="feat-tag tag-pro">PRO - Hold 1M NXR</span>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">&#128051;</div>
+                    <h3>Whale Tracker</h3>
+                    <p>Monitor large wallet movements in real-time. See what smart money is buying before the crowd. Get alerts when whales accumulate or dump specific tokens.</p>
+                    <span class="feat-tag tag-free">BASIC - Hold 100K NXR</span>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">&#128200;</div>
+                    <h3>Market Predictions</h3>
+                    <p>Machine learning models trained on 5+ years of crypto data predict price movements with up to 87% accuracy. Short-term and long-term forecasts for 200+ tokens.</p>
+                    <span class="feat-tag tag-elite">ELITE - Hold 10M NXR</span>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">&#128176;</div>
+                    <h3>Smart Money Flow</h3>
+                    <p>Track institutional and smart money movements across DeFi. See which protocols are attracting capital before the narratives form. Front-run the trend.</p>
+                    <span class="feat-tag tag-pro">PRO - Hold 1M NXR</span>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">&#129504;</div>
+                    <h3>Sentiment Analysis</h3>
+                    <p>AI scans Twitter, Reddit, Telegram, Discord, and news in real-time. Detect narrative shifts before they move markets. Sentiment score for every token.</p>
+                    <span class="feat-tag tag-free">BASIC - Hold 100K NXR</span>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon">&#128640;</div>
+                    <h3>Alpha Discovery Engine</h3>
+                    <p>Automatically discovers new tokens, protocols, and opportunities before they trend. AI-scored gems with risk assessment, contract analysis, and growth potential.</p>
+                    <span class="feat-tag tag-legend">LEGEND - Hold 100M NXR</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tiers -->
+        <section class="tiers" id="tiers">
+            <h2 class="section-title">Choose Your Intelligence Level</h2>
+            <p class="section-sub">Hold NXR in your wallet. No staking needed. Instant access.</p>
+            <div class="tiers-grid">
+                <div class="tier-card">
+                    <div class="tier-icon" style="background:rgba(34,255,136,0.1)">&#127793;</div>
+                    <div class="tier-name">Basic</div>
+                    <div class="tier-req">Hold 100K NXR</div>
+                    <ul class="tier-features">
+                        <li><span class="check">&#10004;</span> Market overview dashboard</li>
+                        <li><span class="check">&#10004;</span> Basic sentiment analysis</li>
+                        <li><span class="check">&#10004;</span> Whale alerts (top 10 tokens)</li>
+                        <li><span class="check">&#10004;</span> Price alerts</li>
+                        <li><span class="lock">&#128274;</span> AI trading signals</li>
+                        <li><span class="lock">&#128274;</span> Predictions</li>
+                    </ul>
+                    <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="tier-btn">Get 100K NXR</a>
+                </div>
+                <div class="tier-card popular">
+                    <div class="tier-icon" style="background:rgba(0,240,255,0.1)">&#9889;</div>
+                    <div class="tier-name" style="color:var(--cyan)">Pro</div>
+                    <div class="tier-req">Hold 1M NXR</div>
+                    <ul class="tier-features">
+                        <li><span class="check">&#10004;</span> Everything in Basic</li>
+                        <li><span class="check">&#10004;</span> AI trading signals (real-time)</li>
+                        <li><span class="check">&#10004;</span> Smart money flow tracking</li>
+                        <li><span class="check">&#10004;</span> Whale alerts (all tokens)</li>
+                        <li><span class="check">&#10004;</span> Portfolio optimization</li>
+                        <li><span class="lock">&#128274;</span> Alpha discovery</li>
+                    </ul>
+                    <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="tier-btn">Get 1M NXR</a>
+                </div>
+                <div class="tier-card">
+                    <div class="tier-icon" style="background:rgba(168,85,247,0.1)">&#128142;</div>
+                    <div class="tier-name" style="color:var(--purple)">Elite</div>
+                    <div class="tier-req">Hold 10M NXR</div>
+                    <ul class="tier-features">
+                        <li><span class="check">&#10004;</span> Everything in Pro</li>
+                        <li><span class="check">&#10004;</span> AI price predictions (87%)</li>
+                        <li><span class="check">&#10004;</span> On-chain analytics</li>
+                        <li><span class="check">&#10004;</span> Liquidation alerts</li>
+                        <li><span class="check">&#10004;</span> DeFi yield optimizer</li>
+                        <li><span class="lock">&#128274;</span> Early alpha (Legend only)</li>
+                    </ul>
+                    <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="tier-btn">Get 10M NXR</a>
+                </div>
+                <div class="tier-card">
+                    <div class="tier-icon" style="background:rgba(255,215,0,0.1)">&#128081;</div>
+                    <div class="tier-name" style="color:var(--gold)">Legend</div>
+                    <div class="tier-req">Hold 100M NXR</div>
+                    <ul class="tier-features">
+                        <li><span class="check">&#10004;</span> EVERYTHING unlocked</li>
+                        <li><span class="check">&#10004;</span> Alpha Discovery Engine</li>
+                        <li><span class="check">&#10004;</span> AI auto-trading bot</li>
+                        <li><span class="check">&#10004;</span> Private Telegram alerts</li>
+                        <li><span class="check">&#10004;</span> Direct team access</li>
+                        <li><span class="check">&#10004;</span> Revenue share from AI</li>
+                    </ul>
+                    <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="tier-btn">Get 100M NXR</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Dashboard Preview -->
+        <section class="dashboard">
+            <h2 class="section-title">Live Dashboard Preview</h2>
+            <p class="section-sub">This is what Pro members see right now</p>
+            <div class="dash-preview">
+                <div class="dash-header">
+                    <div class="title">&#129302; NEXORA AI Oracle - Live Feed</div>
+                    <div class="status"><span class="dot" style="width:8px;height:8px;background:var(--green);border-radius:50%;display:inline-block;animation:blink 1.5s infinite"></span> Processing signals...</div>
+                </div>
+                <div class="dash-body">
+                    <div class="dash-signals" id="signalsFeed">
+                        <div class="signal">
+                            <div class="signal-info"><div class="coin">BTC/USDT</div><div class="detail">RSI oversold + whale accumulation detected</div></div>
+                            <div class="signal-action buy">BUY</div>
+                        </div>
+                        <div class="signal sell">
+                            <div class="signal-info"><div class="coin">SOL/USDT</div><div class="detail">Bearish divergence + smart money outflow</div></div>
+                            <div class="signal-action sell">SELL</div>
+                        </div>
+                        <div class="signal">
+                            <div class="signal-info"><div class="coin">ETH/USDT</div><div class="detail">Breakout pattern + increasing volume</div></div>
+                            <div class="signal-action buy">BUY</div>
+                        </div>
+                        <div class="signal neutral">
+                            <div class="signal-info"><div class="coin">BNB/USDT</div><div class="detail">Consolidation phase - wait for confirmation</div></div>
+                            <div class="signal-action hold">HOLD</div>
+                        </div>
+                        <div class="signal">
+                            <div class="signal-info"><div class="coin">AVAX/USDT</div><div class="detail">AI detects accumulation pattern + positive sentiment shift</div></div>
+                            <div class="signal-action buy">BUY</div>
+                        </div>
+                    </div>
+                    <div class="dash-sidebar">
+                        <div class="sentiment-box">
+                            <div class="label">MARKET SENTIMENT</div>
+                            <div style="font-family:'JetBrains Mono';font-size:1.6em;font-weight:900;color:var(--orange)" id="sentimentScore">42</div>
+                            <div class="sentiment-meter"><div class="sentiment-fill fear" id="sentimentBar" style="width:42%"></div></div>
+                            <div style="font-size:.8em;color:var(--orange)">Fear</div>
+                        </div>
+                        <div class="whale-alert">
+                            <div class="whale-title">&#128051; Whale Alert</div>
+                            <div class="whale-detail">500 BTC moved from Binance to unknown wallet</div>
+                            <div class="whale-time">2 minutes ago</div>
+                        </div>
+                        <div class="whale-alert">
+                            <div class="whale-title">&#128051; Whale Alert</div>
+                            <div class="whale-detail">$2.4M ETH accumulated by smart money wallet</div>
+                            <div class="whale-time">8 minutes ago</div>
+                        </div>
+                        <div class="whale-alert">
+                            <div class="whale-title">&#128051; Whale Alert</div>
+                            <div class="whale-detail">Large LINK transfer to DeFi protocol</div>
+                            <div class="whale-time">15 minutes ago</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="locked-overlay" id="dashLock">
+                    <div class="lock-icon">&#128274;</div>
+                    <div class="lock-text">Hold 1M NXR to Unlock Live Signals</div>
+                    <div class="lock-sub">Connect your wallet to verify your NXR balance</div>
+                    <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="lock-btn">Get NXR Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="how">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-sub">Four simple steps to AI-powered trading</p>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <h4>Buy NXR</h4>
+                    <p>Get NXR tokens on PancakeSwap. The more you hold, the more AI features you unlock.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <h4>Connect Wallet</h4>
+                    <p>Connect your MetaMask or Trust Wallet. The AI instantly verifies your NXR balance.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <h4>Get Signals</h4>
+                    <p>Receive AI-generated trading signals, whale alerts, and market predictions in real-time.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <h4>Earn While Holding</h4>
+                    <p>While using AI, you still earn 1% of every NXR trade automatically. Double value.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Value Flywheel -->
+        <section class="flywheel">
+            <h2 class="section-title">The NEXORA Value Flywheel</h2>
+            <p class="section-sub">A self-reinforcing ecosystem that only gets stronger</p>
+            <div class="flywheel-visual">
+                <div class="fly-step">
+                    <div class="fly-num" style="background:rgba(0,240,255,0.15);color:var(--cyan)">1</div>
+                    <div><h4>People buy NXR to access AI Oracle</h4><p>Real utility drives real demand</p></div>
+                </div>
+                <div class="fly-step">
+                    <div class="fly-num" style="background:rgba(34,255,136,0.15);color:var(--green)">2</div>
+                    <div><h4>Every purchase burns 2% and rewards holders</h4><p>Supply decreases, your tokens become more valuable</p></div>
+                </div>
+                <div class="fly-step">
+                    <div class="fly-num" style="background:rgba(168,85,247,0.15);color:var(--purple)">3</div>
+                    <div><h4>AI helps users trade profitably</h4><p>Users earn money, tell others about the platform</p></div>
+                </div>
+                <div class="fly-step">
+                    <div class="fly-num" style="background:rgba(255,215,0,0.15);color:var(--gold)">4</div>
+                    <div><h4>More users = more volume = more burns = more rewards</h4><p>The cycle accelerates with every new user</p></div>
+                </div>
+                <div class="fly-step">
+                    <div class="fly-num" style="background:rgba(255,136,68,0.15);color:var(--orange)">5</div>
+                    <div><h4>AI revenue used to buy back & burn NXR</h4><p>Premium features generate revenue that's used to BURN more tokens</p></div>
+                </div>
+                <div class="fly-step">
+                    <div class="fly-num" style="background:rgba(255,51,102,0.15);color:var(--red)">&#8734;</div>
+                    <div><h4>Infinite loop: less supply + more demand = GROWTH</h4><p>The flywheel never stops spinning</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Bottom -->
+        <section class="cta-bottom">
+            <h2>The Future of Trading is <span class="gradient">AI-Powered</span></h2>
+            <p>Every minute you don't hold NXR is a minute of alpha you're missing. The AI never sleeps.</p>
+            <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="btn-primary">Buy NXR Now</a>
+            <a href="simulator.html" class="btn-outline">Calculate Your Earnings</a>
+        </section>
+
+        <div class="footer">
+            <p>NEXORA AI Oracle uses advanced machine learning models. Results are not guaranteed. Not financial advice. DYOR.</p>
+            <p style="margin-top:8px">Contract: 0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548 | <a href="https://bscscan.com/address/0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548" target="_blank" style="color:var(--cyan)">Verify on BSCScan</a></p>
+        </div>
+    </div>
+
+    <script>
+    // Neural network background
+    const c=document.getElementById('neuralCanvas'),ctx=c.getContext('2d');
+    function resize(){c.width=window.innerWidth;c.height=window.innerHeight}
+    resize();window.addEventListener('resize',resize);
+    const nodes=[];for(let i=0;i<40;i++){nodes.push({x:Math.random()*c.width,y:Math.random()*c.height,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,r:2+Math.random()*2})}
+    function drawNeural(){ctx.clearRect(0,0,c.width,c.height);nodes.forEach(n=>{n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>c.width)n.vx*=-1;if(n.y<0||n.y>c.height)n.vy*=-1;ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fillStyle='rgba(0,240,255,0.5)';ctx.fill()});for(let i=0;i<nodes.length;i++){for(let j=i+1;j<nodes.length;j++){const dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<200){ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.strokeStyle=`rgba(168,85,247,${(1-d/200)*0.2})`;ctx.stroke()}}}requestAnimationFrame(drawNeural)}
+    drawNeural();
+
+    // Animate stats
+    function animateNum(id,target,suffix='',duration=2000){
+        const el=document.getElementById(id);let start=0;const startTime=performance.now();
+        function tick(now){const p=Math.min((now-startTime)/duration,1);const eased=1-Math.pow(1-p,3);
+        const val=Math.round(start+eased*(target-start));
+        el.textContent=val.toLocaleString()+suffix;if(p<1)requestAnimationFrame(tick)}
+        requestAnimationFrame(tick)}
+    setTimeout(()=>{animateNum('aiSignals',47);animateNum('aiAccuracy',87,'%');animateNum('aiWhales',156);animateNum('aiTokens',2847)},500);
+
+    // Rotate signals
+    const coins=['BTC','ETH','SOL','BNB','AVAX','MATIC','LINK','DOT','ADA','XRP','DOGE','SHIB','ARB','OP','NEAR'];
+    const reasons=['RSI oversold + whale accumulation','Breakout pattern + volume surge','Bearish divergence + outflow','Golden cross forming + sentiment shift','Support level test + buying pressure','Resistance rejection + declining momentum','Accumulation zone + positive news','Distribution pattern + declining volume','MACD bullish crossover + inflow','Descending wedge breakout signal'];
+    const actions=['BUY','SELL','HOLD'];
+
+    function rotateSignals(){
+        const feed=document.getElementById('signalsFeed');
+        const coin=coins[Math.floor(Math.random()*coins.length)];
+        const reason=reasons[Math.floor(Math.random()*reasons.length)];
+        const action=actions[Math.floor(Math.random()*3)];
+        const cls=action==='SELL'?'signal sell':action==='HOLD'?'signal neutral':'signal';
+        const acls=action.toLowerCase();
+        const newSig=document.createElement('div');
+        newSig.className=cls;
+        newSig.style.opacity='0';newSig.style.transform='translateY(-10px)';
+        newSig.innerHTML=`<div class="signal-info"><div class="coin">${coin}/USDT</div><div class="detail">${reason}</div></div><div class="signal-action ${acls}">${action}</div>`;
+        feed.insertBefore(newSig,feed.firstChild);
+        requestAnimationFrame(()=>{newSig.style.transition='all .5s';newSig.style.opacity='1';newSig.style.transform='translateY(0)'});
+        if(feed.children.length>6)feed.removeChild(feed.lastChild);
+    }
+    setInterval(rotateSignals,4000);
+
+    // Rotate whale alerts
+    const whaleActions=['moved from Binance to unknown wallet','accumulated by smart money wallet','transferred to DeFi protocol','deposited to cold storage','swapped on Uniswap','bridged to Arbitrum'];
+    const amounts=['500 BTC','$2.4M ETH','10K SOL','$1.8M USDT','2M MATIC','$500K LINK','8000 BNB','$3.2M ARB'];
+    function rotateWhales(){
+        const alerts=document.querySelectorAll('.whale-alert');
+        if(alerts.length>0){
+            const a=alerts[Math.floor(Math.random()*alerts.length)];
+            const amt=amounts[Math.floor(Math.random()*amounts.length)];
+            const act=whaleActions[Math.floor(Math.random()*whaleActions.length)];
+            const mins=Math.floor(Math.random()*30)+1;
+            a.querySelector('.whale-detail').textContent=amt+' '+act;
+            a.querySelector('.whale-time').textContent=mins+' minute'+(mins>1?'s':'')+' ago';
+        }
+    }
+    setInterval(rotateWhales,5000);
+
+    // Sentiment fluctuation
+    function updateSentiment(){
+        const score=30+Math.floor(Math.random()*40);
+        document.getElementById('sentimentScore').textContent=score;
+        document.getElementById('sentimentBar').style.width=score+'%';
+        const el=document.getElementById('sentimentScore');
+        const bar=document.getElementById('sentimentBar');
+        if(score<35){el.style.color='var(--red)';bar.className='sentiment-fill fear';el.parentElement.querySelector('div:last-child').textContent='Extreme Fear';el.parentElement.querySelector('div:last-child').style.color='var(--red)'}
+        else if(score<50){el.style.color='var(--orange)';bar.className='sentiment-fill fear';el.parentElement.querySelector('div:last-child').textContent='Fear';el.parentElement.querySelector('div:last-child').style.color='var(--orange)'}
+        else if(score<65){el.style.color='var(--gold)';bar.className='sentiment-fill fear';el.parentElement.querySelector('div:last-child').textContent='Neutral';el.parentElement.querySelector('div:last-child').style.color='var(--gold)'}
+        else{el.style.color='var(--green)';bar.className='sentiment-fill greed';el.parentElement.querySelector('div:last-child').textContent='Greed';el.parentElement.querySelector('div:last-child').style.color='var(--green)'}
+    }
+    setInterval(updateSentiment,8000);
+    </script>
+</body>
+</html>

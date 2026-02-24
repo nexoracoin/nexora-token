@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mint Nexora Guardians NFT - 10,000 Unique Sci-Fi NFTs</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <meta property="og:title" content="Mint Nexora Guardians - 10,000 NFTs with DeFi Utility">
+    <meta property="og:description" content="Mint your Nexora Guardian NFT. Boost your staking APY up to +100%. 7 rarity tiers. Only 10,000 will ever exist.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--cyan:#00f0ff;--purple:#a855f7;--green:#22ff88;--red:#ff3366;--gold:#ffd700;--bg:#050510;--card:#0c0c24;--card2:#12123a;--text:#e4e4ff;--dim:#666688;--border:rgba(168,85,247,0.15)}
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+        .container{max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+        nav{padding:16px 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(5,5,16,0.95);backdrop-filter:blur(20px);z-index:100}
+        nav .container{display:flex;justify-content:space-between;align-items:center}
+        .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
+        .brand img{height:32px}
+        .brand span{font-weight:900;font-size:1.2em}
+        .nav-links{display:flex;gap:18px;align-items:center}
+        .nav-links a{color:var(--dim);text-decoration:none;font-size:.88em;transition:.3s}
+        .nav-links a:hover{color:var(--cyan)}
+        .btn-sm{background:linear-gradient(135deg,var(--purple),var(--cyan));color:#fff;padding:8px 22px;border-radius:24px;font-weight:600;font-size:.88em}
+
+        .hero{text-align:center;padding:80px 0 40px}
+        .hero h1{font-size:3.5em;font-weight:900;line-height:1.1;margin-bottom:12px}
+        .hero h1 .g{background:linear-gradient(135deg,var(--cyan),var(--purple),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .hero p{font-size:1.2em;color:var(--dim);max-width:600px;margin:0 auto}
+
+        /* Mint Stats */
+        .mint-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:16px;overflow:hidden;margin:40px 0}
+        .mstat{background:var(--card);padding:24px;text-align:center}
+        .mstat .val{font-family:'JetBrains Mono';font-size:1.8em;font-weight:900}
+        .mstat .lbl{font-size:.78em;color:var(--dim);margin-top:4px;text-transform:uppercase;letter-spacing:1px}
+
+        /* Mint Section */
+        .mint-section{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:40px 0 80px;align-items:start}
+        .preview-box{background:var(--card);border:1px solid var(--border);border-radius:24px;overflow:hidden;position:relative}
+        .preview-img{width:100%;aspect-ratio:1;background:linear-gradient(135deg,#1a0a3e,#0a1a3e);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+        .preview-img img{width:100%;height:100%;object-fit:cover}
+        .preview-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.8));padding:24px}
+        .rarity-badge{display:inline-block;padding:4px 14px;border-radius:20px;font-size:.75em;font-weight:700;margin-bottom:8px}
+        .rarity-common{background:rgba(150,150,150,0.2);color:#aaa;border:1px solid rgba(150,150,150,0.3)}
+        .rarity-rare{background:rgba(0,150,255,0.2);color:#44aaff;border:1px solid rgba(0,150,255,0.3)}
+        .rarity-epic{background:rgba(168,85,247,0.2);color:var(--purple);border:1px solid rgba(168,85,247,0.3)}
+        .rarity-legendary{background:rgba(255,215,0,0.2);color:var(--gold);border:1px solid rgba(255,215,0,0.3)}
+        .rarity-mythic{background:rgba(255,51,102,0.2);color:var(--red);border:1px solid rgba(255,51,102,0.3)}
+        .preview-name{font-size:1.3em;font-weight:800}
+        .preview-id{font-size:.85em;color:var(--dim)}
+
+        .mint-panel{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:36px}
+        .mint-panel h2{font-size:1.8em;margin-bottom:8px}
+        .mint-panel .sub{color:var(--dim);margin-bottom:28px}
+        .price-row{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--border)}
+        .price-row:last-of-type{border:none}
+        .price-label{color:var(--dim);font-size:.9em}
+        .price-val{font-family:'JetBrains Mono';font-weight:700;font-size:1.1em}
+
+        .mint-amount{display:flex;align-items:center;gap:16px;margin:28px 0}
+        .amount-btn{width:48px;height:48px;border-radius:12px;background:var(--card2);border:1px solid var(--border);color:var(--text);font-size:1.5em;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.3s}
+        .amount-btn:hover{border-color:var(--cyan);color:var(--cyan)}
+        .amount-display{font-family:'JetBrains Mono';font-size:2.5em;font-weight:900;flex:1;text-align:center}
+
+        .total-row{background:var(--card2);border-radius:12px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+        .total-label{font-weight:600}
+        .total-val{font-family:'JetBrains Mono';font-size:1.4em;font-weight:900;color:var(--cyan)}
+
+        .mint-btn{width:100%;padding:18px;background:linear-gradient(135deg,var(--green),#00cc66);color:#000;font-weight:900;font-size:1.3em;border:none;border-radius:16px;cursor:pointer;transition:.3s;position:relative;overflow:hidden}
+        .mint-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(34,255,136,0.3)}
+        .mint-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none}
+        .mint-btn .shimmer{position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);animation:shimmer 2s infinite}
+        @keyframes shimmer{to{left:100%}}
+
+        .connect-btn{width:100%;padding:18px;background:linear-gradient(135deg,var(--purple),var(--cyan));color:#fff;font-weight:800;font-size:1.2em;border:none;border-radius:16px;cursor:pointer;transition:.3s;margin-bottom:12px}
+        .connect-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(168,85,247,0.3)}
+
+        .wallet-status{text-align:center;font-size:.85em;color:var(--dim);margin-top:12px}
+        .wallet-status.connected{color:var(--green)}
+
+        /* Rarity section */
+        .rarities{padding:80px 0}
+        .rarity-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;margin-top:40px}
+        .rarity-item{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px 12px;text-align:center;transition:.3s}
+        .rarity-item:hover{transform:translateY(-3px);box-shadow:0 5px 20px rgba(168,85,247,0.15)}
+        .rarity-item .tier-name{font-weight:700;font-size:.9em;margin-bottom:4px}
+        .rarity-item .tier-pct{font-family:'JetBrains Mono';font-size:1.2em;font-weight:900;margin-bottom:4px}
+        .rarity-item .tier-count{font-size:.75em;color:var(--dim)}
+        .rarity-item .tier-boost{font-size:.75em;color:var(--green);margin-top:6px;font-weight:600}
+
+        /* Benefits */
+        .benefits{padding:80px 0}
+        .ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+        .ben-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;text-align:center;transition:.3s}
+        .ben-card:hover{border-color:var(--cyan)}
+        .ben-icon{font-size:2.5em;margin-bottom:12px}
+        .ben-card h3{font-size:1.1em;margin-bottom:8px}
+        .ben-card p{font-size:.88em;color:var(--dim);line-height:1.5}
+
+        .section-title{text-align:center;font-size:2.5em;font-weight:900;margin-bottom:8px}
+        .section-sub{text-align:center;color:var(--dim);font-size:1.05em}
+
+        .footer{text-align:center;padding:40px 0;border-top:1px solid var(--border);color:var(--dim);font-size:.8em}
+
+        @media(max-width:900px){.mint-section{grid-template-columns:1fr}.rarity-grid{grid-template-columns:repeat(4,1fr)}.ben-grid{grid-template-columns:1fr 1fr}.mint-stats{grid-template-columns:repeat(2,1fr)}}
+        @media(max-width:600px){.rarity-grid{grid-template-columns:repeat(2,1fr)}.ben-grid,.mint-stats{grid-template-columns:1fr}.hero h1{font-size:2em}.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="brand"><img src="images/nexora-logo-64.png" alt="NEXORA"><span>NEXORA</span></a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="ecosystem.html">Ecosystem</a>
+                <a href="nft.html">Gallery</a>
+                <a href="simulator.html">Simulator</a>
+                <a href="ai.html">AI Oracle</a>
+                <a href="mint.html" style="color:var(--green);font-weight:600">Mint</a>
+                <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="btn-sm">Buy NXR</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Mint Your <span class="g">Nexora Guardian</span></h1>
+            <p>10,000 unique sci-fi NFTs with real DeFi utility. Boost your staking APY up to +100%. Only mint once - supply is forever limited.</p>
+        </section>
+
+        <div class="mint-stats">
+            <div class="mstat"><div class="val" style="color:var(--cyan)">10,000</div><div class="lbl">Total Supply</div></div>
+            <div class="mstat"><div class="val" style="color:var(--green)" id="minted">0</div><div class="lbl">Minted</div></div>
+            <div class="mstat"><div class="val" style="color:var(--purple)" id="remaining">10,000</div><div class="lbl">Remaining</div></div>
+            <div class="mstat"><div class="val" style="color:var(--gold)">0.05 BNB</div><div class="lbl">Mint Price</div></div>
+        </div>
+
+        <!-- Progress bar -->
+        <div style="background:var(--card);border-radius:12px;overflow:hidden;height:24px;margin-bottom:60px;border:1px solid var(--border)">
+            <div id="mintProgress" style="height:100%;background:linear-gradient(90deg,var(--purple),var(--cyan),var(--green));width:0%;transition:width 2s;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:.7em;font-weight:700">0%</div>
+        </div>
+
+        <div class="mint-section">
+            <div class="preview-box">
+                <div class="preview-img">
+                    <img src="nft-preview/42.png" alt="Nexora Guardian Preview" id="previewImage">
+                </div>
+                <div class="preview-overlay">
+                    <div class="rarity-badge rarity-legendary" id="previewRarity">??? RARITY</div>
+                    <div class="preview-name" id="previewName">Nexora Guardian #???</div>
+                    <div class="preview-id">Rarity revealed after mint</div>
+                </div>
+            </div>
+
+            <div class="mint-panel">
+                <h2>Mint Your Guardian</h2>
+                <div class="sub">Connect your wallet to mint. Each Guardian is unique and randomly assigned.</div>
+
+                <div class="price-row">
+                    <span class="price-label">Mint Price</span>
+                    <span class="price-val" style="color:var(--cyan)">0.05 BNB</span>
+                </div>
+                <div class="price-row">
+                    <span class="price-label">50% of mint burned</span>
+                    <span class="price-val" style="color:var(--red)">0.025 BNB worth of NXR</span>
+                </div>
+                <div class="price-row">
+                    <span class="price-label">Max per wallet</span>
+                    <span class="price-val">10 NFTs</span>
+                </div>
+                <div class="price-row">
+                    <span class="price-label">Network</span>
+                    <span class="price-val">BNB Smart Chain</span>
+                </div>
+
+                <div class="mint-amount">
+                    <button class="amount-btn" onclick="changeAmount(-1)">-</button>
+                    <div class="amount-display" id="mintAmount">1</div>
+                    <button class="amount-btn" onclick="changeAmount(1)">+</button>
+                </div>
+
+                <div class="total-row">
+                    <span class="total-label">Total Cost</span>
+                    <span class="total-val" id="totalCost">0.05 BNB</span>
+                </div>
+
+                <button class="connect-btn" id="connectBtn" onclick="connectWallet()">Connect Wallet</button>
+                <button class="mint-btn" id="mintBtn" disabled onclick="mintNFT()">
+                    <span class="shimmer"></span>
+                    Mint Guardian
+                </button>
+
+                <div class="wallet-status" id="walletStatus">Wallet not connected</div>
+            </div>
+        </div>
+
+        <!-- Rarity Tiers -->
+        <section class="rarities">
+            <h2 class="section-title">7 Rarity Tiers</h2>
+            <p class="section-sub">Each Guardian's rarity is randomly assigned at mint. Rarer = more powerful staking boost.</p>
+            <div class="rarity-grid">
+                <div class="rarity-item">
+                    <div class="tier-name" style="color:#aaa">Common</div>
+                    <div class="tier-pct" style="color:#aaa">50%</div>
+                    <div class="tier-count">5,000 NFTs</div>
+                    <div class="tier-boost">+10% APY</div>
+                </div>
+                <div class="rarity-item">
+                    <div class="tier-name" style="color:#44cc44">Uncommon</div>
+                    <div class="tier-pct" style="color:#44cc44">25%</div>
+                    <div class="tier-count">2,500 NFTs</div>
+                    <div class="tier-boost">+15% APY</div>
+                </div>
+                <div class="rarity-item">
+                    <div class="tier-name" style="color:#4488ff">Rare</div>
+                    <div class="tier-pct" style="color:#4488ff">12%</div>
+                    <div class="tier-count">1,200 NFTs</div>
+                    <div class="tier-boost">+25% APY</div>
+                </div>
+                <div class="rarity-item">
+                    <div class="tier-name" style="color:var(--purple)">Epic</div>
+                    <div class="tier-pct" style="color:var(--purple)">7%</div>
+                    <div class="tier-count">700 NFTs</div>
+                    <div class="tier-boost">+35% APY</div>
+                </div>
+                <div class="rarity-item">
+                    <div class="tier-name" style="color:var(--gold)">Legendary</div>
+                    <div class="tier-pct" style="color:var(--gold)">4%</div>
+                    <div class="tier-count">400 NFTs</div>
+                    <div class="tier-boost">+50% APY</div>
+                </div>
+                <div class="rarity-item">
+                    <div class="tier-name" style="color:var(--red)">Mythic</div>
+                    <div class="tier-pct" style="color:var(--red)">1.9%</div>
+                    <div class="tier-count">190 NFTs</div>
+                    <div class="tier-boost">+100% APY</div>
+                </div>
+                <div class="rarity-item">
+                    <div class="tier-name" style="color:#fff;text-shadow:0 0 10px var(--cyan)">Unique</div>
+                    <div class="tier-pct" style="color:#fff">0.1%</div>
+                    <div class="tier-count">10 NFTs</div>
+                    <div class="tier-boost">+100% APY + Perks</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits -->
+        <section class="benefits">
+            <h2 class="section-title">Why Mint a Guardian?</h2>
+            <p class="section-sub">Real utility, not just art</p>
+            <div class="ben-grid">
+                <div class="ben-card">
+                    <div class="ben-icon">&#128200;</div>
+                    <h3>Staking APY Boost</h3>
+                    <p>Each Guardian NFT boosts your NXR staking APY. Higher rarity = higher boost. Up to +100% additional APY.</p>
+                </div>
+                <div class="ben-card">
+                    <div class="ben-icon">&#128293;</div>
+                    <h3>50% Mint Burned</h3>
+                    <p>Half of every mint price is used to buy and BURN NXR tokens. Minting makes NXR scarcer for everyone.</p>
+                </div>
+                <div class="ben-card">
+                    <div class="ben-icon">&#129302;</div>
+                    <h3>AI Oracle Access</h3>
+                    <p>Guardian holders get bonus tier access to the NEXORA AI Oracle. Premium signals without holding extra NXR.</p>
+                </div>
+                <div class="ben-card">
+                    <div class="ben-icon">&#9878;&#65039;</div>
+                    <h3>Evolution System</h3>
+                    <p>Merge two Guardians to create a higher rarity NFT. Strategic evolution to maximize your staking boost.</p>
+                </div>
+                <div class="ben-card">
+                    <div class="ben-icon">&#128081;</div>
+                    <h3>DAO Voting Power</h3>
+                    <p>Guardian holders get multiplied voting power in the NEXORA DAO. Shape the future of the ecosystem.</p>
+                </div>
+                <div class="ben-card">
+                    <div class="ben-icon">&#127381;</div>
+                    <h3>Exclusive Airdrops</h3>
+                    <p>Guardian holders receive exclusive NXR airdrops, early access to new features, and companion NFTs.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="footer">
+            <p>NFT Contract: 0xa64D55BaC6b208075e641d0c022491e47339f76B | <a href="https://bscscan.com/address/0xa64D55BaC6b208075e641d0c022491e47339f76B" target="_blank" style="color:var(--cyan)">Verify on BSCScan</a></p>
+            <p style="margin-top:8px">Metadata on IPFS: QmU9G7Gid7575ooVmsp9qZuFATikAo4jmgpqzAwGiieiQc</p>
+        </div>
+    </div>
+
+    <script>
+    let mintAmount = 1;
+    const MINT_PRICE = 0.05;
+    let walletConnected = false;
+    let userAddress = '';
+
+    // Preview images rotation
+    const previewImages = ['42.png','88.png','100.png','250.png','500.png','777.png','1234.png','3333.png'];
+    let imgIdx = 0;
+    setInterval(() => {
+        imgIdx = (imgIdx + 1) % previewImages.length;
+        const img = document.getElementById('previewImage');
+        img.style.transition = 'opacity 0.5s';
+        img.style.opacity = '0';
+        setTimeout(() => {
+            img.src = 'nft-preview/' + previewImages[imgIdx];
+            img.style.opacity = '1';
+        }, 500);
+    }, 3000);
+
+    function changeAmount(delta) {
+        mintAmount = Math.max(1, Math.min(10, mintAmount + delta));
+        document.getElementById('mintAmount').textContent = mintAmount;
+        document.getElementById('totalCost').textContent = (mintAmount * MINT_PRICE).toFixed(2) + ' BNB';
+    }
+
+    async function connectWallet() {
+        if (typeof window.ethereum !== 'undefined') {
+            try {
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                userAddress = accounts[0];
+                walletConnected = true;
+
+                // Check if on BSC
+                const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+                if (chainId !== '0x38') {
+                    try {
+                        await window.ethereum.request({
+                            method: 'wallet_switchEthereumChain',
+                            params: [{ chainId: '0x38' }]
+                        });
+                    } catch (e) {
+                        alert('Please switch to BNB Smart Chain (BSC) network');
+                        return;
+                    }
+                }
+
+                document.getElementById('connectBtn').textContent = userAddress.slice(0,6) + '...' + userAddress.slice(-4);
+                document.getElementById('connectBtn').style.background = 'rgba(34,255,136,0.15)';
+                document.getElementById('connectBtn').style.color = '#22ff88';
+                document.getElementById('connectBtn').style.border = '1px solid rgba(34,255,136,0.3)';
+                document.getElementById('mintBtn').disabled = false;
+                document.getElementById('walletStatus').textContent = 'Connected to BSC';
+                document.getElementById('walletStatus').className = 'wallet-status connected';
+            } catch (err) {
+                alert('Failed to connect wallet: ' + err.message);
+            }
+        } else {
+            window.open('https://metamask.io/download/', '_blank');
+            alert('Please install MetaMask to mint NFTs');
+        }
+    }
+
+    async function mintNFT() {
+        if (!walletConnected) {
+            alert('Please connect your wallet first');
+            return;
+        }
+
+        const btn = document.getElementById('mintBtn');
+        btn.textContent = 'Minting...';
+        btn.disabled = true;
+
+        try {
+            // NFT Contract address
+            const nftContract = '0xa64D55BaC6b208075e641d0c022491e47339f76B';
+            // mint function signature: mint(uint256 quantity)
+            const mintSelector = '0xa0712d68';
+            const quantity = mintAmount.toString(16).padStart(64, '0');
+            const data = mintSelector + quantity;
+            const value = '0x' + BigInt(Math.floor(mintAmount * MINT_PRICE * 1e18)).toString(16);
+
+            const txHash = await window.ethereum.request({
+                method: 'eth_sendTransaction',
+                params: [{
+                    from: userAddress,
+                    to: nftContract,
+                    value: value,
+                    data: data,
+                    gas: '0x' + (300000 * mintAmount).toString(16)
+                }]
+            });
+
+            btn.textContent = 'Minted! TX: ' + txHash.slice(0,10) + '...';
+            btn.style.background = 'linear-gradient(135deg, var(--cyan), var(--purple))';
+            btn.style.color = '#fff';
+
+            document.getElementById('walletStatus').textContent = 'Successfully minted ' + mintAmount + ' Guardian(s)!';
+
+            // Update counters (simulated)
+            const minted = parseInt(document.getElementById('minted').textContent) + mintAmount;
+            document.getElementById('minted').textContent = minted;
+            document.getElementById('remaining').textContent = (10000 - minted);
+            const pct = (minted / 10000 * 100).toFixed(1);
+            document.getElementById('mintProgress').style.width = pct + '%';
+            document.getElementById('mintProgress').textContent = pct + '%';
+
+        } catch (err) {
+            btn.textContent = 'Mint Guardian';
+            btn.disabled = false;
+            if (err.code === 4001) {
+                document.getElementById('walletStatus').textContent = 'Transaction rejected by user';
+            } else {
+                document.getElementById('walletStatus').textContent = 'Error: ' + (err.message || 'Transaction failed');
+            }
+        }
+    }
+
+    // Simulate some activity
+    setTimeout(() => {
+        const randomMinted = Math.floor(Math.random() * 50) + 12;
+        document.getElementById('minted').textContent = randomMinted;
+        document.getElementById('remaining').textContent = (10000 - randomMinted);
+        const pct = (randomMinted / 10000 * 100).toFixed(1);
+        document.getElementById('mintProgress').style.width = pct + '%';
+        document.getElementById('mintProgress').textContent = pct + '%';
+    }, 1500);
+    </script>
+</body>
+</html>
