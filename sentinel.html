@@ -1,0 +1,1805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXORA SENTINEL - The Universal Crypto Guardian Protocol</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <meta property="og:title" content="NEXORA SENTINEL - $17 Billion Lost in 2025. Never Again.">
+    <meta property="og:description" content="AI-powered, real-time protection against scams, rug pulls, and exploits. Pre-transaction shield. Trust scores. Insurance. Powered by NXR.">
+    <meta property="og:image" content="images/nexora-logo-512.png">
+    <meta name="description" content="NEXORA Sentinel: The universal crypto guardian. AI scam detection, pre-transaction shield, trust scores, portfolio guardian, and insurance. All powered by NXR token.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --sentinel-blue: #00d4ff;
+            --sentinel-purple: #8b5cf6;
+            --sentinel-red: #ff3366;
+            --sentinel-green: #00ff88;
+            --sentinel-gold: #ffd700;
+            --dark-bg: #0a0a1a;
+            --card-bg: rgba(15,15,35,0.8);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: #e0e0e0;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Canvas Background */
+        #sentinel-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(10,10,26,0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,212,255,0.15);
+            padding: 0 24px;
+        }
+        .nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .nav-brand img { width: 36px; height: 36px; }
+        .nav-brand span { font-weight: 800; font-size: 18px; color: #fff; }
+        .nav-brand .sentinel-tag {
+            font-size: 11px;
+            background: linear-gradient(135deg, var(--sentinel-blue), var(--sentinel-purple));
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+        .nav-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--sentinel-blue); }
+        .nav-links .btn-nav {
+            background: linear-gradient(135deg, var(--sentinel-blue), var(--sentinel-purple));
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 24px 80px;
+        }
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .hero-warning {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,51,102,0.15);
+            border: 1px solid rgba(255,51,102,0.3);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--sentinel-red);
+            margin-bottom: 32px;
+            animation: pulse-border 2s ease-in-out infinite;
+        }
+        @keyframes pulse-border {
+            0%, 100% { border-color: rgba(255,51,102,0.3); }
+            50% { border-color: rgba(255,51,102,0.8); }
+        }
+        .hero-warning .warn-icon { font-size: 18px; }
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 80px);
+            font-weight: 900;
+            line-height: 1.05;
+            margin-bottom: 24px;
+            color: #fff;
+        }
+        .hero h1 .line2 {
+            background: linear-gradient(135deg, var(--sentinel-blue), var(--sentinel-purple), var(--sentinel-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-subtitle {
+            font-size: clamp(16px, 2vw, 22px);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+        .hero-subtitle strong { color: var(--sentinel-red); font-weight: 700; }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 36px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--sentinel-blue), var(--sentinel-purple));
+            color: #fff;
+            box-shadow: 0 0 30px rgba(0,212,255,0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 50px rgba(0,212,255,0.5);
+        }
+        .btn-danger {
+            background: linear-gradient(135deg, var(--sentinel-red), #cc0044);
+            color: #fff;
+            box-shadow: 0 0 30px rgba(255,51,102,0.3);
+        }
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 50px rgba(255,51,102,0.5);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--sentinel-blue);
+            border: 2px solid var(--sentinel-blue);
+        }
+        .btn-outline:hover {
+            background: rgba(0,212,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0,212,255,0.15);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--sentinel-red);
+        }
+        .stat-value.green { color: var(--sentinel-green); }
+        .stat-value.blue { color: var(--sentinel-blue); }
+        .stat-value.gold { color: var(--sentinel-gold); }
+        .stat-label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+            margin-top: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Section styling */
+        section { position: relative; z-index: 1; padding: 100px 24px; }
+        .section-inner { max-width: 1200px; margin: 0 auto; }
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0,212,255,0.1);
+            border: 1px solid rgba(0,212,255,0.2);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--sentinel-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+        .section-title {
+            font-size: clamp(32px, 4vw, 52px);
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+        .section-desc {
+            font-size: 18px;
+            color: rgba(255,255,255,0.6);
+            max-width: 600px;
+            margin-bottom: 48px;
+        }
+
+        /* Live Demo */
+        .demo-section { background: rgba(0,0,0,0.3); }
+        .demo-container {
+            background: var(--card-bg);
+            border: 1px solid rgba(0,212,255,0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .demo-header {
+            background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(139,92,246,0.15));
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(0,212,255,0.1);
+        }
+        .demo-header-left { display: flex; align-items: center; gap: 10px; }
+        .demo-dots { display: flex; gap: 6px; }
+        .demo-dots span { width: 12px; height: 12px; border-radius: 50%; }
+        .demo-dots .red { background: #ff5f57; }
+        .demo-dots .yellow { background: #ffbd2e; }
+        .demo-dots .green { background: #28ca42; }
+        .demo-title-bar { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: rgba(255,255,255,0.6); }
+        .demo-status {
+            font-size: 12px;
+            color: var(--sentinel-green);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .demo-status .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sentinel-green); animation: blink 1.5s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        .demo-body { padding: 24px; }
+        .demo-alert {
+            background: rgba(255,51,102,0.1);
+            border: 1px solid rgba(255,51,102,0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            animation: fadeSlideIn 0.5s ease;
+        }
+        @keyframes fadeSlideIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .demo-alert-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .demo-alert-icon { font-size: 24px; }
+        .demo-alert-title {
+            font-weight: 800;
+            font-size: 16px;
+            color: var(--sentinel-red);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .demo-alert-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .detail-label {
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .detail-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .detail-value.danger { color: var(--sentinel-red); }
+        .detail-value.warning { color: #ff9500; }
+        .detail-value.safe { color: var(--sentinel-green); }
+        .demo-bar {
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            height: 8px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+        .demo-bar-fill {
+            height: 100%;
+            border-radius: 8px;
+            background: linear-gradient(90deg, var(--sentinel-green), #ff9500, var(--sentinel-red));
+            width: 87%;
+            transition: width 1s ease;
+        }
+        .demo-actions {
+            display: flex;
+            gap: 12px;
+        }
+        .demo-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .demo-btn-block {
+            background: var(--sentinel-red);
+            color: #fff;
+        }
+        .demo-btn-proceed {
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .demo-safe {
+            background: rgba(0,255,136,0.1);
+            border: 1px solid rgba(0,255,136,0.3);
+            border-radius: 12px;
+            padding: 20px;
+            display: none;
+            animation: fadeSlideIn 0.5s ease;
+        }
+        .demo-safe-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+        .demo-safe-title {
+            font-weight: 800;
+            font-size: 16px;
+            color: var(--sentinel-green);
+        }
+
+        /* Pillars */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        .pillar-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0,212,255,0.12);
+            border-radius: 20px;
+            padding: 36px;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--sentinel-blue), var(--sentinel-purple));
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .pillar-card:hover::before { opacity: 1; }
+        .pillar-card:hover {
+            border-color: rgba(0,212,255,0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,212,255,0.1);
+        }
+        .pillar-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--sentinel-blue), var(--sentinel-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+        .pillar-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .pillar-desc {
+            color: rgba(255,255,255,0.6);
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+        .pillar-features { list-style: none; }
+        .pillar-features li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .pillar-features li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--sentinel-blue);
+            margin-top: 7px;
+            flex-shrink: 0;
+        }
+
+        /* Trust Score Section */
+        .trust-visual {
+            display: flex;
+            gap: 24px;
+            align-items: stretch;
+        }
+        .trust-left { flex: 1; }
+        .trust-right { flex: 1; }
+        .nts-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0,212,255,0.15);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 16px;
+        }
+        .nts-token-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .nts-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sentinel-blue), var(--sentinel-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 900;
+            color: #fff;
+        }
+        .nts-name { font-weight: 800; font-size: 20px; color: #fff; }
+        .nts-chain { font-size: 12px; color: rgba(255,255,255,0.4); }
+        .nts-score-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .nts-circle {
+            width: 140px;
+            height: 140px;
+            position: relative;
+        }
+        .nts-circle svg { transform: rotate(-90deg); }
+        .nts-circle-text {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .nts-circle-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 36px;
+            font-weight: 900;
+        }
+        .nts-circle-label { font-size: 10px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 2px; }
+        .nts-breakdown { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .nts-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+        }
+        .nts-item-label { font-size: 12px; color: rgba(255,255,255,0.5); }
+        .nts-item-value { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; }
+
+        /* Tiers */
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .tier-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0,212,255,0.1);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+        }
+        .tier-card.popular {
+            border-color: var(--sentinel-blue);
+            box-shadow: 0 0 40px rgba(0,212,255,0.15);
+        }
+        .tier-popular-tag {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--sentinel-blue), var(--sentinel-purple));
+            color: #fff;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .tier-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0,212,255,0.3);
+        }
+        .tier-icon { font-size: 40px; margin-bottom: 16px; }
+        .tier-name {
+            font-size: 20px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .tier-price {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--sentinel-blue);
+            margin-bottom: 4px;
+        }
+        .tier-usd {
+            font-size: 12px;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 20px;
+        }
+        .tier-features {
+            list-style: none;
+            text-align: left;
+        }
+        .tier-features li {
+            padding: 6px 0;
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tier-features .check { color: var(--sentinel-green); font-weight: 700; }
+        .tier-features .cross { color: rgba(255,255,255,0.2); }
+        .tier-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .tier-btn-primary {
+            background: linear-gradient(135deg, var(--sentinel-blue), var(--sentinel-purple));
+            color: #fff;
+        }
+        .tier-btn-outline {
+            background: transparent;
+            color: var(--sentinel-blue);
+            border: 1px solid rgba(0,212,255,0.3);
+        }
+
+        /* Flywheel */
+        .flywheel-section { background: rgba(0,0,0,0.3); }
+        .flywheel-visual {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 48px;
+        }
+        .flywheel-ring {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            border: 2px solid rgba(0,212,255,0.2);
+            position: relative;
+            animation: spin-slow 30s linear infinite;
+        }
+        @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .flywheel-center {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            animation: spin-reverse 30s linear infinite;
+            text-align: center;
+        }
+        @keyframes spin-reverse { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(-360deg); } }
+        .flywheel-center-text {
+            font-weight: 900;
+            font-size: 24px;
+            color: var(--sentinel-blue);
+        }
+        .flywheel-center-sub {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+        }
+        .flywheel-node {
+            position: absolute;
+            width: 100px;
+            text-align: center;
+            animation: spin-reverse 30s linear infinite;
+        }
+        .flywheel-node-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            border: 2px solid var(--sentinel-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin: 0 auto 6px;
+        }
+        .flywheel-node-text {
+            font-size: 11px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+        }
+        .flywheel-node:nth-child(1) { top: -30px; left: 50%; transform: translateX(-50%); }
+        .flywheel-node:nth-child(2) { top: 50%; right: -50px; transform: translateY(-50%); }
+        .flywheel-node:nth-child(3) { bottom: -30px; left: 50%; transform: translateX(-50%); }
+        .flywheel-node:nth-child(4) { top: 50%; left: -50px; transform: translateY(-50%); }
+
+        .flywheel-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .flywheel-step {
+            text-align: center;
+            padding: 24px;
+        }
+        .flywheel-step-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--sentinel-blue);
+            margin-bottom: 8px;
+        }
+        .flywheel-step-title {
+            font-weight: 800;
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .flywheel-step-desc {
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+        }
+        .flywheel-arrow {
+            color: rgba(0,212,255,0.3);
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Comparison Table */
+        .comparison-section { overflow-x: auto; }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 16px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .comparison-table thead th {
+            background: rgba(0,212,255,0.08);
+            color: rgba(255,255,255,0.5);
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .comparison-table thead th:last-child {
+            background: rgba(0,212,255,0.15);
+            color: var(--sentinel-blue);
+        }
+        .comparison-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+            color: rgba(255,255,255,0.8);
+        }
+        .comparison-table td:last-child {
+            background: rgba(0,212,255,0.05);
+        }
+        .table-check { color: var(--sentinel-green); font-size: 18px; }
+        .table-cross { color: rgba(255,255,255,0.15); font-size: 18px; }
+        .table-partial { color: #ff9500; font-size: 14px; }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(139,92,246,0.08));
+            text-align: center;
+        }
+        .cta-headline {
+            font-size: clamp(28px, 4vw, 48px);
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .cta-sub {
+            font-size: 18px;
+            color: rgba(255,255,255,0.6);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        .cta-counter {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--card-bg);
+            border: 1px solid rgba(255,51,102,0.3);
+            border-radius: 12px;
+            padding: 16px 28px;
+            margin-bottom: 32px;
+        }
+        .cta-counter-icon { font-size: 28px; }
+        .cta-counter-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--sentinel-red);
+        }
+        .cta-counter-label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* Insurance section */
+        .insurance-visual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .insurance-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0,212,255,0.12);
+            border-radius: 16px;
+            padding: 32px;
+        }
+        .insurance-card-icon { font-size: 36px; margin-bottom: 12px; }
+        .insurance-card-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .insurance-card-desc {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 16px;
+        }
+        .insurance-stat {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--sentinel-green);
+        }
+        .insurance-stat-label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid rgba(0,212,255,0.1);
+            padding: 40px 24px;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover { color: var(--sentinel-blue); }
+        .footer-copy {
+            font-size: 12px;
+            color: rgba(255,255,255,0.25);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .pillars-grid { grid-template-columns: 1fr; }
+            .tiers-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .trust-visual { flex-direction: column; }
+            .insurance-visual { grid-template-columns: 1fr; }
+            .flywheel-steps { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 640px) {
+            .tiers-grid { grid-template-columns: 1fr; }
+            .stats-bar { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .flywheel-ring { width: 280px; height: 280px; }
+            .flywheel-steps { grid-template-columns: 1fr; }
+            .nts-breakdown { grid-template-columns: 1fr; }
+            .demo-alert-details { grid-template-columns: 1fr; }
+        }
+
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Live Counter Animation */
+        .live-counter {
+            font-family: 'JetBrains Mono', monospace;
+            display: inline-block;
+        }
+
+        /* Scam ticker */
+        .scam-ticker {
+            position: relative;
+            z-index: 1;
+            background: rgba(255,51,102,0.08);
+            border-top: 1px solid rgba(255,51,102,0.15);
+            border-bottom: 1px solid rgba(255,51,102,0.15);
+            padding: 12px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .ticker-track {
+            display: inline-flex;
+            animation: scroll-ticker 40s linear infinite;
+        }
+        @keyframes scroll-ticker {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        .ticker-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-right: 48px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .ticker-item .amount { color: var(--sentinel-red); font-family: 'JetBrains Mono', monospace; }
+        .ticker-item .type { color: rgba(255,255,255,0.4); }
+        .ticker-item .icon { font-size: 16px; }
+    </style>
+</head>
+<body>
+    <canvas id="sentinel-bg"></canvas>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="images/nexora-logo-64.png" alt="NEXORA">
+                <span>NEXORA</span>
+                <span class="sentinel-tag">SENTINEL</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="ecosystem.html">Ecosystem</a>
+                <a href="ai.html">AI Oracle</a>
+                <a href="mint.html">Mint NFT</a>
+                <a href="simulator.html">Simulator</a>
+                <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="btn-nav">Buy NXR</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Scam Ticker -->
+    <div class="scam-ticker" style="margin-top:64px;">
+        <div class="ticker-track" id="ticker-track">
+            <div class="ticker-item"><span class="icon">&#9888;</span><span class="amount">$2.3M</span> lost to rug pull <span class="type">- 14 min ago</span></div>
+            <div class="ticker-item"><span class="icon">&#128274;</span><span class="amount">$890K</span> honeypot detected <span class="type">- 23 min ago</span></div>
+            <div class="ticker-item"><span class="icon">&#9888;</span><span class="amount">$5.1M</span> flash loan exploit <span class="type">- 41 min ago</span></div>
+            <div class="ticker-item"><span class="icon">&#128274;</span><span class="amount">$340K</span> phishing attack blocked <span class="type">- 52 min ago</span></div>
+            <div class="ticker-item"><span class="icon">&#9888;</span><span class="amount">$1.7M</span> fake token scam <span class="type">- 1h ago</span></div>
+            <div class="ticker-item"><span class="icon">&#128274;</span><span class="amount">$4.2M</span> MEV sandwich attack <span class="type">- 1h ago</span></div>
+            <div class="ticker-item"><span class="icon">&#9888;</span><span class="amount">$670K</span> approval exploit <span class="type">- 2h ago</span></div>
+            <div class="ticker-item"><span class="icon">&#128274;</span><span class="amount">$12.5M</span> bridge hack detected <span class="type">- 3h ago</span></div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-warning">
+                <span class="warn-icon">&#9888;</span>
+                $17 BILLION LOST TO CRYPTO SCAMS IN 2025 ALONE
+            </div>
+            <h1>
+                The Protocol That<br>
+                <span class="line2">Would Have Saved It All</span>
+            </h1>
+            <p class="hero-subtitle">
+                NEXORA Sentinel is the first <strong>AI-powered, real-time crypto guardian</strong> that blocks scams, rug pulls, and exploits <strong>before they happen</strong>. Pre-transaction shield. Universal trust scores. Automatic insurance. All powered by NXR.
+            </p>
+            <div class="hero-buttons">
+                <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="btn btn-danger">
+                    &#128737; Get Protected Now
+                </a>
+                <a href="#demo" class="btn btn-outline">
+                    &#9654; See Live Demo
+                </a>
+            </div>
+
+            <div class="stats-bar">
+                <div class="stat-card fade-up">
+                    <div class="stat-value" id="lost-counter">$17B+</div>
+                    <div class="stat-label">Lost to scams (2025)</div>
+                </div>
+                <div class="stat-card fade-up">
+                    <div class="stat-value green" id="saved-counter">$0</div>
+                    <div class="stat-label">Would be saved by Sentinel</div>
+                </div>
+                <div class="stat-card fade-up">
+                    <div class="stat-value blue">96%</div>
+                    <div class="stat-label">Tokens launched = FAILED</div>
+                </div>
+                <div class="stat-card fade-up">
+                    <div class="stat-value gold">0.5%</div>
+                    <div class="stat-label">DeFi TVL insured today</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Demo -->
+    <section class="demo-section" id="demo">
+        <div class="section-inner">
+            <div style="text-align:center;margin-bottom:48px;">
+                <div class="section-badge">&#128737; LIVE DEMONSTRATION</div>
+                <h2 class="section-title">See Sentinel In Action</h2>
+                <p class="section-desc" style="margin:0 auto;">Watch how Sentinel intercepts a dangerous transaction in real-time</p>
+            </div>
+
+            <div class="demo-container fade-up">
+                <div class="demo-header">
+                    <div class="demo-header-left">
+                        <div class="demo-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                        <span class="demo-title-bar">nexora-sentinel v2.0 // transaction scanner</span>
+                    </div>
+                    <div class="demo-status"><span class="dot"></span> ACTIVE PROTECTION</div>
+                </div>
+                <div class="demo-body">
+                    <div id="demo-scanning" style="text-align:center;padding:40px;">
+                        <div style="font-size:48px;margin-bottom:16px;" id="scan-icon">&#128737;</div>
+                        <div style="font-size:18px;font-weight:700;color:#fff;margin-bottom:8px;">Sentinel Active</div>
+                        <div style="font-size:14px;color:rgba(255,255,255,0.4);margin-bottom:24px;">Monitoring your wallet. Click to simulate a transaction.</div>
+                        <button class="demo-btn demo-btn-block" onclick="startDemo()" style="max-width:200px;margin:0 auto;">Simulate Swap</button>
+                    </div>
+
+                    <div id="demo-analysis" style="display:none;">
+                        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:12px;">
+                            <span id="demo-log"></span>
+                        </div>
+                    </div>
+
+                    <div class="demo-alert" id="demo-alert" style="display:none;">
+                        <div class="demo-alert-header">
+                            <span class="demo-alert-icon">&#9888;</span>
+                            <span class="demo-alert-title">HIGH RISK DETECTED - RUG PULL PROBABILITY 87%</span>
+                        </div>
+                        <div class="demo-alert-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Token</span>
+                                <span class="detail-value">MOONX (0x7fa3...9e2d)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Trust Score</span>
+                                <span class="detail-value danger">12/100</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Liquidity</span>
+                                <span class="detail-value warning">$23,400 (dropping -67%)</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Contract</span>
+                                <span class="detail-value danger">Honeypot: SELL BLOCKED</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Deployer History</span>
+                                <span class="detail-value danger">3 known rug pulls</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Holder Risk</span>
+                                <span class="detail-value danger">Top wallet: 89% supply</span>
+                            </div>
+                        </div>
+                        <div class="demo-bar"><div class="demo-bar-fill"></div></div>
+                        <div class="demo-actions">
+                            <button class="demo-btn demo-btn-block" onclick="blockTx()">&#128737; BLOCK TRANSACTION</button>
+                            <button class="demo-btn demo-btn-proceed" onclick="blockTx()">Proceed Anyway</button>
+                        </div>
+                    </div>
+
+                    <div class="demo-safe" id="demo-safe">
+                        <div class="demo-safe-header">
+                            <span style="font-size:24px;">&#128737;</span>
+                            <span class="demo-safe-title">TRANSACTION BLOCKED - YOU ARE SAFE</span>
+                        </div>
+                        <p style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:16px;">Sentinel prevented you from losing your funds. The token MOONX was confirmed as a honeypot scam 23 minutes later.</p>
+                        <div style="display:flex;gap:16px;">
+                            <div style="background:rgba(0,255,136,0.1);border-radius:8px;padding:12px;flex:1;text-align:center;">
+                                <div style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:900;color:#00ff88;">$2,500</div>
+                                <div style="font-size:11px;color:rgba(255,255,255,0.4);">SAVED</div>
+                            </div>
+                            <div style="background:rgba(0,212,255,0.1);border-radius:8px;padding:12px;flex:1;text-align:center;">
+                                <div style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:900;color:#00d4ff;">0.2 NXR</div>
+                                <div style="font-size:11px;color:rgba(255,255,255,0.4);">SCAN COST</div>
+                            </div>
+                        </div>
+                        <button class="demo-btn demo-btn-block" onclick="resetDemo()" style="margin-top:16px;background:var(--sentinel-blue);">Try Another Scan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4 Pillars -->
+    <section>
+        <div class="section-inner">
+            <div style="text-align:center;margin-bottom:48px;">
+                <div class="section-badge">&#9889; THE FOUR PILLARS</div>
+                <h2 class="section-title">Complete Crypto Protection</h2>
+                <p class="section-desc" style="margin:0 auto;">Not just a scanner. Not just insurance. The entire security infrastructure crypto has been missing.</p>
+            </div>
+
+            <div class="pillars-grid">
+                <div class="pillar-card fade-up">
+                    <div class="pillar-number">01</div>
+                    <div class="pillar-title">Pre-Transaction Shield</div>
+                    <div class="pillar-desc">Intercepts and analyzes every transaction before you approve it. Blocks scams in real-time.</div>
+                    <ul class="pillar-features">
+                        <li>Instant AI smart contract audit</li>
+                        <li>Honeypot & rug pull detection</li>
+                        <li>Liquidity depth verification</li>
+                        <li>MEV attack vulnerability scan</li>
+                        <li>Deployer wallet history analysis</li>
+                        <li>Known scam pattern matching</li>
+                    </ul>
+                </div>
+
+                <div class="pillar-card fade-up">
+                    <div class="pillar-number">02</div>
+                    <div class="pillar-title">Portfolio Guardian</div>
+                    <div class="pillar-desc">24/7 active protection for all your DeFi positions. Automatic risk management across every chain.</div>
+                    <ul class="pillar-features">
+                        <li>Automatic cross-DeFi stop-loss</li>
+                        <li>Flash crash protection</li>
+                        <li>Whale dump early-exit triggers</li>
+                        <li>Impermanent loss guardian</li>
+                        <li>Smart portfolio rebalancing</li>
+                        <li>Multi-chain position monitoring</li>
+                    </ul>
+                </div>
+
+                <div class="pillar-card fade-up">
+                    <div class="pillar-number">03</div>
+                    <div class="pillar-title">NEXORA Trust Score (NTS)</div>
+                    <div class="pillar-desc">The universal crypto credit rating. Every wallet, token, and protocol scored in real-time.</div>
+                    <ul class="pillar-features">
+                        <li>Dynamic 0-100 trust rating</li>
+                        <li>Wallet behavior analysis</li>
+                        <li>Token health monitoring</li>
+                        <li>Protocol audit & exploit tracking</li>
+                        <li>API for DeFi integration</li>
+                        <li>Decentralized data validation</li>
+                    </ul>
+                </div>
+
+                <div class="pillar-card fade-up">
+                    <div class="pillar-number">04</div>
+                    <div class="pillar-title">Insurance Vault</div>
+                    <div class="pillar-desc">Decentralized coverage. If Sentinel fails to protect you, the insurance vault compensates you.</div>
+                    <ul class="pillar-features">
+                        <li>Automatic coverage for subscribers</li>
+                        <li>NXR-staked insurance pools</li>
+                        <li>Claim verification via oracles</li>
+                        <li>Stakers earn insurance premiums</li>
+                        <li>Transparent on-chain claims</li>
+                        <li>Coverage up to $100K per event</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Score Preview -->
+    <section class="demo-section">
+        <div class="section-inner">
+            <div style="text-align:center;margin-bottom:48px;">
+                <div class="section-badge">&#128202; NEXORA TRUST SCORE</div>
+                <h2 class="section-title">The Universal Crypto Credit Rating</h2>
+                <p class="section-desc" style="margin:0 auto;">Every query burns NXR. Used by protocols, traders, and investors worldwide.</p>
+            </div>
+
+            <div class="trust-visual">
+                <div class="trust-left">
+                    <div class="nts-card fade-up">
+                        <div class="nts-token-info">
+                            <div class="nts-avatar">N</div>
+                            <div>
+                                <div class="nts-name">NEXORA (NXR)</div>
+                                <div class="nts-chain">BSC // 0xDA6e...0548</div>
+                            </div>
+                        </div>
+                        <div class="nts-score-display">
+                            <div class="nts-circle">
+                                <svg width="140" height="140" viewBox="0 0 140 140">
+                                    <circle cx="70" cy="70" r="60" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="8"/>
+                                    <circle cx="70" cy="70" r="60" fill="none" stroke="url(#scoreGrad)" stroke-width="8" stroke-dasharray="377" stroke-dashoffset="38" stroke-linecap="round" id="score-circle"/>
+                                    <defs>
+                                        <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stop-color="#00ff88"/>
+                                            <stop offset="100%" stop-color="#00d4ff"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                                <div class="nts-circle-text">
+                                    <div class="nts-circle-value" style="color:#00ff88;" id="nts-score">90</div>
+                                    <div class="nts-circle-label">Trust Score</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nts-breakdown">
+                            <div class="nts-item">
+                                <span class="nts-item-label">Contract Security</span>
+                                <span class="nts-item-value" style="color:#00ff88;">95</span>
+                            </div>
+                            <div class="nts-item">
+                                <span class="nts-item-label">Liquidity Health</span>
+                                <span class="nts-item-value" style="color:#00ff88;">88</span>
+                            </div>
+                            <div class="nts-item">
+                                <span class="nts-item-label">Holder Distribution</span>
+                                <span class="nts-item-value" style="color:#00d4ff;">82</span>
+                            </div>
+                            <div class="nts-item">
+                                <span class="nts-item-label">Team Credibility</span>
+                                <span class="nts-item-value" style="color:#00ff88;">92</span>
+                            </div>
+                            <div class="nts-item">
+                                <span class="nts-item-label">Community Strength</span>
+                                <span class="nts-item-value" style="color:#00ff88;">91</span>
+                            </div>
+                            <div class="nts-item">
+                                <span class="nts-item-label">Audit Status</span>
+                                <span class="nts-item-value" style="color:#00ff88;">VERIFIED</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trust-right">
+                    <div class="nts-card fade-up" style="border-color:rgba(255,51,102,0.3);">
+                        <div class="nts-token-info">
+                            <div class="nts-avatar" style="background:linear-gradient(135deg,#ff3366,#cc0044);">?</div>
+                            <div>
+                                <div class="nts-name" style="color:var(--sentinel-red);">MOONX (SCAM)</div>
+                                <div class="nts-chain">BSC // 0x7fa3...9e2d</div>
+                            </div>
+                        </div>
+                        <div class="nts-score-display">
+                            <div class="nts-circle">
+                                <svg width="140" height="140" viewBox="0 0 140 140">
+                                    <circle cx="70" cy="70" r="60" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="8"/>
+                                    <circle cx="70" cy="70" r="60" fill="none" stroke="#ff3366" stroke-width="8" stroke-dasharray="377" stroke-dashoffset="332" stroke-linecap="round"/>
+                                </svg>
+                                <div class="nts-circle-text">
+                                    <div class="nts-circle-value" style="color:#ff3366;">12</div>
+                                    <div class="nts-circle-label">Trust Score</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nts-breakdown">
+                            <div class="nts-item">
+                                <span class="nts-item-label">Contract Security</span>
+                                <span class="nts-item-value" style="color:#ff3366;">8</span>
+                            </div>
+                            <div class="nts-item">
+                                <span class="nts-item-label">Liquidity Health</span>
+                                <span class="nts-item-value" style="color:#ff3366;">5</span>
+                            </div>
+                            <div class="nts-item">
+                                <span class="nts-item-label">Holder Distribution</span>
+                                <span class="nts-item-value" style="color:#ff3366;">3</span>
+                            </div>
+                            <div class="nts-item">
+                                <span class="nts-item-label">Team Credibility</span>
+                                <span class="nts-item-value" style="color:#ff3366;">0</span>
+                            </div>
+                            <div class="nts-item">
+                                <span class="nts-item-label">Community Strength</span>
+                                <span class="nts-item-value" style="color:#ff9500;">22</span>
+                            </div>
+                            <div class="nts-item">
+                                <span class="nts-item-label">Audit Status</span>
+                                <span class="nts-item-value" style="color:#ff3366;">HONEYPOT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section>
+        <div class="section-inner">
+            <div style="text-align:center;margin-bottom:48px;">
+                <div class="section-badge">&#128200; COMPARISON</div>
+                <h2 class="section-title">Nothing Like This Exists</h2>
+                <p class="section-desc" style="margin:0 auto;">Existing tools solve one piece. Sentinel solves everything.</p>
+            </div>
+
+            <div class="comparison-section fade-up">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th style="text-align:left;">Feature</th>
+                            <th>Token Sniffer</th>
+                            <th>Nexus Mutual</th>
+                            <th>CoinGecko</th>
+                            <th>3Commas</th>
+                            <th>NEXORA Sentinel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pre-Transaction Blocking</td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-check">&#10003;</span></td>
+                        </tr>
+                        <tr>
+                            <td>Real-Time Trust Scores</td>
+                            <td><span class="table-partial">Partial</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-partial">Static</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-check">&#10003;</span></td>
+                        </tr>
+                        <tr>
+                            <td>Portfolio Protection</td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-partial">Bots only</span></td>
+                            <td><span class="table-check">&#10003;</span></td>
+                        </tr>
+                        <tr>
+                            <td>Insurance Coverage</td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-check">&#10003;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-check">&#10003;</span></td>
+                        </tr>
+                        <tr>
+                            <td>AI-Powered Analysis</td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-partial">Basic</span></td>
+                            <td><span class="table-check">&#10003;</span></td>
+                        </tr>
+                        <tr>
+                            <td>Cross-Chain Support</td>
+                            <td><span class="table-partial">Limited</span></td>
+                            <td><span class="table-partial">ETH only</span></td>
+                            <td><span class="table-check">&#10003;</span></td>
+                            <td><span class="table-partial">CEX only</span></td>
+                            <td><span class="table-check">&#10003;</span></td>
+                        </tr>
+                        <tr>
+                            <td>Whale Movement Alerts</td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-check">&#10003;</span></td>
+                        </tr>
+                        <tr>
+                            <td>Deflationary Token Model</td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-check">&#10003;</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tiers -->
+    <section class="demo-section">
+        <div class="section-inner">
+            <div style="text-align:center;margin-bottom:48px;">
+                <div class="section-badge">&#128176; PROTECTION TIERS</div>
+                <h2 class="section-title">Choose Your Shield</h2>
+                <p class="section-desc" style="margin:0 auto;">Every tier requires NXR. Every scan burns NXR. Every query reduces supply.</p>
+            </div>
+
+            <div class="tiers-grid">
+                <div class="tier-card fade-up">
+                    <div class="tier-icon">&#128737;</div>
+                    <div class="tier-name">Bronze</div>
+                    <div class="tier-price">100 NXR</div>
+                    <div class="tier-usd">/month (burned)</div>
+                    <ul class="tier-features">
+                        <li><span class="check">&#10003;</span> Basic token scanning</li>
+                        <li><span class="check">&#10003;</span> 5 Trust Score lookups/day</li>
+                        <li><span class="check">&#10003;</span> Scam alerts</li>
+                        <li><span class="cross">&#10007;</span> Pre-transaction blocking</li>
+                        <li><span class="cross">&#10007;</span> Portfolio guardian</li>
+                        <li><span class="cross">&#10007;</span> Insurance coverage</li>
+                    </ul>
+                    <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="tier-btn tier-btn-outline">Get Bronze</a>
+                </div>
+
+                <div class="tier-card fade-up popular">
+                    <div class="tier-popular-tag">MOST POPULAR</div>
+                    <div class="tier-icon">&#9889;</div>
+                    <div class="tier-name">Silver</div>
+                    <div class="tier-price">500 NXR</div>
+                    <div class="tier-usd">/month (burned)</div>
+                    <ul class="tier-features">
+                        <li><span class="check">&#10003;</span> Full token scanning</li>
+                        <li><span class="check">&#10003;</span> 50 Trust Score lookups/day</li>
+                        <li><span class="check">&#10003;</span> Pre-transaction blocking</li>
+                        <li><span class="check">&#10003;</span> Portfolio guardian</li>
+                        <li><span class="cross">&#10007;</span> Insurance coverage</li>
+                        <li><span class="cross">&#10007;</span> AI trading copilot</li>
+                    </ul>
+                    <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="tier-btn tier-btn-primary">Get Silver</a>
+                </div>
+
+                <div class="tier-card fade-up">
+                    <div class="tier-icon">&#128081;</div>
+                    <div class="tier-name">Gold</div>
+                    <div class="tier-price">2,000 NXR</div>
+                    <div class="tier-usd">/month (burned)</div>
+                    <ul class="tier-features">
+                        <li><span class="check">&#10003;</span> Everything in Silver</li>
+                        <li><span class="check">&#10003;</span> Unlimited Trust Scores</li>
+                        <li><span class="check">&#10003;</span> Insurance up to $50K</li>
+                        <li><span class="check">&#10003;</span> AI trading copilot</li>
+                        <li><span class="check">&#10003;</span> Whale movement alerts</li>
+                        <li><span class="cross">&#10007;</span> Enterprise API access</li>
+                    </ul>
+                    <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="tier-btn tier-btn-outline">Get Gold</a>
+                </div>
+
+                <div class="tier-card fade-up">
+                    <div class="tier-icon">&#128142;</div>
+                    <div class="tier-name">Platinum</div>
+                    <div class="tier-price">10,000 NXR</div>
+                    <div class="tier-usd">/month (burned)</div>
+                    <ul class="tier-features">
+                        <li><span class="check">&#10003;</span> Everything in Gold</li>
+                        <li><span class="check">&#10003;</span> Insurance up to $100K</li>
+                        <li><span class="check">&#10003;</span> Enterprise NTS API</li>
+                        <li><span class="check">&#10003;</span> Priority scanning</li>
+                        <li><span class="check">&#10003;</span> White-label integration</li>
+                        <li><span class="check">&#10003;</span> Dedicated support</li>
+                    </ul>
+                    <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="tier-btn tier-btn-outline">Get Platinum</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demand Flywheel -->
+    <section class="flywheel-section">
+        <div class="section-inner">
+            <div style="text-align:center;margin-bottom:48px;">
+                <div class="section-badge">&#128260; NXR DEMAND ENGINE</div>
+                <h2 class="section-title">Why NXR Becomes Indispensable</h2>
+                <p class="section-desc" style="margin:0 auto;">Every interaction requires, burns, or locks NXR. Millions of daily transactions = massive deflationary pressure.</p>
+            </div>
+
+            <div class="flywheel-steps">
+                <div class="flywheel-step fade-up">
+                    <div class="flywheel-step-num">STEP 01</div>
+                    <div class="flywheel-step-title">Users Subscribe</div>
+                    <div class="flywheel-step-desc">Monthly NXR burned for protection tiers. More users = more burn.</div>
+                </div>
+                <div class="flywheel-step fade-up">
+                    <div class="flywheel-step-num">STEP 02</div>
+                    <div class="flywheel-step-title">Trust Score Queries</div>
+                    <div class="flywheel-step-desc">Every NTS lookup by protocols & users burns micro-NXR. Millions daily.</div>
+                </div>
+                <div class="flywheel-step fade-up">
+                    <div class="flywheel-step-num">STEP 03</div>
+                    <div class="flywheel-step-title">Insurance Staking</div>
+                    <div class="flywheel-step-desc">NXR locked in insurance pools. More coverage needed = more locked.</div>
+                </div>
+                <div class="flywheel-step fade-up">
+                    <div class="flywheel-step-num">STEP 04</div>
+                    <div class="flywheel-step-title">Protocol Integration</div>
+                    <div class="flywheel-step-desc">DeFi protocols pay NXR to integrate NTS. Becomes the industry standard.</div>
+                </div>
+            </div>
+
+            <div style="text-align:center;margin-top:48px;">
+                <div style="background:var(--card-bg);border:1px solid rgba(0,212,255,0.2);border-radius:16px;padding:32px;display:inline-block;max-width:600px;">
+                    <div style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:8px;">PROJECTED DAILY NXR DEMAND AT SCALE</div>
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:48px;font-weight:900;background:linear-gradient(135deg,var(--sentinel-blue),var(--sentinel-green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">2,500,000 NXR</div>
+                    <div style="font-size:13px;color:rgba(255,255,255,0.4);margin-top:4px;">burned + locked per day (at 100K users)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insurance Details -->
+    <section>
+        <div class="section-inner">
+            <div style="text-align:center;margin-bottom:48px;">
+                <div class="section-badge">&#128176; INSURANCE VAULT</div>
+                <h2 class="section-title">Real Protection, Real Coverage</h2>
+                <p class="section-desc" style="margin:0 auto;">Only 0.5% of DeFi is insured today. Sentinel changes that.</p>
+            </div>
+
+            <div class="insurance-visual">
+                <div class="insurance-card fade-up">
+                    <div class="insurance-card-icon">&#128176;</div>
+                    <div class="insurance-card-title">Stake & Earn</div>
+                    <div class="insurance-card-desc">Stake NXR in insurance pools. Earn premiums from subscribers. Your NXR works for you while protecting others.</div>
+                    <div class="insurance-stat">18-45% APY</div>
+                    <div class="insurance-stat-label">Insurance Staking Rewards</div>
+                </div>
+                <div class="insurance-card fade-up">
+                    <div class="insurance-card-icon">&#128737;</div>
+                    <div class="insurance-card-title">Get Covered</div>
+                    <div class="insurance-card-desc">Gold and Platinum subscribers get automatic coverage. If Sentinel fails to block a scam, you're compensated.</div>
+                    <div class="insurance-stat">$100K</div>
+                    <div class="insurance-stat-label">Max Coverage Per Event</div>
+                </div>
+                <div class="insurance-card fade-up">
+                    <div class="insurance-card-icon">&#128270;</div>
+                    <div class="insurance-card-title">Report & Earn</div>
+                    <div class="insurance-card-desc">Report scams, validate trust scores, contribute security data. Earn NXR rewards for keeping the ecosystem safe.</div>
+                    <div class="insurance-stat">10 NXR</div>
+                    <div class="insurance-stat-label">Per Verified Scam Report</div>
+                </div>
+                <div class="insurance-card fade-up">
+                    <div class="insurance-card-icon">&#128202;</div>
+                    <div class="insurance-card-title">Transparent Claims</div>
+                    <div class="insurance-card-desc">All claims are verified on-chain via decentralized oracles. No centralized company deciding your fate.</div>
+                    <div class="insurance-stat">24h</div>
+                    <div class="insurance-stat-label">Average Claim Resolution</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section class="demo-section">
+        <div class="section-inner">
+            <div style="text-align:center;margin-bottom:48px;">
+                <div class="section-badge">&#128640; SENTINEL ROADMAP</div>
+                <h2 class="section-title">The Path to Universal Protection</h2>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+                <div class="pillar-card fade-up" style="text-align:center;">
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--sentinel-blue);margin-bottom:8px;">PHASE 1 // Q2 2026</div>
+                    <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:12px;">Foundation</div>
+                    <ul style="list-style:none;font-size:13px;color:rgba(255,255,255,0.6);text-align:left;">
+                        <li style="padding:4px 0;">&#10003; Pre-Transaction Shield MVP</li>
+                        <li style="padding:4px 0;">&#10003; Trust Score Engine v1</li>
+                        <li style="padding:4px 0;">&#10003; Browser Extension (Chrome)</li>
+                        <li style="padding:4px 0;">&#10003; BSC + Ethereum support</li>
+                    </ul>
+                </div>
+                <div class="pillar-card fade-up" style="text-align:center;">
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--sentinel-blue);margin-bottom:8px;">PHASE 2 // Q3 2026</div>
+                    <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:12px;">Guardian</div>
+                    <ul style="list-style:none;font-size:13px;color:rgba(255,255,255,0.6);text-align:left;">
+                        <li style="padding:4px 0;">&#10003; Portfolio Guardian launch</li>
+                        <li style="padding:4px 0;">&#10003; Insurance Vault v1</li>
+                        <li style="padding:4px 0;">&#10003; Mobile app (iOS/Android)</li>
+                        <li style="padding:4px 0;">&#10003; 10+ chain support</li>
+                    </ul>
+                </div>
+                <div class="pillar-card fade-up" style="text-align:center;">
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--sentinel-blue);margin-bottom:8px;">PHASE 3 // Q4 2026</div>
+                    <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:12px;">Standard</div>
+                    <ul style="list-style:none;font-size:13px;color:rgba(255,255,255,0.6);text-align:left;">
+                        <li style="padding:4px 0;">&#10003; NTS API marketplace</li>
+                        <li style="padding:4px 0;">&#10003; DeFi protocol integrations</li>
+                        <li style="padding:4px 0;">&#10003; Enterprise partnerships</li>
+                        <li style="padding:4px 0;">&#10003; 50+ chain support</li>
+                    </ul>
+                </div>
+                <div class="pillar-card fade-up" style="text-align:center;">
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--sentinel-blue);margin-bottom:8px;">PHASE 4 // 2027</div>
+                    <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:12px;">Dominance</div>
+                    <ul style="list-style:none;font-size:13px;color:rgba(255,255,255,0.6);text-align:left;">
+                        <li style="padding:4px 0;">&#10003; AI Trading Copilot</li>
+                        <li style="padding:4px 0;">&#10003; Cross-chain DeFi navigation</li>
+                        <li style="padding:4px 0;">&#10003; Institutional grade tier</li>
+                        <li style="padding:4px 0;">&#10003; Global crypto standard</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section">
+        <div class="section-inner" style="text-align:center;">
+            <div class="cta-counter">
+                <span class="cta-counter-icon">&#9888;</span>
+                <div>
+                    <div class="cta-counter-text" id="live-loss-counter">$46,575,342</div>
+                    <div class="cta-counter-label">Lost to crypto scams TODAY (estimated)</div>
+                </div>
+            </div>
+            <h2 class="cta-headline">How Much Will You Lose<br>Before You Get Protected?</h2>
+            <p class="cta-sub">Every second without Sentinel is a second you're exposed to the $17 billion scam epidemic. NXR is the only token that stands between you and catastrophic loss.</p>
+            <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+                <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="btn btn-danger" style="font-size:18px;padding:20px 48px;">
+                    &#128737; Buy NXR & Get Protected
+                </a>
+                <a href="index.html" class="btn btn-outline" style="font-size:18px;padding:20px 48px;">
+                    Learn About NXR
+                </a>
+            </div>
+            <p style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:24px;">Contract: 0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548 // BSC Verified // Deflationary</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="ecosystem.html">Ecosystem</a>
+            <a href="ai.html">AI Oracle</a>
+            <a href="mint.html">Mint NFT</a>
+            <a href="nft.html">Gallery</a>
+            <a href="simulator.html">Simulator</a>
+            <a href="https://bscscan.com/token/0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548" target="_blank">BSCScan</a>
+        </div>
+        <div class="footer-copy">&copy; 2026 NEXORA Protocol. All rights reserved. Not financial advice.</div>
+    </footer>
+
+    <script>
+    // Shield Background Animation
+    const canvas = document.getElementById('sentinel-bg');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+    function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const nodes = [];
+    for (let i = 0; i < 60; i++) {
+        nodes.push({
+            x: Math.random() * w, y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.5, vy: (Math.random() - 0.5) * 0.5,
+            r: Math.random() * 2 + 1,
+            type: Math.random() > 0.7 ? 'shield' : 'normal'
+        });
+    }
+
+    function drawBg() {
+        ctx.fillStyle = 'rgba(10,10,26,0.15)';
+        ctx.fillRect(0, 0, w, h);
+
+        nodes.forEach(n => {
+            n.x += n.vx; n.y += n.vy;
+            if (n.x < 0 || n.x > w) n.vx *= -1;
+            if (n.y < 0 || n.y > h) n.vy *= -1;
+
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+            ctx.fillStyle = n.type === 'shield' ? 'rgba(0,212,255,0.6)' : 'rgba(139,92,246,0.3)';
+            ctx.fill();
+        });
+
+        for (let i = 0; i < nodes.length; i++) {
+            for (let j = i + 1; j < nodes.length; j++) {
+                const dx = nodes[i].x - nodes[j].x;
+                const dy = nodes[i].y - nodes[j].y;
+                const d = Math.sqrt(dx * dx + dy * dy);
+                if (d < 150) {
+                    ctx.beginPath();
+                    ctx.moveTo(nodes[i].x, nodes[i].y);
+                    ctx.lineTo(nodes[j].x, nodes[j].y);
+                    ctx.strokeStyle = `rgba(0,212,255,${0.08 * (1 - d / 150)})`;
+                    ctx.stroke();
+                }
+            }
+        }
+
+        requestAnimationFrame(drawBg);
+    }
+    drawBg();
+
+    // Duplicate ticker for seamless loop
+    const tickerTrack = document.getElementById('ticker-track');
+    tickerTrack.innerHTML += tickerTrack.innerHTML;
+
+    // Live loss counter
+    let totalLoss = 46575342;
+    function updateLossCounter() {
+        totalLoss += Math.floor(Math.random() * 500) + 100;
+        document.getElementById('live-loss-counter').textContent = '$' + totalLoss.toLocaleString();
+    }
+    setInterval(updateLossCounter, 2000);
+
+    // Saved counter animation
+    let savedAmount = 0;
+    const targetSaved = 17000000000;
+    function animateSaved() {
+        if (savedAmount < targetSaved) {
+            savedAmount += targetSaved / 100;
+            if (savedAmount > targetSaved) savedAmount = targetSaved;
+            const el = document.getElementById('saved-counter');
+            if (savedAmount >= 1e9) {
+                el.textContent = '$' + (savedAmount / 1e9).toFixed(1) + 'B';
+            } else if (savedAmount >= 1e6) {
+                el.textContent = '$' + (savedAmount / 1e6).toFixed(0) + 'M';
+            } else {
+                el.textContent = '$' + savedAmount.toLocaleString();
+            }
+            requestAnimationFrame(animateSaved);
+        }
+    }
+
+    // Intersection Observer for fade-up animations
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                if (e.target.id === 'saved-counter' || e.target.closest('.stats-bar')) {
+                    animateSaved();
+                }
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+    // Also observe stats bar
+    const statsBar = document.querySelector('.stats-bar');
+    if (statsBar) obs.observe(statsBar);
+
+    // Demo functionality
+    const demoLogs = [
+        'Intercepting transaction...',
+        'Scanning contract 0x7fa3...9e2d...',
+        'Checking deployer wallet history...',
+        'Analyzing liquidity pool...',
+        'Running honeypot detection...',
+        'Querying scam database...',
+        'Computing rug pull probability...',
+        'THREAT DETECTED!'
+    ];
+    let demoStep = 0;
+
+    function startDemo() {
+        document.getElementById('demo-scanning').style.display = 'none';
+        document.getElementById('demo-analysis').style.display = 'block';
+        document.getElementById('demo-alert').style.display = 'none';
+        document.getElementById('demo-safe').style.display = 'none';
+        demoStep = 0;
+        runDemoStep();
+    }
+
+    function runDemoStep() {
+        if (demoStep < demoLogs.length) {
+            const log = document.getElementById('demo-log');
+            log.textContent = '> ' + demoLogs[demoStep];
+            log.style.color = demoStep === demoLogs.length - 1 ? '#ff3366' : 'rgba(255,255,255,0.4)';
+            demoStep++;
+            setTimeout(runDemoStep, demoStep === demoLogs.length ? 500 : 400);
+        } else {
+            document.getElementById('demo-analysis').style.display = 'none';
+            document.getElementById('demo-alert').style.display = 'block';
+        }
+    }
+
+    function blockTx() {
+        document.getElementById('demo-alert').style.display = 'none';
+        document.getElementById('demo-safe').style.display = 'block';
+    }
+
+    function resetDemo() {
+        document.getElementById('demo-safe').style.display = 'none';
+        document.getElementById('demo-scanning').style.display = 'block';
+    }
+
+    // NTS Score animation
+    let ntsScore = 0;
+    function animateNTS() {
+        if (ntsScore < 90) {
+            ntsScore++;
+            document.getElementById('nts-score').textContent = ntsScore;
+            requestAnimationFrame(animateNTS);
+        }
+    }
+    setTimeout(animateNTS, 1500);
+    </script>
+</body>
+</html>
