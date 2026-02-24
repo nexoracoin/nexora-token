@@ -879,6 +879,7 @@
             .trust-visual { flex-direction: column; }
             .insurance-visual { grid-template-columns: 1fr; }
             .flywheel-steps { grid-template-columns: repeat(2, 1fr); }
+            #advanced .section-inner > div:first-of-type + div { grid-template-columns: repeat(2, 1fr) !important; }
         }
         @media (max-width: 640px) {
             .tiers-grid { grid-template-columns: 1fr; }
@@ -888,6 +889,9 @@
             .flywheel-steps { grid-template-columns: 1fr; }
             .nts-breakdown { grid-template-columns: 1fr; }
             .demo-alert-details { grid-template-columns: 1fr; }
+            #advanced .section-inner > div:first-of-type + div { grid-template-columns: 1fr !important; }
+            .comparison-table { font-size: 11px; }
+            .comparison-table th, .comparison-table td { padding: 8px 6px; }
         }
 
         /* Animations */
@@ -987,7 +991,7 @@
                 <span class="line2">Would Have Saved It All</span>
             </h1>
             <p class="hero-subtitle">
-                NEXORA Sentinel is the first <strong>AI-powered, real-time crypto guardian</strong> that blocks scams, rug pulls, and exploits <strong>before they happen</strong>. Pre-transaction shield. Universal trust scores. Automatic insurance. All powered by NXR.
+                NEXORA Sentinel is the world's most complete <strong>AI crypto security platform</strong> with <strong>15 protection layers</strong> that no other tool has. Pre-transaction blocking. Social engineering shield. MEV protection. Insider trading detection. Quantum readiness. Emergency response. Insurance. <strong>All powered by NXR.</strong>
             </p>
             <div class="hero-buttons">
                 <a href="https://pancakeswap.finance/swap?outputCurrency=0xDA6eAD0ECc983E8a65Bf1fE114b68A22A5580548&chain=bsc" target="_blank" class="btn btn-danger">
@@ -1008,12 +1012,12 @@
                     <div class="stat-label">Would be saved by Sentinel</div>
                 </div>
                 <div class="stat-card fade-up">
-                    <div class="stat-value blue">96%</div>
-                    <div class="stat-label">Tokens launched = FAILED</div>
+                    <div class="stat-value blue">15</div>
+                    <div class="stat-label">Protection Layers (vs 1-5 competitors)</div>
                 </div>
                 <div class="stat-card fade-up">
-                    <div class="stat-value gold">0.5%</div>
-                    <div class="stat-label">DeFi TVL insured today</div>
+                    <div class="stat-value gold">50+</div>
+                    <div class="stat-label">Chains Protected Simultaneously</div>
                 </div>
             </div>
         </div>
@@ -1180,6 +1184,191 @@
         </div>
     </section>
 
+    <!-- ADVANCED PROTECTION LAYERS - What NO ONE Else Has -->
+    <section class="demo-section" id="advanced">
+        <div class="section-inner">
+            <div style="text-align:center;margin-bottom:48px;">
+                <div class="section-badge" style="background:rgba(255,51,102,0.1);border-color:rgba(255,51,102,0.2);color:var(--sentinel-red);">&#128737; 15 PROTECTION LAYERS</div>
+                <h2 class="section-title">Features That Don't Exist<br><span style="background:linear-gradient(135deg,var(--sentinel-red),var(--sentinel-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Anywhere Else On Earth</span></h2>
+                <p class="section-desc" style="margin:0 auto;">Beyond the 4 pillars, Sentinel deploys 11 additional protection layers that no other tool, platform, or protocol has ever built. This is what makes Sentinel indispensable.</p>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:40px;">
+                <!-- DeepGuard -->
+                <div class="pillar-card fade-up" style="border-top:3px solid #ff3366;">
+                    <div style="font-size:32px;margin-bottom:8px;">&#129504;</div>
+                    <div style="font-weight:800;font-size:17px;color:#fff;margin-bottom:6px;">DeepGuard AI</div>
+                    <div style="font-size:11px;font-weight:700;color:#ff3366;letter-spacing:1px;margin-bottom:10px;">SOCIAL ENGINEERING SHIELD</div>
+                    <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:14px;">60% of crypto losses come from social engineering, NOT code exploits. DeepGuard is the first tool that protects the HUMAN, not just the contract.</div>
+                    <ul style="list-style:none;font-size:12px;color:rgba(255,255,255,0.6);">
+                        <li style="padding:3px 0;">&#10003; Real-time deepfake voice detection on calls</li>
+                        <li style="padding:3px 0;">&#10003; Phishing site behavioral analysis (not just URL blacklists)</li>
+                        <li style="padding:3px 0;">&#10003; Discord/Telegram/Twitter DM threat scanning</li>
+                        <li style="padding:3px 0;">&#10003; Clipboard hijacking protection</li>
+                        <li style="padding:3px 0;">&#10003; Panic button: instant wallet freeze</li>
+                    </ul>
+                </div>
+
+                <!-- Contract Mutation Sentinel -->
+                <div class="pillar-card fade-up" style="border-top:3px solid #8b5cf6;">
+                    <div style="font-size:32px;margin-bottom:8px;">&#128270;</div>
+                    <div style="font-weight:800;font-size:17px;color:#fff;margin-bottom:6px;">Mutation Sentinel</div>
+                    <div style="font-size:11px;font-weight:700;color:#8b5cf6;letter-spacing:1px;margin-bottom:10px;">CONTRACT UPGRADE MONITOR</div>
+                    <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:14px;">35-40% of contracts use upgradeable proxies. A contract audited today can be swapped to malicious code tomorrow. We watch EVERY upgrade.</div>
+                    <ul style="list-style:none;font-size:12px;color:rgba(255,255,255,0.6);">
+                        <li style="padding:3px 0;">&#10003; Real-time proxy implementation swap detection</li>
+                        <li style="padding:3px 0;">&#10003; New bytecode vs original audit comparison</li>
+                        <li style="padding:3px 0;">&#10003; Admin key rotation alerts</li>
+                        <li style="padding:3px 0;">&#10003; Timelock bypass detection</li>
+                        <li style="padding:3px 0;">&#10003; Auto-revoke approval on threat</li>
+                    </ul>
+                </div>
+
+                <!-- ChainMesh -->
+                <div class="pillar-card fade-up" style="border-top:3px solid #00d4ff;">
+                    <div style="font-size:32px;margin-bottom:8px;">&#127760;</div>
+                    <div style="font-weight:800;font-size:17px;color:#fff;margin-bottom:6px;">ChainMesh</div>
+                    <div style="font-size:11px;font-weight:700;color:#00d4ff;letter-spacing:1px;margin-bottom:10px;">CROSS-CHAIN THREAT INTELLIGENCE</div>
+                    <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:14px;">$2.8B lost to bridge hacks (40% of all exploits). ChainMesh tracks threats across 50+ chains simultaneously.</div>
+                    <ul style="list-style:none;font-size:12px;color:rgba(255,255,255,0.6);">
+                        <li style="padding:3px 0;">&#10003; Real-time stolen fund tracing across all bridges</li>
+                        <li style="padding:3px 0;">&#10003; Pre-bridge destination risk scoring</li>
+                        <li style="padding:3px 0;">&#10003; Tainted funds proximity alerts</li>
+                        <li style="padding:3px 0;">&#10003; Attack pattern replication detection</li>
+                        <li style="padding:3px 0;">&#10003; 50+ chains unified threat graph</li>
+                    </ul>
+                </div>
+
+                <!-- MEV Shield -->
+                <div class="pillar-card fade-up" style="border-top:3px solid #ffd700;">
+                    <div style="font-size:32px;margin-bottom:8px;">&#9889;</div>
+                    <div style="font-weight:800;font-size:17px;color:#fff;margin-bottom:6px;">MEV Shield</div>
+                    <div style="font-size:11px;font-weight:700;color:#ffd700;letter-spacing:1px;margin-bottom:10px;">SANDWICH ATTACK ELIMINATOR</div>
+                    <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:14px;">$289M drained by sandwich attacks in 2025 alone. Current solutions need manual RPC config. Ours works automatically on ANY DEX.</div>
+                    <ul style="list-style:none;font-size:12px;color:rgba(255,255,255,0.6);">
+                        <li style="padding:3px 0;">&#10003; Wallet-agnostic, DEX-agnostic auto-protection</li>
+                        <li style="padding:3px 0;">&#10003; Pre-tx sandwich probability calculation</li>
+                        <li style="padding:3px 0;">&#10003; Historical MEV loss tracking per wallet</li>
+                        <li style="padding:3px 0;">&#10003; Fair Execution Score for every DEX</li>
+                        <li style="padding:3px 0;">&#10003; Dynamic slippage optimization</li>
+                    </ul>
+                </div>
+
+                <!-- GovWatch -->
+                <div class="pillar-card fade-up" style="border-top:3px solid #00ff88;">
+                    <div style="font-size:32px;margin-bottom:8px;">&#127971;</div>
+                    <div style="font-weight:800;font-size:17px;color:#fff;margin-bottom:6px;">GovWatch</div>
+                    <div style="font-size:11px;font-weight:700;color:#00ff88;letter-spacing:1px;margin-bottom:10px;">GOVERNANCE ATTACK PREVENTION</div>
+                    <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:14px;">Flash loan governance attacks can hijack entire DAO treasuries in a single block. GovWatch detects them BEFORE execution.</div>
+                    <ul style="list-style:none;font-size:12px;color:rgba(255,255,255,0.6);">
+                        <li style="padding:3px 0;">&#10003; 100+ DAO governance monitoring</li>
+                        <li style="padding:3px 0;">&#10003; Flash loan + vote correlation detection</li>
+                        <li style="padding:3px 0;">&#10003; Vote concentration anomaly alerts</li>
+                        <li style="padding:3px 0;">&#10003; Delegate behavior tracking</li>
+                        <li style="padding:3px 0;">&#10003; Governance Health Score per DAO</li>
+                    </ul>
+                </div>
+
+                <!-- CryptoER -->
+                <div class="pillar-card fade-up" style="border-top:3px solid #ff3366;">
+                    <div style="font-size:32px;margin-bottom:8px;">&#128680;</div>
+                    <div style="font-weight:800;font-size:17px;color:#fff;margin-bottom:6px;">CryptoER</div>
+                    <div style="font-size:11px;font-weight:700;color:#ff3366;letter-spacing:1px;margin-bottom:10px;">EMERGENCY RESPONSE PROTOCOL</div>
+                    <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:14px;">When you get hacked, there is NO 911 for crypto. CryptoER is the first coordinated emergency response system. The golden hour matters.</div>
+                    <ul style="list-style:none;font-size:12px;color:rgba(255,255,255,0.6);">
+                        <li style="padding:3px 0;">&#10003; One-button: freeze all approvals + move to safe vault</li>
+                        <li style="padding:3px 0;">&#10003; Auto-flag attacker at all major exchanges</li>
+                        <li style="padding:3px 0;">&#10003; Evidence collection for law enforcement</li>
+                        <li style="padding:3px 0;">&#10003; Recovery coordination network</li>
+                        <li style="padding:3px 0;">&#10003; Dead man's switch (inheritance mode)</li>
+                    </ul>
+                </div>
+
+                <!-- TokenDNA -->
+                <div class="pillar-card fade-up" style="border-top:3px solid #8b5cf6;">
+                    <div style="font-size:32px;margin-bottom:8px;">&#129516;</div>
+                    <div style="font-weight:800;font-size:17px;color:#fff;margin-bottom:6px;">TokenDNA</div>
+                    <div style="font-size:11px;font-weight:700;color:#8b5cf6;letter-spacing:1px;margin-bottom:10px;">TOKEN LIFECYCLE INTELLIGENCE</div>
+                    <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:14px;">Token Sniffer scans at deployment. But tokens EVOLVE. TokenDNA tracks every change from birth to death with continuous re-scoring.</div>
+                    <ul style="list-style:none;font-size:12px;color:rgba(255,255,255,0.6);">
+                        <li style="padding:3px 0;">&#10003; Token unlock calendar + sell prediction</li>
+                        <li style="padding:3px 0;">&#10003; Slow rug detection (weeks/months pattern)</li>
+                        <li style="padding:3px 0;">&#10003; Insider wallet correlation mapping</li>
+                        <li style="padding:3px 0;">&#10003; Tax/fee modification alerts</li>
+                        <li style="padding:3px 0;">&#10003; Holder concentration drift analysis</li>
+                    </ul>
+                </div>
+
+                <!-- Approval Autopilot -->
+                <div class="pillar-card fade-up" style="border-top:3px solid #00d4ff;">
+                    <div style="font-size:32px;margin-bottom:8px;">&#128272;</div>
+                    <div style="font-weight:800;font-size:17px;color:#fff;margin-bottom:6px;">Approval Autopilot</div>
+                    <div style="font-size:11px;font-weight:700;color:#00d4ff;letter-spacing:1px;margin-bottom:10px;">AUTOMATIC APPROVAL MANAGEMENT</div>
+                    <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:14px;">Approval phishing is the #1 wallet drainer vector. Other tools let you manually revoke. Sentinel manages approvals automatically 24/7.</div>
+                    <ul style="list-style:none;font-size:12px;color:rgba(255,255,255,0.6);">
+                        <li style="padding:3px 0;">&#10003; Auto-revoke unused approvals (30-day policy)</li>
+                        <li style="padding:3px 0;">&#10003; Replace unlimited with exact-amount approvals</li>
+                        <li style="padding:3px 0;">&#10003; Approval attack surface visualization</li>
+                        <li style="padding:3px 0;">&#10003; Cascading risk mapping</li>
+                        <li style="padding:3px 0;">&#10003; Smart batch revocation (save gas)</li>
+                    </ul>
+                </div>
+
+                <!-- InsiderScope -->
+                <div class="pillar-card fade-up" style="border-top:3px solid #ffd700;">
+                    <div style="font-size:32px;margin-bottom:8px;">&#128373;</div>
+                    <div style="font-weight:800;font-size:17px;color:#fff;margin-bottom:6px;">InsiderScope</div>
+                    <div style="font-size:11px;font-weight:700;color:#ffd700;letter-spacing:1px;margin-bottom:10px;">INSIDER TRADING DETECTION</div>
+                    <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:14px;">A whale made $192M shorting BTC minutes before a tariff announcement. InsiderScope detects informed trading patterns in real time.</div>
+                    <ul style="list-style:none;font-size:12px;color:rgba(255,255,255,0.6);">
+                        <li style="padding:3px 0;">&#10003; Abnormal positioning vs event calendar</li>
+                        <li style="padding:3px 0;">&#10003; Options skew + funding rate anomalies</li>
+                        <li style="padding:3px 0;">&#10003; Team wallet-to-exchange movement alerts</li>
+                        <li style="padding:3px 0;">&#10003; Fair Market Score per token</li>
+                        <li style="padding:3px 0;">&#10003; Whale behavior + knowledge correlation</li>
+                    </ul>
+                </div>
+
+                <!-- Flash Loan Circuit Breaker -->
+                <div class="pillar-card fade-up" style="border-top:3px solid #ff3366;">
+                    <div style="font-size:32px;margin-bottom:8px;">&#128165;</div>
+                    <div style="font-weight:800;font-size:17px;color:#fff;margin-bottom:6px;">Flash Breaker</div>
+                    <div style="font-size:11px;font-weight:700;color:#ff3366;letter-spacing:1px;margin-bottom:10px;">FLASH LOAN CIRCUIT BREAKER</div>
+                    <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:14px;">Flash loan attacks drain entire protocols in a single transaction. Flash Breaker simulates and blocks attack patterns BEFORE execution.</div>
+                    <ul style="list-style:none;font-size:12px;color:rgba(255,255,255,0.6);">
+                        <li style="padding:3px 0;">&#10003; Pre-execution flash loan pattern detection</li>
+                        <li style="padding:3px 0;">&#10003; One-click emergency withdrawal during attacks</li>
+                        <li style="padding:3px 0;">&#10003; Attack pattern library (continuously updated)</li>
+                        <li style="padding:3px 0;">&#10003; Post-attack fund tracing</li>
+                        <li style="padding:3px 0;">&#10003; Flash Loan Risk Score per protocol</li>
+                    </ul>
+                </div>
+
+                <!-- Quantum Shield -->
+                <div class="pillar-card fade-up" style="border-top:3px solid #00ff88;">
+                    <div style="font-size:32px;margin-bottom:8px;">&#9883;</div>
+                    <div style="font-weight:800;font-size:17px;color:#fff;margin-bottom:6px;">Quantum Shield</div>
+                    <div style="font-size:11px;font-weight:700;color:#00ff88;letter-spacing:1px;margin-bottom:10px;">QUANTUM-RESISTANT MIGRATION</div>
+                    <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:14px;">Quantum computing will break ECDSA by ~2030. Every wallet is vulnerable. We're the first to prepare users for the quantum transition.</div>
+                    <ul style="list-style:none;font-size:12px;color:rgba(255,255,255,0.6);">
+                        <li style="padding:3px 0;">&#10003; Quantum vulnerability exposure scan</li>
+                        <li style="padding:3px 0;">&#10003; Chain-by-chain quantum readiness scores</li>
+                        <li style="padding:3px 0;">&#10003; Migration roadmap to post-quantum addresses</li>
+                        <li style="padding:3px 0;">&#10003; Dynamic quantum milestone tracking</li>
+                        <li style="padding:3px 0;">&#10003; SPHINCS+/Dilithium support (when available)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Impact Statement -->
+            <div class="fade-up" style="background:linear-gradient(135deg,rgba(255,51,102,0.08),rgba(0,212,255,0.08));border:1px solid rgba(0,212,255,0.2);border-radius:20px;padding:40px;text-align:center;">
+                <div style="font-size:14px;font-weight:700;color:var(--sentinel-red);letter-spacing:2px;margin-bottom:12px;">THE BOTTOM LINE</div>
+                <div style="font-size:clamp(24px,3vw,36px);font-weight:900;color:#fff;margin-bottom:16px;">Token Sniffer has 1 feature.<br>CertiK has 3. GoPlus has 5.<br><span style="color:var(--sentinel-blue);">Sentinel has 15.</span></div>
+                <div style="font-size:16px;color:rgba(255,255,255,0.5);max-width:600px;margin:0 auto;">No other tool protects the human (social engineering), tracks token evolution (lifecycle), detects insider trading, prevents governance attacks, or prepares for quantum computing. Sentinel does ALL of it.</div>
+            </div>
+        </div>
+    </section>
+
     <!-- Trust Score Preview -->
     <section class="demo-section">
         <div class="section-inner">
@@ -1308,16 +1497,18 @@
                 <p class="section-desc" style="margin:0 auto;">Existing tools solve one piece. Sentinel solves everything.</p>
             </div>
 
-            <div class="comparison-section fade-up">
-                <table class="comparison-table">
+            <div class="comparison-section fade-up" style="overflow-x:auto;">
+                <table class="comparison-table" style="min-width:900px;">
                     <thead>
                         <tr>
-                            <th style="text-align:left;">Feature</th>
+                            <th style="text-align:left;">Protection Layer</th>
                             <th>Token Sniffer</th>
-                            <th>Nexus Mutual</th>
-                            <th>CoinGecko</th>
-                            <th>3Commas</th>
-                            <th>NEXORA Sentinel</th>
+                            <th>CertiK</th>
+                            <th>GoPlus</th>
+                            <th>Forta</th>
+                            <th>Chainalysis</th>
+                            <th>De.Fi</th>
+                            <th style="background:rgba(0,212,255,0.2);color:var(--sentinel-blue);font-weight:800;">SENTINEL</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1325,65 +1516,151 @@
                             <td>Pre-Transaction Blocking</td>
                             <td><span class="table-cross">&#10007;</span></td>
                             <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-partial">API</span></td>
+                            <td><span class="table-partial">Detect</span></td>
                             <td><span class="table-cross">&#10007;</span></td>
                             <td><span class="table-cross">&#10007;</span></td>
                             <td><span class="table-check">&#10003;</span></td>
                         </tr>
                         <tr>
-                            <td>Real-Time Trust Scores</td>
-                            <td><span class="table-partial">Partial</span></td>
-                            <td><span class="table-cross">&#10007;</span></td>
-                            <td><span class="table-partial">Static</span></td>
-                            <td><span class="table-cross">&#10007;</span></td>
-                            <td><span class="table-check">&#10003;</span></td>
-                        </tr>
-                        <tr>
-                            <td>Portfolio Protection</td>
+                            <td>Social Engineering Shield</td>
                             <td><span class="table-cross">&#10007;</span></td>
                             <td><span class="table-cross">&#10007;</span></td>
                             <td><span class="table-cross">&#10007;</span></td>
-                            <td><span class="table-partial">Bots only</span></td>
-                            <td><span class="table-check">&#10003;</span></td>
-                        </tr>
-                        <tr>
-                            <td>Insurance Coverage</td>
                             <td><span class="table-cross">&#10007;</span></td>
-                            <td><span class="table-check">&#10003;</span></td>
                             <td><span class="table-cross">&#10007;</span></td>
                             <td><span class="table-cross">&#10007;</span></td>
                             <td><span class="table-check">&#10003;</span></td>
                         </tr>
                         <tr>
-                            <td>AI-Powered Analysis</td>
+                            <td>Contract Mutation Monitor</td>
                             <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-partial">Post-audit</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-partial">Detect</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-check">&#10003;</span></td>
+                        </tr>
+                        <tr>
+                            <td>Cross-Chain Threat Mesh</td>
+                            <td><span class="table-partial">15 chains</span></td>
+                            <td><span class="table-partial">Limited</span></td>
+                            <td><span class="table-partial">30 chains</span></td>
+                            <td><span class="table-partial">7 chains</span></td>
+                            <td><span class="table-check">&#10003;</span></td>
+                            <td><span class="table-partial">Limited</span></td>
+                            <td><span class="table-check" style="font-weight:800;">50+</span></td>
+                        </tr>
+                        <tr>
+                            <td>MEV/Sandwich Protection</td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-check">&#10003;</span></td>
+                        </tr>
+                        <tr>
+                            <td>Governance Attack Detection</td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-partial">Basic</span></td>
+                            <td><span class="table-partial">Enterprise</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-check">&#10003;</span></td>
+                        </tr>
+                        <tr>
+                            <td>Emergency Response (911)</td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-partial">Post-theft</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-check">&#10003;</span></td>
+                        </tr>
+                        <tr>
+                            <td>Token Lifecycle Tracking</td>
+                            <td><span class="table-partial">Deploy only</span></td>
+                            <td><span class="table-partial">Snapshot</span></td>
+                            <td><span class="table-partial">Risk API</span></td>
                             <td><span class="table-cross">&#10007;</span></td>
                             <td><span class="table-cross">&#10007;</span></td>
                             <td><span class="table-partial">Basic</span></td>
                             <td><span class="table-check">&#10003;</span></td>
                         </tr>
                         <tr>
-                            <td>Cross-Chain Support</td>
-                            <td><span class="table-partial">Limited</span></td>
-                            <td><span class="table-partial">ETH only</span></td>
-                            <td><span class="table-check">&#10003;</span></td>
-                            <td><span class="table-partial">CEX only</span></td>
-                            <td><span class="table-check">&#10003;</span></td>
-                        </tr>
-                        <tr>
-                            <td>Whale Movement Alerts</td>
+                            <td>Auto Approval Management</td>
                             <td><span class="table-cross">&#10007;</span></td>
                             <td><span class="table-cross">&#10007;</span></td>
                             <td><span class="table-cross">&#10007;</span></td>
                             <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-partial">Manual</span></td>
                             <td><span class="table-check">&#10003;</span></td>
                         </tr>
                         <tr>
-                            <td>Deflationary Token Model</td>
+                            <td>Insider Trading Detection</td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-partial">Compliance</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-check">&#10003;</span></td>
+                        </tr>
+                        <tr>
+                            <td>Flash Loan Prevention</td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-partial">Detect</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-check">&#10003;</span></td>
+                        </tr>
+                        <tr>
+                            <td>Quantum-Resistant Prep</td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
                             <td><span class="table-cross">&#10007;</span></td>
                             <td><span class="table-cross">&#10007;</span></td>
                             <td><span class="table-cross">&#10007;</span></td>
                             <td><span class="table-cross">&#10007;</span></td>
                             <td><span class="table-check">&#10003;</span></td>
+                        </tr>
+                        <tr>
+                            <td>Insurance Vault</td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-cross">&#10007;</span></td>
+                            <td><span class="table-check">&#10003;</span></td>
+                        </tr>
+                        <tr>
+                            <td>Consumer Price</td>
+                            <td><span class="table-partial">Free</span></td>
+                            <td><span class="table-cross">$30K+/yr</span></td>
+                            <td><span class="table-partial">API fees</span></td>
+                            <td><span class="table-partial">B2B only</span></td>
+                            <td><span class="table-cross">$100K+/yr</span></td>
+                            <td><span class="table-partial">$200/yr</span></td>
+                            <td><span class="table-check" style="font-weight:800;">From 100 NXR</span></td>
+                        </tr>
+                        <tr style="background:rgba(0,212,255,0.05);">
+                            <td style="font-weight:800;color:#fff;">TOTAL FEATURES</td>
+                            <td style="font-weight:800;color:rgba(255,255,255,0.4);">1</td>
+                            <td style="font-weight:800;color:rgba(255,255,255,0.4);">3</td>
+                            <td style="font-weight:800;color:rgba(255,255,255,0.4);">5</td>
+                            <td style="font-weight:800;color:rgba(255,255,255,0.4);">4</td>
+                            <td style="font-weight:800;color:rgba(255,255,255,0.4);">3</td>
+                            <td style="font-weight:800;color:rgba(255,255,255,0.4);">3</td>
+                            <td style="font-weight:900;color:var(--sentinel-blue);font-size:18px;">15</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1859,6 +2136,64 @@
         </div>
     </section>
 
+    <!-- EMERGENCY RESPONSE SIMULATOR -->
+    <section id="emergency">
+        <div class="section-inner">
+            <div style="text-align:center;margin-bottom:48px;">
+                <div class="section-badge" style="background:rgba(255,51,102,0.1);border-color:rgba(255,51,102,0.2);color:var(--sentinel-red);">&#128680; CRYPTO EMERGENCY RESPONSE</div>
+                <h2 class="section-title">The First 911 For Crypto</h2>
+                <p class="section-desc" style="margin:0 auto;">When you're hacked, every second counts. CryptoER coordinates an instant response across your entire wallet ecosystem.</p>
+            </div>
+
+            <div class="demo-container fade-up" style="max-width:800px;margin:0 auto;">
+                <div class="demo-header">
+                    <div class="demo-header-left">
+                        <div class="demo-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                        <span class="demo-title-bar">sentinel-emergency // CryptoER v1.0</span>
+                    </div>
+                    <div class="demo-status" style="color:#ff3366;"><span class="dot" style="background:#ff3366;"></span> EMERGENCY MODE</div>
+                </div>
+                <div class="demo-body" id="er-body">
+                    <div id="er-idle" style="text-align:center;padding:30px;">
+                        <div style="font-size:64px;margin-bottom:16px;">&#128680;</div>
+                        <div style="font-size:20px;font-weight:800;color:#fff;margin-bottom:8px;">Emergency Response System</div>
+                        <div style="font-size:14px;color:rgba(255,255,255,0.4);margin-bottom:24px;">Simulate what happens when Sentinel detects an active attack on your wallet.</div>
+                        <button onclick="startEmergency()" style="background:#ff3366;color:#fff;border:none;border-radius:12px;padding:16px 40px;font-weight:800;font-size:16px;cursor:pointer;animation:pulse-border 2s ease-in-out infinite;border:2px solid rgba(255,51,102,0.5);">ACTIVATE EMERGENCY</button>
+                    </div>
+                    <div id="er-running" style="display:none;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APPROVAL HEALTH SCANNER -->
+    <section class="demo-section" id="approvals">
+        <div class="section-inner">
+            <div style="text-align:center;margin-bottom:48px;">
+                <div class="section-badge">&#128272; APPROVAL HEALTH SCANNER</div>
+                <h2 class="section-title">Your Hidden Attack Surface</h2>
+                <p class="section-desc" style="margin:0 auto;">Most wallets have 10-50 active approvals they forgot about. Each one is a potential attack vector. See yours.</p>
+            </div>
+
+            <div class="demo-container fade-up" style="max-width:800px;margin:0 auto;">
+                <div class="demo-header">
+                    <div class="demo-header-left">
+                        <div class="demo-dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                        <span class="demo-title-bar">sentinel-approvals // autopilot v1.0</span>
+                    </div>
+                </div>
+                <div class="demo-body">
+                    <div style="text-align:center;padding:20px;">
+                        <input type="text" id="approval-input" placeholder="Paste wallet address (0x...)" style="width:100%;max-width:500px;background:rgba(255,255,255,0.05);border:1px solid rgba(0,212,255,0.2);border-radius:8px;padding:14px 16px;color:#fff;font-family:'JetBrains Mono',monospace;font-size:14px;outline:none;margin-bottom:16px;" />
+                        <br>
+                        <button onclick="scanApprovals()" style="background:linear-gradient(135deg,var(--sentinel-blue),var(--sentinel-purple));color:#fff;border:none;border-radius:8px;padding:14px 32px;font-weight:700;cursor:pointer;font-size:14px;">Scan Approvals</button>
+                    </div>
+                    <div id="approval-result" style="display:none;padding:0 16px 16px;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Final CTA -->
     <section class="cta-section">
         <div class="section-inner" style="text-align:center;">
@@ -2246,6 +2581,140 @@
         }
     }
     setTimeout(animateNTS, 1500);
+
+    // EMERGENCY RESPONSE SIMULATOR
+    const erSteps = [
+        { icon: '&#128680;', title: 'ATTACK DETECTED', desc: 'Suspicious approval drain attempt from 0x3e2b...f91a', color: '#ff3366', time: '0s' },
+        { icon: '&#128274;', title: 'WALLET FROZEN', desc: 'All pending transactions cancelled. No further approvals allowed.', color: '#ff9500', time: '0.8s' },
+        { icon: '&#128683;', title: 'APPROVALS REVOKED', desc: '23 active token approvals revoked in 1 batched transaction.', color: '#ff9500', time: '2.1s' },
+        { icon: '&#128176;', title: 'ASSETS SECURED', desc: '$47,200 moved to pre-configured safe vault (0xSafe...vault).', color: '#00d4ff', time: '4.3s' },
+        { icon: '&#128232;', title: 'EXCHANGES NOTIFIED', desc: 'Attacker flagged at Binance, Coinbase, Kraken, OKX, Bybit.', color: '#8b5cf6', time: '5.1s' },
+        { icon: '&#128196;', title: 'EVIDENCE COLLECTED', desc: 'On-chain evidence package generated for law enforcement.', color: '#8b5cf6', time: '6.8s' },
+        { icon: '&#128737;', title: 'ALL CLEAR', desc: 'Emergency resolved. $47,200 saved. Attacker addresses blacklisted across 12 exchanges.', color: '#00ff88', time: '8.2s' }
+    ];
+
+    function startEmergency() {
+        document.getElementById('er-idle').style.display = 'none';
+        const running = document.getElementById('er-running');
+        running.style.display = 'block';
+        running.innerHTML = '';
+        let i = 0;
+        function showStep() {
+            if (i < erSteps.length) {
+                const s = erSteps[i];
+                const div = document.createElement('div');
+                div.style.cssText = `padding:14px;margin-bottom:8px;border-radius:10px;display:flex;align-items:center;gap:14px;animation:fadeSlideIn 0.5s ease;background:rgba(${s.color === '#ff3366' ? '255,51,102' : s.color === '#ff9500' ? '255,149,0' : s.color === '#00d4ff' ? '0,212,255' : s.color === '#8b5cf6' ? '139,92,246' : '0,255,136'},0.08);border:1px solid rgba(${s.color === '#ff3366' ? '255,51,102' : s.color === '#ff9500' ? '255,149,0' : s.color === '#00d4ff' ? '0,212,255' : s.color === '#8b5cf6' ? '139,92,246' : '0,255,136'},0.2);`;
+                div.innerHTML = `
+                    <span style="font-size:24px;">${s.icon}</span>
+                    <div style="flex:1;">
+                        <div style="font-weight:700;font-size:13px;color:${s.color};letter-spacing:1px;">${s.title}</div>
+                        <div style="font-size:12px;color:rgba(255,255,255,0.5);">${s.desc}</div>
+                    </div>
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,0.3);">+${s.time}</div>
+                `;
+                running.appendChild(div);
+                i++;
+                setTimeout(showStep, i === erSteps.length ? 1000 : 800);
+            } else {
+                const summary = document.createElement('div');
+                summary.style.cssText = 'text-align:center;padding:20px;margin-top:12px;';
+                summary.innerHTML = `
+                    <div style="display:flex;gap:16px;justify-content:center;margin-bottom:16px;">
+                        <div style="background:rgba(0,255,136,0.1);border-radius:10px;padding:16px 24px;text-align:center;">
+                            <div style="font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:900;color:#00ff88;">$47,200</div>
+                            <div style="font-size:11px;color:rgba(255,255,255,0.4);">SAVED</div>
+                        </div>
+                        <div style="background:rgba(0,212,255,0.1);border-radius:10px;padding:16px 24px;text-align:center;">
+                            <div style="font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:900;color:#00d4ff;">8.2s</div>
+                            <div style="font-size:11px;color:rgba(255,255,255,0.4);">TOTAL TIME</div>
+                        </div>
+                        <div style="background:rgba(139,92,246,0.1);border-radius:10px;padding:16px 24px;text-align:center;">
+                            <div style="font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:900;color:#8b5cf6;">12</div>
+                            <div style="font-size:11px;color:rgba(255,255,255,0.4);">EXCHANGES NOTIFIED</div>
+                        </div>
+                    </div>
+                    <button onclick="resetEmergency()" style="background:var(--sentinel-blue);color:#fff;border:none;border-radius:8px;padding:12px 24px;font-weight:700;cursor:pointer;font-size:14px;">Run Again</button>
+                `;
+                running.appendChild(summary);
+            }
+        }
+        showStep();
+    }
+
+    function resetEmergency() {
+        document.getElementById('er-running').style.display = 'none';
+        document.getElementById('er-idle').style.display = 'block';
+    }
+
+    // APPROVAL SCANNER
+    function scanApprovals() {
+        const addr = document.getElementById('approval-input').value.trim();
+        const result = document.getElementById('approval-result');
+        if (!addr || addr.length < 10) {
+            result.innerHTML = '<div style="color:#ff9500;font-size:13px;text-align:center;padding:12px;">Enter a wallet address to scan approvals</div>';
+            result.style.display = 'block';
+            return;
+        }
+
+        const fakeApprovals = [
+            { protocol: 'Unknown DEX', token: 'USDT', amount: 'UNLIMITED', age: '347 days', risk: 'CRITICAL', color: '#ff3366' },
+            { protocol: 'PancakeSwap', token: 'CAKE', amount: '$12,400', age: '89 days', risk: 'LOW', color: '#00ff88' },
+            { protocol: 'Suspicious Contract', token: 'WBNB', amount: 'UNLIMITED', age: '12 days', risk: 'HIGH', color: '#ff3366' },
+            { protocol: 'Venus Protocol', token: 'BUSD', amount: '$5,000', age: '156 days', risk: 'MEDIUM', color: '#ff9500' },
+            { protocol: 'Unknown (0x7f3a...)', token: 'NXR', amount: 'UNLIMITED', age: '3 days', risk: 'CRITICAL', color: '#ff3366' },
+            { protocol: 'Biswap', token: 'BSW', amount: '$800', age: '201 days', risk: 'LOW', color: '#00ff88' },
+        ];
+
+        const critical = fakeApprovals.filter(a => a.risk === 'CRITICAL').length;
+        const high = fakeApprovals.filter(a => a.risk === 'HIGH').length;
+        const totalExposure = 47200;
+
+        let html = `
+            <div style="background:rgba(255,51,102,0.08);border:1px solid rgba(255,51,102,0.2);border-radius:12px;padding:20px;margin-bottom:16px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                    <div>
+                        <div style="font-weight:800;font-size:16px;color:#ff3366;">&#9888; ${fakeApprovals.length} Active Approvals Found</div>
+                        <div style="font-size:12px;color:rgba(255,255,255,0.4);">${critical} critical, ${high} high risk</div>
+                    </div>
+                    <div style="text-align:right;">
+                        <div style="font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:900;color:#ff3366;">$${totalExposure.toLocaleString()}</div>
+                        <div style="font-size:11px;color:rgba(255,255,255,0.3);">TOTAL EXPOSURE</div>
+                    </div>
+                </div>
+        `;
+
+        fakeApprovals.forEach(a => {
+            html += `
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:rgba(255,255,255,0.02);border-radius:6px;margin-bottom:6px;border-left:3px solid ${a.color};">
+                    <div>
+                        <span style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.8);">${a.protocol}</span>
+                        <span style="font-size:11px;color:rgba(255,255,255,0.3);margin-left:8px;">${a.token} // ${a.age} ago</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:10px;">
+                        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(255,255,255,0.5);">${a.amount}</span>
+                        <span style="font-size:10px;font-weight:700;color:${a.color};background:rgba(${a.color === '#ff3366' ? '255,51,102' : a.color === '#ff9500' ? '255,149,0' : '0,255,136'},0.1);padding:2px 8px;border-radius:4px;">${a.risk}</span>
+                    </div>
+                </div>
+            `;
+        });
+
+        html += `
+                <div style="margin-top:16px;display:flex;gap:12px;">
+                    <div style="flex:1;background:rgba(255,51,102,0.1);border-radius:8px;padding:12px;text-align:center;">
+                        <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:4px;">Without Sentinel</div>
+                        <div style="font-weight:700;color:#ff3366;">Manual revoke: ~$45 gas</div>
+                    </div>
+                    <div style="flex:1;background:rgba(0,255,136,0.1);border-radius:8px;padding:12px;text-align:center;">
+                        <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:4px;">With Sentinel Autopilot</div>
+                        <div style="font-weight:700;color:#00ff88;">Auto-managed 24/7</div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        result.innerHTML = html;
+        result.style.display = 'block';
+    }
     </script>
 </body>
 </html>
